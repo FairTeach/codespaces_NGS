@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NextGenerationSequencingPractical.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"></a></p>
+<a href="https://gitpod.io/workspaces/">
+  <img
+    src="https://img.shields.io/badge/Gitpod%20-Workspaces-orange?logo=gitpod"
+    alt="Gitpod Workspaces"
+  />
+</a>
+<a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+<h1 id="an%C3%A1lisis-e-interpretaci%C3%B3n-de-datos-de-alto-rendimiento">Análisis e interpretación de datos de alto rendimiento</h1>
+<ol>
+<li>
+<h2 id="command-line-bash---shell-introduction">Command Line (bash - shell introduction)</h2>
+</li>
+</ol>
+<p>On the next two lectures we are going to use command line. You can start visualizing the following tutorials:</p>
+<p><strong>Cheatsheet:</strong></p>
+<p><a href="https://devhints.io/bash">https://devhints.io/bash</a></p>
+<p><strong>Tutorial:</strong></p>
+<p><a href="https://www.learnshell.org/">https://www.learnshell.org/  </a></p>
+<p>** Complete book:**</p>
+<p><a href="https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf">https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf </a></p>
+<p><strong>More advanced tutorial:</strong></p>
+<p><a href="https://guide.bash.academy/">https://guide.bash.academy/</a></p>
+<h4 id="linux-system-structure">Linux system structure</h4>
+<p><img src="figures/structure.PNG" alt="shell structure"></p>
+<h4 id="some-important-commands">Some important commands</h4>
+<p><img src="figures/All_comands.PNG" alt="principal command cheatsheet"></p>
+<p><img src="figures/Pipes.PNG" alt="shell pipes "></p>
+<pre class="hljs"><code><div>
+pwd         # Print Working Directory
+ls -l       # List files
+cd          # Change Directory
+cp          # Copy file
+mv          # Move file
+
+# Change directory
+cd Desktop/course_materials/
+
+# Display tree structure
+tree        
+
+# List current folder
+ls -l
+ll        # short version of ls -l
+
+# list recursively (-r) all the files in course_materials subfolders 
+ls -l -r course_materials/*
+</div></code></pre>
+<p>You should see something similar to this:</p>
+<p><img src="figures/course_materials_folder.PNG" alt=" course_materials_folder "></p>
+<hr>
+<h4 id="first-steps-on-bash">First steps on bash</h4>
+<pre class="hljs"><code><div>
+# Print on screen. Writes its arguments to the standard output
+echo &quot;My first echo&quot;
+
+# Change directory
+cd /workspace/NGS_practicals
+
+# Command line editor (https://www.cs.colostate.edu/helpdocs/vi.html)
+#  i to edit
+#  ESC and then &quot;:q&quot; to quit
+#  ESC and then &quot;:x&quot; to save and exit
+vi test.txt
+
+# Read .gz compressed file        zless
+zless merge_syntetic_reads.fq.gz
+
+
+</div></code></pre>
+<h3 id="bash-text-editors">Bash text editors</h3>
+<h5 id="vi">Vi</h5>
+<p>First steps with <strong>Vi</strong> editor.</p>
+<p>Vi manual https://www.cs.colostate.edu/helpdocs/vi.html</p>
+<pre class="hljs"><code><div># Change directory to student folder and pwd
+cd /workspace/NGS_practicals
+pwd
+
+# Create test folder
+mkdir test
+
+# Change directory to just created folder and pwd
+cd test
+pwd
+
+# Create test_file.txt and edit in bash with vi.
+vi my_first_file.txt
+
+</div></code></pre>
+<h5 id="short-vi-editor-cheatsheet">Short vi editor cheatsheet:</h5>
+<table>
+<thead>
+<tr>
+<th>Press</th>
+<th>to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>edit</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>exit insert mode</td>
+</tr>
+<tr>
+<td>ESC and then :q&quot;</td>
+<td>quit</td>
+</tr>
+<tr>
+<td>ESC and then :x</td>
+<td>save and quit</td>
+</tr>
+</tbody>
+</table>
+<p><img src="figures/vi_refcard.PNG" alt=" https://www.ks.uiuc.edu/Training/Tutorials/Reference/virefcard.pdf "></p>
+<h6 id="nano">Nano</h6>
+<p>First steps with <strong>Nano</strong> editor.</p>
+<pre class="hljs"><code><div># Text editor in bash. NOTE Do not alter them !!!
+nano test_file.txt
+
+# ^       means &quot;ctrl&quot;
+# ^X      exit
+
+</div></code></pre>
+<p><img src="figures/nano_cheatsheet.PNG" alt=" http://www.cheat-sheets.org/saved-copy/Nano_Cheat_Sheet.pdf "></p>
+<h4 id="remove-test-folder">Remove test folder</h4>
+<pre class="hljs"><code><div>
+# Remove test file
+rm my_first_file.txt
+
+# Move up one directory
+cd ..
+# Move up two directories
+cd ../..
+
+# Remove directory. NOTE -r will do recursively
+rm -r test/
+    
+
+</div></code></pre>
+<hr>
+<h2 id="set-up-your-directory-structure-and-working-environment">Set up your directory structure and working environment</h2>
+<p>We will set a shortcut for the path where we keep the practical work for this set of sessions. We will then create a new directory for this practical and work in that directory.
+If you have copied the course_materials as suggested in the last practical, you should be able to start the practical. There is one ore thing you can do to make life easier: set a shell variable to point to the parent directory of the course_materials so you don't have to type the full path. The following will work on the default shell, elsewhere and and on GitPod:</p>
+<pre class="hljs"><code><div># Set the path to your workspace
+st_path=&quot;/workspace/NGS_practicals&quot;
+
+# The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+# Create MultiQC conda environment for MultiQC
+mamba env create -f &quot;${st_path}&quot;/env/.environment_multiqc.yaml
+conda deactivate
+
+# Create and load conda environment with all the tools needed to carry on this practical.
+mamba env create -f &quot;${st_path}&quot;/env/.environment_NGS.yaml
+conda activate env_NGS
+
+
+</div></code></pre>
+<h1 id="an-introduction-to-ngs-practical-1">An introduction to NGS practical 1</h1>
+<p>This document was written to help students understand the context of the second NGS practical.</p>
+<h2 id="2-background-and-aim-of-this-practical">2. Background and aim of this practical</h2>
+<p>We supplied file of NGS genomic reads (<em>final_merge_synthetic_reads.fq.gz</em>). This file is in FASTQ format and was created for this practical. The reads are not totally artificial, in the sense that they originate from a real <em>E. coli</em> genome but I manipulated the reads for didactic purposes. The practical proceeds to examine and manipulate this file with the aim of aligning those reads to a reference genome (also provided).</p>
+<h2 id="3-quality-control-of-raw-fastq-files">3. Quality control of raw FASTQ files</h2>
+<p>The first step in NGS analysis is always quality control of the raw data available to you. In this case, FastQC is used to produce a report of the quality of the reads in the initial FASTQ file.</p>
+<p>Remember that the FASTQ format is the most common format for raw NGS data. It is described in detail here: https://en.wikipedia.org/wiki/FASTQ_format . Remember that fastq files are organised in groups of 4 lines, like the extract shown below:</p>
+<h4 id="fastq-format">Fastq format</h4>
+<p><strong>fastq</strong> format is the most common format to get the sequencing data back.</p>
+<p>More info on:</p>
+<p>https://en.wikipedia.org/wiki/FASTQ_format</p>
+<p><img src="figures/fastq.PNG" alt="fastq"></p>
+<h4 id="fastq-phred-quality-expresed-in-ascii">fastq Phred quality expresed in ASCII</h4>
+<p>where the quality scores correspond to the following ASCII:</p>
+<p><img src="figures/quality.PNG" alt=" Phred quality score "></p>
+<h3 id="download-and-explore-our-fastq-file">Download and explore our fastq file</h3>
+<p>We had improved the initial fastq file. Please, use this version on all the practical:</p>
+<p>https://www.dropbox.com/s/91iqhvmd3ckysju/final_merge_syntetic_reads.fq.gz</p>
+<p>Check the first few lines of your own fastq file:</p>
+<pre class="hljs"><code><div>
+# Change directory to fastq folder
+mkdir -p &quot;${st_path}&quot;/course_materials/fastq/
+cd &quot;${st_path}&quot;/course_materials/fastq/
+
+
+# Download fastq file
+wget &quot;https://www.dropbox.com/s/91iqhvmd3ckysju/final_merge_syntetic_reads.fq.gz&quot; -O final_merge_synthetic_reads.fq.gz
+
+# Examine .gz compress fastq file with `zless`. You can advance pages by pressing &quot;space bar&quot;. NOTE exit pressing &quot;q&quot; quit!
+zless final_merge_synthetic_reads.fq.gz
+
+# Extract reads. Realise that after &quot;gunzip&quot; command the file doesn't end in &quot;.gz&quot;.
+gunzip final_merge_synthetic_reads.fq.gz
+
+# Examine fastq file with less. Since the file is not compressed anymore we can see it with simple &quot;less&quot;&quot; NOT &quot;zless&quot;. NOTE exit pressing &quot;q&quot; quit
+less final_merge_synthetic_reads.fq
+
+
+</div></code></pre>
+<h2 id="quality-control-of-initial-file">Quality control of initial file</h2>
+<p>The first step in NGS analysis is always perform a quality control of the raw data. In this case, <strong>FastQC</strong> is used to produce a report of the the initial fastq file.</p>
+<p><strong>FastQC FAQ:</strong></p>
+<p><strong>FastQC video explaining all the captured statistics</strong>
+https://www.youtube.com/watch?v=bz93ReOv87Y</p>
+<p><a href="https://www.youtube.com/watch?v=bz93ReOv87Y">FastQC video</a></p>
+<p><strong>Good Illumina data</strong>
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html</p>
+<p><strong>Bad Illumina data</strong>
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html</p>
+<p><strong>FastQC report</strong></p>
+<p><img src="figures/fastqc_report.PNG" alt=" fastQC report "></p>
+<h4 id="creating-our-own-fastqc-report">Creating our own fastQC report</h4>
+<pre class="hljs"><code><div># Change directory
+cd &quot;${st_path}&quot;/course_materials/fastq/
+
+####################################################
+# FastQC sequencing quality check  
+####################################################
+
+# Run FastQC
+fastqc final_merge_synthetic_reads.fq 
+
+# Visualise fastQC report in firefox web-browser. NOTE exit with &quot;ctr + c&quot; from the command line.
+firefox final_merge_synthetic_reads_fastqc.html
+
+</div></code></pre>
+<h2 id="4-sample-de-multiplexing-using-dna-barcodes">4. Sample de-multiplexing using DNA barcodes</h2>
+<p>The FastQC report suggests that there are artificial sequences at the 5' end of these reads, something that can easily verified by checking the reads in the original fastq file. You can most likely work out what these artificial sequences are but sometimes they are given to you; We are providing you here with the barcodes used to separate the samples that have been sequenced in the same lane (this is usually done to save money). There are essentially 4 samples that have been mixed together in the raw data that was provided to you. We give you the barcodes in the guidelines of the practical and calls them <strong>&quot;Long&quot;</strong>, <strong>&quot;Positive&quot;</strong>, <strong>&quot;Negative&quot;</strong>, and <strong>&quot;BQ&quot;</strong>.</p>
+<p>In this part of the practical, you are supposed to separate the four samples into four fastq files using the program <code>cutadapt</code> and at the same time you are using this program to trim these barcodes off the reads so as to allow mapping of the reads to the reference genome (later on).</p>
+<h4 id="demultiplex-barcode-sequencing-data-with-cutadapt">Demultiplex barcode sequencing data with Cutadapt.</h4>
+<p><strong>Cutadapt</strong> removes adapter sequences from high-throughput sequencing reads, demultiplex, process, ** quality trimming**  and modify reads.</p>
+<p>NOTE: <strong>We can remove bad quality nucleotides with Cutadapt!!</strong></p>
+<p>Below is a summary of the main options in cutadapt:</p>
+<pre class="hljs"><code><div>Cutadapt main parameters
+
+Finding adapters::
+  Parameters -a, -g, -b specify adapters to be removed from each read
+  (or from the first read in a pair if data is paired). If specified
+  multiple times, only the best matching adapter is trimmed (but see the
+  --times option). When the special notation 'file:FILE' is used,
+  adapter sequences are read from the given FASTA file.
+
+  -a ADAPTER, --adapter=ADAPTER
+                      Sequence of an adapter ligated to the 3' end (paired
+                      data: of the first read). The adapter and subsequent
+                      bases are trimmed. If a '$' character is appended
+                      ('anchoring'), the adapter is only found if it is a
+                      suffix of the read.
+  -g ADAPTER, --front=ADAPTER
+                      Sequence of an adapter ligated to the 5' end (paired
+                      data: of the first read). The adapter and any
+                      preceding bases are trimmed. Partial matches at the 5'
+                      end are allowed. If a '^' character is prepended
+                      ('anchoring'), the adapter is only found if it is a
+                      prefix of the read.
+                 
+                      
+  Additional read modifications:
+    -u LENGTH, --cut=LENGTH
+                        Remove bases from each read (first read only if
+                        paired). If LENGTH is positive, remove bases from the
+                        beginning. If LENGTH is negative, remove bases from
+                        the end. Can be used twice if LENGTHs have different
+                        signs.
+    --nextseq-trim=3'CUTOFF
+                        NextSeq-specific quality trimming (each read). Trims
+                        also dark cycles appearing as high-quality G bases
+                        (EXPERIMENTAL).
+    -q [5'CUTOFF,]3'CUTOFF, --quality-cutoff=[5'CUTOFF,]3'CUTOFF
+                        Trim low-quality bases from 5' and/or 3' ends of each
+                        read before adapter removal. Applied to both reads if
+                        data is paired. If one value is given, only the 3' end
+                        is trimmed. If two comma-separated cutoffs are given,
+                        the 5' end is trimmed with the first cutoff, the 3'
+                        end with the second.
+    --quality-base=QUALITY_BASE
+                        Assume that quality values in FASTQ are encoded as
+                        ascii(quality + QUALITY_BASE). This needs to be set to
+                        64 for some old Illumina FASTQ files. Default: 33
+    -l LENGTH, --length=LENGTH
+                        Shorten reads to LENGTH. This and the following
+                        modificationsare applied after adapter trimming.
+    --trim-n            Trim N's on ends of reads.
+    --length-tag=TAG    Search for TAG followed by a decimal number in the
+                        description field of the read. Replace the decimal
+                        number with the correct length of the trimmed read.
+                        For example, use --length-tag 'length=' to correct
+                        fields like 'length=123'.
+                        
+
+</div></code></pre>
+<p>Below is an example of how you can use cutadapt on your data. Note that you cannot call cutadapt without telling the shell where executable file is. To do so, load conda environment with <code>conda activate env_NGS</code></p>
+<pre class="hljs"><code><div># Change directory
+cd &quot;${st_path}&quot;/course_materials/fastq/
+
+# Activate Conda environment
+conda deactivate
+conda activate env_NGS
+
+# Cutadapt manual
+cutadapt --help
+    
+####################################################
+#  Sample multiplexing using DNA barcodes   
+####################################################
+
+# Cutadapt run and interpret the output
+# NOTE: I have split the command into lines for better
+# visibility. You need the back slash immediately followed by end of line
+# to indicate to the shell that the command continues on the next line.
+# If you put the command in one line, remove the back slashes.
+
+cutadapt -g Positive=^GATACA \
+        -g Negative=^AGTAGT \
+        -g BQ=^CACACA \
+        -g Long=^AAACCC \
+        -o trimmed_'{name}'.fq final_merge_synthetic_reads.fq
+
+</div></code></pre>
+<p>Your cutadapt output should look like more or less like this:</p>
+<p><img src="figures/cutadapt.png" alt=" cutadapt "></p>
+<h2 id="5-summarising-statistics-with-multiqc">5. Summarising statistics with MultiQC</h2>
+<p><strong>MultiQC</strong> is a very useful program that allows you to summarise statistics that have been produced by a number of other programs. A modular tool to aggregate results from bioinformatics analyses across many samples into a single report. In this part of the practical, we are summarising the <strong>FastQC</strong> output for the merged fastq file, as well as the statistics output by <strong>Cutadapt</strong> after demultiplex or trimming of the reads was carried out.</p>
+<p><a href="https://multiqc.info/"> https://multiqc.info/ </a></p>
+<pre class="hljs"><code><div># Conda deactivate previous Conda environments.
+conda deactivate
+
+# Create and load conda environment with all the tools needed get MultiQC results. 
+# mamba env create -f &quot;${st_path}&quot;/env/.environment_multiqc.yaml
+conda activate env_multiqc
+
+# manual
+multiqc --help
+
+####################################################
+# Summarising statistics with MultiQC 
+####################################################
+# run multiQC. 
+# &quot;.&quot; dot means in the current directory and downstream.
+# &quot;-f&quot; removing previous results.
+multiqc . -f
+
+# Open in Firefox
+firefox multiqc_report.html
+
+
+</div></code></pre>
+<p>If this doesn't work you could navigate with the folder system File System &gt; Workspace &gt; NGS_practicals &gt; course_materials &gt; fastq ...
+and open &quot;multiqc_report.html&quot; with Firefox or any other web browser. To select a Web browser, open applications tab on the top left
+corner and select Internet &gt; Google Chrome. Or just drag and drop the multiqc-report to Chrome.</p>
+<p><img src="figures/self_web_browser.png" alt=" Self Bew Browser "></p>
+<h2 id="6-automating-repetitive-tasks-with-bash-scripts">6. Automating repetitive tasks with bash scripts</h2>
+<h4 id="simple-bash-script">Simple bash script</h4>
+<p>We can create simple scripts on bash to help us and perform routinely tasks. As a follow on, we also runs a <strong>bash shell script</strong> that carries out <strong>FastQC</strong> quality control on each of the demultiplexed samples - separated out from the merged raw data - and re-runs <strong>MultiQ</strong>C at the end on all these outputs. Inspect the &quot;Iterate_fastq.sh&quot; script and learn how you should loop over files in bash.</p>
+<p><img src="figures/my_first_script.PNG" alt=" Iterate script "></p>
+<h4 id="running-simple-bash-script">Running simple bash script</h4>
+<pre class="hljs"><code><div># Create and Load conda environment with all the tools needed to carry on this practical.
+conda deactivate
+conda activate env_multiqc
+
+# Go to folder that stores all Fastq files
+cd &quot;${st_path}&quot;/course_materials/fastq/
+
+# Copy resource script
+cp /workspace/NGS_practicals/course_materials/resources/Iterate_fastq.sh .
+ 
+# Inspect simple shell script
+less Iterate_fastq.sh
+
+# To iterate FastQC program over all the .fastq files on the current folder and run multiQC wrapper that will search and parse all the NGS output files.
+bash Iterate_fastq.sh
+
+# Open multiple FastQC reports on Firefox. Check multiQC report !!! NOTE Close firefox window or &quot;ctr + c&quot; on the command line.
+firefox multiqc_report.html
+
+# Deactivate environment
+conda deactivate
+</div></code></pre>
+<p>Your multiQC output should look something like this (top of the html page):</p>
+<p><img src="figures/multiQC.PNG" alt=" multiQC "></p>
+<h2 id="7-aligning-reads-to-a-reference-genome-with-bowtie2">7. Aligning reads to a reference genome with Bowtie2</h2>
+<p>We have quality-inspected, demultiplexed, quality-inspected again our reads and now finally we arrive to the point when we can align those reads to a reference genome, that of E. coli.</p>
+<p>A commonly used program for aligning short reads to a reference genome is <strong>bowtie2</strong>. There are many more such programs: bwa, STAR, hisat2 etc. The new generation of sequencing that produces much longer reads uses its own set of aligners that are more suitable for much longer sequences and sequences that generally also contain a higher error rate compared with Illumina's short reads.</p>
+<p>In this practical, we use Illumina short reads and we will map them using bowtie2. This program is installed by anaconda, but the latest version can be run by loading Conda <code> env_NGS</code> environment.</p>
+<h4 id="bowtie2-manual">Bowtie2 manual</h4>
+<p>Information about bowtie2 can be found here: http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml</p>
+<p>You can also check the help function of bowtie2 available as is customary with the --help argument:</p>
+<pre class="hljs"><code><div># Activate environment
+conda deactivate
+conda activate env_NGS
+
+# Bowtie2 manual
+bowtie2 --help
+</div></code></pre>
+<pre class="hljs"><code><div>Bowtie2 
+Usage:
+  bowtie2 [options]* -x &lt;bt2-idx&gt; {-1 &lt;m1&gt; -2 &lt;m2&gt; | -U &lt;r&gt;} [-S &lt;sam&gt;]
+
+  &lt;bt2-idx&gt;  Index filename prefix (minus trailing .X.bt2).
+             NOTE: Bowtie 1 and Bowtie 2 indexes are not compatible.
+  &lt;m1&gt;       Files with #1 mates, paired with files in &lt;m2&gt;.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  &lt;m2&gt;       Files with #2 mates, paired with files in &lt;m1&gt;.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  &lt;r&gt;        Files with unpaired reads.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  &lt;sam&gt;      File for SAM output (default: stdout)
+
+  &lt;m1&gt;, &lt;m2&gt;, &lt;r&gt; can be comma-separated lists (no whitespace) and can be
+  specified many times.  E.g. '-U file1.fq,file2.fq -U file3.fq'.
+
+Options (defaults in parentheses):
+ Input:
+  -s/--skip &lt;int&gt;    skip the first &lt;int&gt; reads/pairs in the input (none)
+  -u/--upto &lt;int&gt;    stop after first &lt;int&gt; reads/pairs (no limit)
+  -5/--trim5 &lt;int&gt;   trim &lt;int&gt; bases from 5'/left end of reads (0)
+  -3/--trim3 &lt;int&gt;   trim &lt;int&gt; bases from 3'/right end of reads (0)
+  
+Alignment:
+  -N &lt;int&gt;           max # mismatches in seed alignment; can be 0 or 1 (0)
+  -L &lt;int&gt;           length of seed substrings; must be &gt;3, &lt;32 (22)
+  -i &lt;func&gt;          interval between seed substrings w/r/t read len (S,1,1.15)
+  ...
+  --end-to-end       entire read must align; no clipping (on)
+   OR
+  --local            local alignment; ends might be soft clipped (off)
+  
+ Presets:                 Same as:
+  For --end-to-end:
+   --very-fast            -D 5 -R 1 -N 0 -L 22 -i S,0,2.50
+   --fast                 -D 10 -R 2 -N 0 -L 22 -i S,0,2.50
+   --sensitive            -D 15 -R 2 -N 0 -L 22 -i S,1,1.15 (default)
+   --very-sensitive       -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+
+  For --local:
+   --very-fast-local      -D 5 -R 1 -N 0 -L 25 -i S,1,2.00
+   --fast-local           -D 10 -R 2 -N 0 -L 22 -i S,1,1.75
+   --sensitive-local      -D 15 -R 2 -N 0 -L 20 -i S,1,0.75 (default)
+   --very-sensitive-local -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+
+ Reporting:
+  (default)          look for multiple alignments, report best, with MAPQ
+   OR
+  -k &lt;int&gt;           report up to &lt;int&gt; alns per read; MAPQ not meaningful
+   OR
+  -a/--all           report all alignments; very slow, MAPQ not meaningful
+  
+  
+</div></code></pre>
+<h4 id="understanding-local-vs-end-to-end-alignment">Understanding local vs end-to-end alignment</h4>
+<p>Reference: http://gensoft.pasteur.fr/docs/bowtie2/2.1.0/#end-to-end-alignment-versus-local-alignment</p>
+<p>Similarly to global vs local alignments you came across in the Sequence Analysis and Genomics module, bowtie2 can carry out alignments that are either &quot;end-to-end&quot; or &quot;local&quot;. See the examples below for the meaning of these two types of alignment in the context of bowtie2.</p>
+<pre class="hljs"><code><div>~End-to-end alignment example~
+
+The following is an &quot;end-to-end&quot; alignment because it involves all the characters in the read. Such an alignment can be produced by Bowtie2 in either end-to-end mode or in local mode.
+
+Read:      GACTGGGCGATCTCGACTTCG
+Reference: GACTGCGATCTCGACATCG
+
+Alignment:
+  Read:      GACTGGGCGATCTCGACTTCG
+             |||||  |||||||||| |||
+  Reference: GACTG--CGATCTCGACATCG
+
+~Local alignment example~
+
+The following is a &quot;local&quot; alignment because some of the characters at the ends of the read do not participate. In this case, 4 characters are omitted (or &quot;soft trimmed&quot; or &quot;soft clipped&quot;) from the beginning and 3 characters are omitted from the end. This sort of alignment can be produced by Bowtie 2 only in local mode.
+
+Read:      ACGGTTGCGTTAATCCGCCACG
+Reference: TAACTTGCGTTAAATCCGCCTGG
+
+Alignment:
+  Read:      ACGGTTGCGTTAA-TCCGCCACG
+                 ||||||||| ||||||
+  Reference: TAACTTGCGTTAAATCCGCCTGG
+
+</div></code></pre>
+<h4 id="create-bowtie2-genome-index">Create Bowtie2 genome index</h4>
+<p>In general, aligners like bowtie2 require the indexing of the reference genome in order to speed up the alignment process (remember: there are millions of short sequences to align against potentially billions of letters in a genome). Bowtie2 is no exception. Thus, the first step before aligning the reads is to index the reference genome. The code below shows how this is done.</p>
+<pre class="hljs"><code><div># Change directory
+cd &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1
+
+# Create Bowtie2 genome index
+bowtie2-build AFPN02.1_merge.fasta AFPN02.1_merge
+
+</div></code></pre>
+<p>If you built the index successfully, you should end up with several .bt2 files in the directory course_materials/genomes/AFPN02.1/.</p>
+<h4 id="aligning-sequencing-reads-to-the-reference-genome-using-bowtie2">Aligning sequencing reads to the reference genome using Bowtie2.</h4>
+<p>The steps below align the separated and trimmed reads to the reference genome, one file at a time.</p>
+<p>Create a directory to keep the results of the alignment
+This directory will be created under your $st_path directory</p>
+<pre class="hljs"><code><div>
+# Change and create directory
+cd &quot;${st_path}&quot;/course_materials/
+mkdir results_NGS1
+cd &quot;${st_path}&quot;/course_materials/results_NGS1
+
+####################################################
+# Aligning with Bowtie2 the four demultiplexed files
+####################################################
+
+# Align with Bowtie2
+# Align trimmed_Long.fq reads
+# --all           # Report all alignments; very slow, MAPQ not meaningful
+# --end-to-end    # Align with end-to-end setting
+# -x              # Bowtie2 index path
+# -U              # fastq file path
+# -S              # Output as sam file
+# 2&gt;              # Redirect error output to file in bash 
+
+# Align trimmed_BQ.fq reads
+bowtie2 --all --end-to-end -x &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge -U &quot;${st_path}&quot;/course_materials/fastq/trimmed_BQ.fq -S BQ.sam 2&gt; BQ_bowtie_stats.txt
+
+# Align trimmed_Long.fq reads
+bowtie2 --all --end-to-end -x &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge -U &quot;${st_path}&quot;/course_materials/fastq/trimmed_Long.fq -S Long.sam 2&gt; Long_bowtie_stats.txt
+
+# Align trimmed_Negative.fq
+bowtie2 --all --end-to-end -x &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge -U &quot;${st_path}&quot;/course_materials/fastq/trimmed_Negative.fq -S Negative.sam 2&gt; Negative_bowtie_stats.txt
+
+# Align trimmed_Positive.fq reads
+bowtie2 --all --end-to-end -x &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge -U &quot;${st_path}&quot;/course_materials/fastq/trimmed_Positive.fq -S Positive.sam 2&gt; Positive_bowtie_stats.txt
+
+</div></code></pre>
+<h4 id="explore-bowtie2-alignment-results">Explore Bowtie2 alignment results.</h4>
+<p>Do you see differences between the statistic of aligned positive and negative samples?</p>
+<pre class="hljs"><code><div>ls -l
+head Positive_bowtie_stats.txt
+head Negative_bowtie_stats.txt
+
+</div></code></pre>
+<h4 id="run-multiqc-to-capture-all-the-bowtie2-alignment-statistics">run MultiQC to capture all the Bowtie2 alignment statistics.</h4>
+<pre class="hljs"><code><div>conda activate env_multiqc
+multiqc . -f
+
+# Open in Firefox and explore mapping results. 
+# Are you able to map negative or BQ samples? 
+# Why? Check fastQC statistics of negative or BQ samples in comparison with Positive or Long samples.
+# Can you improve mapping trimming reads using previous steps? or even using Bowtie2?
+firefox multiqc_report.html
+
+</div></code></pre>
+<p><img src="figures/Bowtie2_stats.PNG" alt=" Bowtie2_stats "></p>
+<h4 id="think-about-the-following-questions">Think about the following questions:</h4>
+<p>Are you able to map negative or BQ samples?
+If not, why not? Check fastQC statistics of negative or BQ samples and compare them with Positive or Long samples.
+Can you improve the mapping by trimming reads or by using Bowtie2 alone?</p>
+<h2 id="8-sam-sequence-alignmentmap-format">8. SAM Sequence Alignment/Map format</h2>
+<p>Programs that map NGS reads produce SAM formatted files; this is a format where each read is shown together with information on where it was mapped, if it was mapped at all and with what quality scores each base in the sequence was mapped. Often, these SAM-formatted files are zipped in a special way that produces a binary format equivalent to SAM, known as BAM. You can view and edit SAM files with normal text editors and shell commands that can be used on text files but you cannot view BAM files this way. This is where programs like samtools are handy. samtools is a program that allows you to view and manipulate easily SAM and BAM files.</p>
+<p>You can read more about the SAM specification here: https://samtools.github.io/hts-specs/SAMv1.pdf . You can see that your files have several lines starting with @ which represent the header section,followed by one line per read, which represent the records in the SAM file. The image below shows the parts of a SAM record:</p>
+<p><img src="figures/sam.png" alt=" https://gatkforums.broadinstitute.org "></p>
+<p>Lets explore the aligned &quot;.sam&quot; files using the simple head or less command:</p>
+<p>Explanation of sam header. <strong>Try to identify read name, flags, position, MAPQ, CIGAR, read sequence, quality scores and metadata in your data</strong>. Can you see any difference in the reads coming from Positive and negative samples? What they have at the 5' and 3' ends?</p>
+<p><strong>Do you see differences between aligned Positive and Negative samples?</strong></p>
+<pre class="hljs"><code><div>
+####################################################
+# Explore sam flat text aligned reads output
+####################################################
+
+head -n 10 Positive.sam
+head -n 10 Negative.sam
+ 
+</div></code></pre>
+<p><img src="figures/Negative_positive_sam.PNG" alt=" alignment Positive Vs Negative "></p>
+<h4 id="exploring-samtools-further">Exploring samtools further</h4>
+<p>The manual for <strong>samtools</strong>, a suite of programs for exploring high-throughput sequencing data in SAM/BAM formats is here:</p>
+<p><a href="http://www.htslib.org/doc/samtools.html">http://www.htslib.org/doc/samtools.html</a></p>
+<p>Try out the code below to explore samtools - each of the commands following samtools is a keyword directing samtools towards a different functionality.</p>
+<pre class="hljs"><code><div>
+# Samtools manual
+conda deactivate
+conda activate env_NGS
+samtools --help
+
+
+# samtools FILTER reads manual
+samtools view --help
+
+# samtools sort manual 
+samtools sort --help
+
+# samtools stats manual
+samtools stats --help
+
+</div></code></pre>
+<h4 id="%22samtools-view%22-main-usage">&quot;Samtools view&quot; main usage:</h4>
+<pre class="hljs"><code><div>samtools view main usage
+Usage: samtools view [options] &lt;in.bam&gt;|&lt;in.sam&gt;|&lt;in.cram&gt; [region ...]
+
+Options:
+  -b       output BAM
+  -C       output CRAM (requires -T)
+  -1       use fast BAM compression (implies -b)
+  -u       uncompressed BAM output (implies -b)
+  -h       include header in SAM output
+  -H       print SAM header only (no alignments)
+  -c       print only the count of matching records
+  -o FILE  output file name [stdout]
+  -U FILE  output reads not selected by filters to FILE [null]
+  -t FILE  FILE listing reference names and lengths (see long help) [null]
+  -L FILE  only include reads overlapping this BED FILE [null]
+  -r STR   only include reads in read group STR [null]
+  -R FILE  only include reads with read group listed in FILE [null]
+  -q INT   only include reads with mapping quality &gt;= INT [0]
+  -l STR   only include reads in library STR [null]
+  -m INT   only include reads with number of CIGAR operations consuming
+           query sequence &gt;= INT [0]
+  -f INT   only include reads with all  of the FLAGs in INT present [0]
+  -F INT   only include reads with none of the FLAGS in INT present [0]
+  -G INT   only EXCLUDE reads with all  of the FLAGs in INT present [0]
+  -s FLOAT subsample reads (given INT.FRAC option value, 0.FRAC is the
+           fraction of templates/read pairs to keep; INT part sets seed)
+  -x STR   read tag to strip (repeatable) [null]
+  -B       collapse the backward CIGAR operation
+  -?       print long help, including note about region specification
+  -S       ignored (input format is auto-detected)
+      --input-fmt-option OPT[=VAL]
+               Specify a single input file format option in the form
+               of OPTION or OPTION=VALUE
+  -O, --output-fmt FORMAT[,OPT[=VAL]]...
+               Specify output format (SAM, BAM, CRAM)
+      --output-fmt-option OPT[=VAL]
+               Specify a single output file format option in the form
+               of OPTION or OPTION=VALUE
+  -T, --reference FILE
+               Reference sequence FASTA FILE [null]
+  -@, --threads INT
+               Number of additional threads to use [0]
+               
+
+</div></code></pre>
+<h4 id="manipulate-aligned-data-in-the-sam-format">Manipulate aligned data in the sam format</h4>
+<p>The code below transforms sam to bam (a compressed format of sam), indexes the bam file (required by many programs, e.g. genome viewers) and retrieves some more statistics of aligned sequences using samtools. NOTE: you could rewrite this as a script that runs through all the .sam files and carries out the same process on each one. <strong>Samtools</strong></p>
+<pre class="hljs"><code><div>cd &quot;${st_path}&quot;/course_materials/results_NGS1/
+ls -l
+
+####################################################
+# Samtools aligned data exploration 
+####################################################
+# BQ.sam
+# sort and compress
+samtools sort BQ.sam &gt; BQ.bam      
+# create index
+samtools index BQ.bam         
+# alignment statistics
+samtools stats BQ.bam &gt; BQ_stats.txt  
+# simple statistics
+samtools flagstat BQ.bam &gt; BQ_flagstat.txt     
+
+
+# Long.sam
+samtools sort Long.sam &gt; Long.bam
+samtools index Long.bam
+samtools stats Long.bam &gt; Long_stats.txt
+samtools flagstat Long.bam &gt; Long_flagstat.txt
+
+
+# Negative.sam
+samtools sort Negative.sam &gt; Negative.bam
+samtools index Negative.bam
+samtools stats Negative.bam &gt; Negative_stats.txt
+samtools flagstat Negative.bam &gt; Negative_flagstat.txt
+
+
+# Positive.sam
+samtools sort Positive.sam &gt; Positive.bam
+samtools index Positive.bam
+samtools stats Positive.bam &gt; Positive_stats.txt
+samtools flagstat Positive.bam &gt; Positive_flagstat.txt
+
+</div></code></pre>
+<h4 id="capture-all-the-statistic-and-data-produced-during-this-practical-using-multiqc">Capture all the statistic and data produced during this practical  using MultiQC</h4>
+<pre class="hljs"><code><div># Activate environment
+conda deactivate
+conda activate env_multiqc
+
+# Change directory
+cd &quot;${st_path}&quot;/course_materials/
+
+####################################################
+# Final MultiQC capturing all the data
+####################################################
+# Run MultiQC on the initial folder
+multiqc . -f
+
+# Inspect MultiQC report
+firefox multiqc_report.html
+</div></code></pre>
+<h2 id="9-view-aligned-reads-on-a-genome-viewer">9. View aligned reads on a genome viewer</h2>
+<p>The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.</p>
+<p>Open IGV program by typing <code>igv</code>. Load genome Genomes &gt; load genome from file &gt; select path <code>&quot;${st_path}&quot;/course_materials/genomes/AFPN02.1&quot; and fasta sequence &quot;AFPN02.1.fasta&quot;</code>.</p>
+<p>Open bam files file &gt; load from file &gt; select path <code>&quot;${st_path}&quot;/course_materials/results_NGS1/</code> and all the <code>*.bam files</code>. NOTE that you will need the bam file to be indexed with samtools (<code>*.bam.bai</code>).
+sam_format</p>
+<pre class="hljs"><code><div># Activate environment
+conda deactivate
+conda activate env_NGS
+
+
+# Load genome reference file &quot;AFPN02.1_merge.fasta&quot;
+# Go to genome locus &quot;AFPN02.1_merge:2397587&quot;
+# Load Long and Positive aligned data to IGV. 
+igv --genome /workspace/NGS_practicals/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta /workspace/NGS_practicals/course_materials/results_NGS1/Long.bam --locus &quot;AFPN02.1_merge:2397587&quot; /workspace/NGS_practicals/course_materials/results_NGS1/Positive.bam
+
+
+</div></code></pre>
+<p><img src="figures/IGV_1.PNG" alt=" IGV genome browser "></p>
+<h4 id="browse-aligned-reads-region-afpn021merge22397537-2399083">Browse aligned reads region <code>AFPN02.1_merge:22397537-2399083</code></h4>
+<p><img src="figures/IGV_detail.PNG" alt=" IGV genome browser "></p>
+<h2 id="10-get-consensus-sequence-with-freebayes">10. Get consensus sequence with freebayes</h2>
+<p>Very easy to run for simple SNP calling. Does not assume any ploidy.</p>
+<pre class="hljs"><code><div>cd &quot;${st_path}&quot;/course_materials/results_NGS1/
+
+####################################################
+# Get consensus sequence merging all the variants 
+####################################################
+freebayes -f &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta -p 1 Long.bam &gt; Long.vcffile
+vcf2fasta -f &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta -P 1 Long.vcffile -p AFPN02.1_consensus.fasta
+
+# Rename file to more precise name
+mv AFPN02.1_consensus.fastaunknown_AFPN02.1_merge:0.fa AFPN02.1_merge_consensus.fa
+
+# Read VCF file
+less Long.vcffile
+
+# Read fasta file
+less AFPN02.1_merge_consensus.fa
+
+# alternative not used
+# samtools mpileup -uf &quot;${st_path}&quot;/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta Long.bam | bcftools view -cg | vcfutils.pl vcf2fq &gt; CONSENSUS.fq
+
+
+</div></code></pre>
+
+</body>
+</html>

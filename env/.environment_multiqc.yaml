@@ -1,0 +1,6 @@
+name: env_multiqc
+dependencies:
+  - python =3.11
+  - fastqc
+  - firefox
+  - multiqc
