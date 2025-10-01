@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Ensure Firefox is available for desktop HTML viewing
+if command -v apt-get >/dev/null 2>&1; then
+  echo ">>> Installing Firefox for desktop environment..."
+  sudo apt-get update
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y firefox
+  sudo rm -rf /var/lib/apt/lists/*
+fi
+
 echo ">>> Initializing conda in this shell..."
 if ! command -v conda >/dev/null 2>&1; then
   source /etc/profile.d/conda.sh 2>/dev/null || true
@@ -18,6 +26,9 @@ conda config --set channel_priority strict
 
 echo ">>> Installing mamba into base env..."
 conda install -y -n base -c conda-forge mamba
+
+echo ">>> Installing MultiQC into base env..."
+conda install -y -n base -c bioconda multiqc
 
 echo ">>> Ensuring conda is initialized for bash..."
 conda init bash || true
