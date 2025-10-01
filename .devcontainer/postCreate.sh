@@ -27,8 +27,8 @@ conda config --set channel_priority strict
 echo ">>> Installing mamba into base env..."
 conda install -y -n base -c conda-forge mamba
 
-echo ">>> Installing MultiQC into base env..."
-conda install -y -n base -c bioconda multiqc
+# echo ">>> Installing MultiQC into base env..."
+# conda install -y -n base -c bioconda multiqc
 
 echo ">>> Ensuring conda is initialized for bash..."
 conda init bash || true
