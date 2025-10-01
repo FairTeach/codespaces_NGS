@@ -1,0 +1,18 @@
+{
+    "cSpell.language":  "en,en-GB",
+    "cSpell.maxNumberOfProblems":  300,
+    "cSpell.enableFiletypes":  [
+                                   "markdown",
+                                   "shellscript"
+                               ],
+    "terminal.integrated.profiles.linux":  {
+                                               "bash (login)":  {
+                                                                    "path":  "/bin/bash",
+                                                                    "args":  [
+                                                                                 "-l"
+                                                                             ]
+                                                                }
+                                           },
+    "terminal.integrated.defaultProfile.linux":  "bash (login)",
+    "cSpell.configFile":  "${workspaceFolder}/cspell.json"
+}
