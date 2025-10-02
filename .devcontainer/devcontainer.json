@@ -2,8 +2,8 @@
     "name": "Codespace Desktop (noVNC)",
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
     "features": {
-      "ghcr.io/devcontainers/features/miniforge:1": {
-        "variant": "mambaforge"
+        // https://containers.dev/features#:~:text=apt%20packages%20%20Rocker%20Project,org%2Fdevcontainer
+      "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {
       },
       "ghcr.io/devcontainers/features/desktop-lite:1": {
         "installFirefox": true,
@@ -29,7 +29,7 @@
           "requireLocalPort": true
         }
       },
-      "postCreateCommand": "bash .devcontainer/postCreate.sh",
+    //   "postCreateCommand": "bash .devcontainer/postCreate.sh",
       "customizations": {
         "vscode": {
           "extensions": [
