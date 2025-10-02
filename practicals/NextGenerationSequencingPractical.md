@@ -192,6 +192,7 @@ If you have copied the course_materials as suggested in the last practical, you 
 
 ```{bash, eval = FALSE}
 # Set the path to your workspace
+# Include environmental variable ToDo
 st_path=$PWD
 # st_path="/workspace/NGS_practicals"
 
@@ -201,13 +202,14 @@ st_path=$PWD
 # conda config --add channels conda-forge
 # conda config --set channel_priority strict
 
-# Create MultiQC mamba environment for MultiQC
-mamba env create -f "${st_path}"/env/.environment_multiqc.yaml
-# mamba deactivate
+# Install MultiQC mamba in base environment for 
+mamba install -y -n base multiqc
 
 # Create and load mamba environment with all the tools needed to carry on this practical.
-# mamba env create -f "${st_path}"/env/.environment_NGS.yaml
-# mamba activate env_NGS
+mamba env create -f "${st_path}"/env/.environment_NGS.yaml
+# Initialize your shell before using activate and deactivate.
+eval "$(mamba shell hook --shell bash)"
+mamba activate env_NGS
 
 
 ```   
@@ -403,10 +405,6 @@ Below is an example of how you can use cutadapt on your data. Note that you cann
 # Change directory
 cd "${st_path}"/course_materials/fastq/
 
-# Activate mamba environment
-mamba deactivate
-mamba activate env_NGS
-
 # Cutadapt manual
 cutadapt --help
     
@@ -440,14 +438,7 @@ Your cutadapt output should look like more or less like this:
 [ https://multiqc.info/ ](https://multiqc.info/)    
 
 ``` {bash, eval = FALSE}
-# mamba deactivate previous mamba environments.
-mamba deactivate
-
-# Create and load mamba environment with all the tools needed get MultiQC results. 
-# mamba env create -f "${st_path}"/env/.environment_multiqc.yaml
-mamba activate env_multiqc
-
-# manual
+# Manual
 multiqc --help
 
 ####################################################
@@ -485,10 +476,6 @@ We can create simple scripts on bash to help us and perform routinely tasks. As 
 #### Running simple bash script   
     
 ``` {bash, eval = FALSE}
-# Create and Load mamba environment with all the tools needed to carry on this practical.
-mamba deactivate
-mamba activate env_multiqc
-
 # Go to folder that stores all Fastq files
 cd "${st_path}"/course_materials/fastq/
 
@@ -504,8 +491,6 @@ bash Iterate_fastq.sh
 # Open multiple FastQC reports on Firefox. Check multiQC report !!! NOTE Close firefox window or "ctr + c" on the command line.
 firefox multiqc_report.html
 
-# Deactivate environment
-mamba deactivate
 ```
 
 Your multiQC output should look something like this (top of the html page):
@@ -530,10 +515,6 @@ You can also check the help function of bowtie2 available as is customary with t
 
 
 ```{bash, eval = FALSE}
-# Activate environment
-mamba deactivate
-mamba activate env_NGS
-
 # Bowtie2 manual
 bowtie2 --help
 ```
@@ -700,7 +681,6 @@ head Negative_bowtie_stats.txt
 #### run MultiQC to capture all the Bowtie2 alignment statistics.
 
 ```{bash, eval = FALSE}
-mamba activate env_multiqc
 multiqc . -f
 
 # Open in Firefox and explore mapping results. 
@@ -762,8 +742,6 @@ Try out the code below to explore samtools - each of the commands following samt
 ```{bash, eval = FALSE}
 
 # Samtools manual
-mamba deactivate
-mamba activate env_NGS
 samtools --help
 
 
@@ -875,10 +853,6 @@ samtools flagstat Positive.bam > Positive_flagstat.txt
 #### Capture all the statistic and data produced during this practical  using MultiQC
 
 ```{bash, eval = FALSE}
-# Activate environment
-mamba deactivate
-mamba activate env_multiqc
-
 # Change directory
 cd "${st_path}"/course_materials/
 
@@ -905,15 +879,12 @@ Open bam files file > load from file > select path `"${st_path}"/course_material
 sam_format
 
 ```{bash, eval = FALSE}
-# Activate environment
-mamba deactivate
-mamba activate env_NGS
 
 
 # Load genome reference file "AFPN02.1_merge.fasta"
 # Go to genome locus "AFPN02.1_merge:2397587"
 # Load Long and Positive aligned data to IGV. 
-igv --genome /workspace/NGS_practicals/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta /workspace/NGS_practicals/course_materials/results_NGS1/Long.bam --locus "AFPN02.1_merge:2397587" /workspace/NGS_practicals/course_materials/results_NGS1/Positive.bam
+igv --genome "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta "${st_path}"/course_materials/results_NGS1/Long.bam --locus "AFPN02.1_merge:2397587" "${st_path}"/course_materials/results_NGS1/Positive.bam
 
 
 ```
