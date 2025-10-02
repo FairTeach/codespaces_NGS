@@ -27,11 +27,9 @@ conda config --set channel_priority strict
 echo ">>> Installing mamba into base env..."
 conda install -y -n base -c conda-forge mamba
 
-# Hook mamba into the shell and install MultiQC via mamba
+# Install MultiQC using mamba if available
 MAMBA_BIN="$(conda info --base)/bin/mamba"
 if [ -x "$MAMBA_BIN" ]; then
-  echo ">>> Initializing mamba shell hook..."
-  eval "$("$MAMBA_BIN" shell hook --shell bash)"
   echo ">>> Installing MultiQC into base env with mamba..."
   "$MAMBA_BIN" install -y -n base -c bioconda multiqc
 else
