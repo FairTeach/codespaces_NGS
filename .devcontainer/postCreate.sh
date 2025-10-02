@@ -5,6 +5,16 @@ set -euo pipefail
 if command -v apt-get >/dev/null 2>&1; then
   echo ">>> Installing Firefox for desktop environment..."
   sudo apt-get update
+  if ! grep -Rqs "mozillateam/ppa" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
+    sudo apt-get install -y software-properties-common
+    sudo add-apt-repository -y ppa:mozillateam/ppa
+    sudo tee /etc/apt/preferences.d/mozillateam-firefox >/dev/null <<'PREF'
+Package: firefox*
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+PREF
+  fi
+  sudo apt-get update
   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y firefox-esr
   sudo rm -rf /var/lib/apt/lists/*
   if ! command -v firefox >/dev/null 2>&1 && [ -x /usr/bin/firefox-esr ]; then
