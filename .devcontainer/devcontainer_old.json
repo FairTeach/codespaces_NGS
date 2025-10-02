@@ -1,0 +1,43 @@
+{
+  "name": "Codespace Desktop (noVNC)",
+  "image": "mcr.microsoft.com/devcontainers/miniconda:0-3",
+  // "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "vscode",
+      "webPort": "6080",
+      "vncPort": "5901",
+      "installOhMyZsh": false
+    }
+  },
+  "forwardPorts": [
+    6080,
+    5901
+  ],
+  "portsAttributes": {
+    "6080": {
+      "label": "Desktop (noVNC)",
+      "onAutoForward": "openBrowser",
+      "requireLocalPort": true
+    },
+    "5901": {
+      "label": "VNC",
+      "onAutoForward": "silent",
+      "requireLocalPort": true
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "tomoki1207.pdf",
+        "yzane.markdown-pdf",
+        "ms-vscode.live-server",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-english",
+        "bioSyntax.bioSyntax",
+        "igvteam.vscode-igv"
+      ]
+    }
+  }
+}
