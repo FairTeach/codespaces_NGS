@@ -6,7 +6,7 @@
       "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {
       },
       "ghcr.io/devcontainers/features/desktop-lite:1": {
-        "installFirefox": true,
+        "installFirefox": false,
         "password": "vscode",
         "webPort": "6080",
         "vncPort": "5901",
