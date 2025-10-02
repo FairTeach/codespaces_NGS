@@ -7,7 +7,6 @@ dependencies:
   - python =3.7
   - tree
   - fastqc
-  - firefox
   - cutadapt
   - bowtie2
   - igv

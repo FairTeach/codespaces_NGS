@@ -1,4 +1,8 @@
 name: env_multiqc
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
 dependencies:
   - python =3.11
   - fastqc

@@ -192,21 +192,22 @@ If you have copied the course_materials as suggested in the last practical, you 
 
 ```{bash, eval = FALSE}
 # Set the path to your workspace
-st_path="/workspace/NGS_practicals"
+st_path=$PWD
+# st_path="/workspace/NGS_practicals"
 
 # The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
-conda config --add channels defaults
-conda config --add channels bioconda
-conda config --add channels conda-forge
-conda config --set channel_priority strict
+# conda config --add channels defaults
+# conda config --add channels bioconda
+# conda config --add channels conda-forge
+# conda config --set channel_priority strict
 
-# Create MultiQC conda environment for MultiQC
+# Create MultiQC mamba environment for MultiQC
 mamba env create -f "${st_path}"/env/.environment_multiqc.yaml
-conda deactivate
+# mamba deactivate
 
-# Create and load conda environment with all the tools needed to carry on this practical.
-mamba env create -f "${st_path}"/env/.environment_NGS.yaml
-conda activate env_NGS
+# Create and load mamba environment with all the tools needed to carry on this practical.
+# mamba env create -f "${st_path}"/env/.environment_NGS.yaml
+# mamba activate env_NGS
 
 
 ```   
@@ -395,16 +396,16 @@ Finding adapters::
 
 ```
   
-Below is an example of how you can use cutadapt on your data. Note that you cannot call cutadapt without telling the shell where executable file is. To do so, load conda environment with ` conda activate env_NGS ` 
+Below is an example of how you can use cutadapt on your data. Note that you cannot call cutadapt without telling the shell where executable file is. To do so, load mamba environment with ` mamba activate env_NGS ` 
   
 
 ```{bash, eval = FALSE}
 # Change directory
 cd "${st_path}"/course_materials/fastq/
 
-# Activate Conda environment
-conda deactivate
-conda activate env_NGS
+# Activate mamba environment
+mamba deactivate
+mamba activate env_NGS
 
 # Cutadapt manual
 cutadapt --help
@@ -439,12 +440,12 @@ Your cutadapt output should look like more or less like this:
 [ https://multiqc.info/ ](https://multiqc.info/)    
 
 ``` {bash, eval = FALSE}
-# Conda deactivate previous Conda environments.
-conda deactivate
+# mamba deactivate previous mamba environments.
+mamba deactivate
 
-# Create and load conda environment with all the tools needed get MultiQC results. 
+# Create and load mamba environment with all the tools needed get MultiQC results. 
 # mamba env create -f "${st_path}"/env/.environment_multiqc.yaml
-conda activate env_multiqc
+mamba activate env_multiqc
 
 # manual
 multiqc --help
@@ -484,15 +485,15 @@ We can create simple scripts on bash to help us and perform routinely tasks. As 
 #### Running simple bash script   
     
 ``` {bash, eval = FALSE}
-# Create and Load conda environment with all the tools needed to carry on this practical.
-conda deactivate
-conda activate env_multiqc
+# Create and Load mamba environment with all the tools needed to carry on this practical.
+mamba deactivate
+mamba activate env_multiqc
 
 # Go to folder that stores all Fastq files
 cd "${st_path}"/course_materials/fastq/
 
 # Copy resource script
-cp /workspace/NGS_practicals/course_materials/resources/Iterate_fastq.sh .
+cp "${st_path}"/course_materials/resources/Iterate_fastq.sh .
  
 # Inspect simple shell script
 less Iterate_fastq.sh
@@ -504,7 +505,7 @@ bash Iterate_fastq.sh
 firefox multiqc_report.html
 
 # Deactivate environment
-conda deactivate
+mamba deactivate
 ```
 
 Your multiQC output should look something like this (top of the html page):
@@ -519,7 +520,7 @@ We have quality-inspected, demultiplexed, quality-inspected again our reads and 
 
 A commonly used program for aligning short reads to a reference genome is **bowtie2**. There are many more such programs: bwa, STAR, hisat2 etc. The new generation of sequencing that produces much longer reads uses its own set of aligners that are more suitable for much longer sequences and sequences that generally also contain a higher error rate compared with Illumina's short reads.
 
-In this practical, we use Illumina short reads and we will map them using bowtie2. This program is installed by anaconda, but the latest version can be run by loading Conda `  env_NGS ` environment.
+In this practical, we use Illumina short reads and we will map them using bowtie2. This program is installed by mamba, but the latest version can be run by loading mamba `  env_NGS ` environment.
      
 #### Bowtie2 manual   
     
@@ -530,8 +531,8 @@ You can also check the help function of bowtie2 available as is customary with t
 
 ```{bash, eval = FALSE}
 # Activate environment
-conda deactivate
-conda activate env_NGS
+mamba deactivate
+mamba activate env_NGS
 
 # Bowtie2 manual
 bowtie2 --help
@@ -699,7 +700,7 @@ head Negative_bowtie_stats.txt
 #### run MultiQC to capture all the Bowtie2 alignment statistics.
 
 ```{bash, eval = FALSE}
-conda activate env_multiqc
+mamba activate env_multiqc
 multiqc . -f
 
 # Open in Firefox and explore mapping results. 
@@ -761,8 +762,8 @@ Try out the code below to explore samtools - each of the commands following samt
 ```{bash, eval = FALSE}
 
 # Samtools manual
-conda deactivate
-conda activate env_NGS
+mamba deactivate
+mamba activate env_NGS
 samtools --help
 
 
@@ -875,8 +876,8 @@ samtools flagstat Positive.bam > Positive_flagstat.txt
 
 ```{bash, eval = FALSE}
 # Activate environment
-conda deactivate
-conda activate env_multiqc
+mamba deactivate
+mamba activate env_multiqc
 
 # Change directory
 cd "${st_path}"/course_materials/
@@ -905,8 +906,8 @@ sam_format
 
 ```{bash, eval = FALSE}
 # Activate environment
-conda deactivate
-conda activate env_NGS
+mamba deactivate
+mamba activate env_NGS
 
 
 # Load genome reference file "AFPN02.1_merge.fasta"

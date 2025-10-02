@@ -28,7 +28,8 @@ echo ">>> Installing mamba into base env..."
 conda install -y -n base -c conda-forge mamba
 
 # echo ">>> Installing MultiQC into base env..."
-# conda install -y -n base -c bioconda multiqc
+# mamba install -y -n base multiqc
+
 
 echo ">>> Ensuring conda is initialized for bash..."
 conda init bash || true
