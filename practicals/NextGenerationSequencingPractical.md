@@ -56,7 +56,7 @@ On the next two lectures we are going to use command line. You can start visuali
     
 ![principal command cheatsheet](figures/All_comands.PNG)
       
-![shell pipes ](figures/Pipes.PNG)
+![shell pipes ](figures/Pipes.png)
   
     
 ```{bash, eval = FALSE}
@@ -209,8 +209,10 @@ mamba install -y -n base multiqc
 mamba env create -f "${st_path}"/env/.environment_NGS.yaml
 # Initialize your shell before using activate and deactivate.
 eval "$(mamba shell hook --shell bash)"
+# Activate environment
 mamba activate env_NGS
-
+# Cleaning index cache
+mamba clean --all --yes
 
 ```   
 
