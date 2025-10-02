@@ -26,7 +26,7 @@ conda config --set channel_priority strict
 
 echo ">>> Installing mamba into base env..."
 conda install -y -n base -c conda-forge mamba
-conda install -y -n base multiqc
+# conda install -y -n base multiqc
 
 # Install MultiQC using mamba if available
 # MAMBA_BIN="$(conda info --base)/bin/mamba"
