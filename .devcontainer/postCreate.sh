@@ -24,21 +24,41 @@ ensure_chromium() {
 
   log "Installing Chromium browser for the desktop environment..."
   sudo apt-get update
-  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common gnupg
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common curl wget gnupg
 
-  if ! grep -Rqs "apandada1.*chromium" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
-    log "Adding Chromium PPA (ppa:apandada1/chromium)..."
-    sudo add-apt-repository -y ppa:apandada1/chromium
+  if sudo DEBIAN_FRONTEND=noninteractive apt-get install -y chromium-browser chromium 2>/tmp/chromium-apt.log; then
+    log "Chromium installed via Ubuntu repositories."
+  else
+    log "Chromium packages unavailable in default repos; attempting ungoogled-chromium PPA."
+    sudo rm -f /tmp/chromium-apt.log
+
+    sudo install -d -m 0755 /etc/apt/keyrings
+    if [ ! -f /etc/apt/keyrings/ungoogled-chromium.gpg ]; then
+      log "Fetching signing key for ungoogled-chromium..."
+      if command -v curl >/dev/null 2>&1; then
+        curl -fsSL https://ppa.launchpadcontent.net/ungoogled-chromium/ungoogled-chromium/ubuntu/KEY.gpg | \
+          sudo gpg --dearmor -o /etc/apt/keyrings/ungoogled-chromium.gpg
+      else
+        wget -qO- https://ppa.launchpadcontent.net/ungoogled-chromium/ungoogled-chromium/ubuntu/KEY.gpg | \
+          sudo gpg --dearmor -o /etc/apt/keyrings/ungoogled-chromium.gpg
+      fi
+    fi
+
+    if [ ! -f /etc/apt/sources.list.d/ungoogled-chromium.list ]; then
+      log "Adding ungoogled-chromium apt source..."
+      echo "deb [signed-by=/etc/apt/keyrings/ungoogled-chromium.gpg] https://ppa.launchpadcontent.net/ungoogled-chromium/ungoogled-chromium/ubuntu jammy main" | \
+        sudo tee /etc/apt/sources.list.d/ungoogled-chromium.list >/dev/null
+    fi
+
+    sudo apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ungoogled-chromium
+    if [ ! -e /usr/bin/chromium ] && command -v ungoogled-chromium >/dev/null 2>&1; then
+      log "Linking /usr/bin/chromium to ungoogled-chromium for compatibility..."
+      sudo ln -s /usr/bin/ungoogled-chromium /usr/bin/chromium
+    fi
   fi
 
-  sudo apt-get update
-  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y chromium-browser
   sudo rm -rf /var/lib/apt/lists/*
-
-  if command -v chromium-browser >/dev/null 2>&1 && [ ! -e /usr/bin/chromium ]; then
-    log "Linking /usr/bin/chromium to chromium-browser for convenience..."
-    sudo ln -s /usr/bin/chromium-browser /usr/bin/chromium
-  fi
 }
 
 ensure_chromium
