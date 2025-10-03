@@ -457,7 +457,7 @@ firefox multiqc_report.html
 
 ``` 
 
-If this doesn't work you could navigate with the folder system File System > Workspace > NGS_practicals > course_materials > fastq ...
+If this doesn't work you could navigate with the folder system File System > Computer > workspaces > codespaces_NGS > course_materials > fastq ...
 and open "multiqc_report.html" with Firefox or any other web browser. To select a Web browser, open applications tab on the top left 
 corner and select Internet > Google Chrome. Or just drag and drop the multiqc-report to Chrome. 
 
