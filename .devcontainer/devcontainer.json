@@ -30,7 +30,7 @@
           "requireLocalPort": true
         }
       },
-    //   "postCreateCommand": "bash .devcontainer/postCreate.sh",
+      "postCreateCommand": "bash .devcontainer/postCreate.sh",
       "customizations": {
         "vscode": {
           "extensions": [
