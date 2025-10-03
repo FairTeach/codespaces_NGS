@@ -1,10 +1,7 @@
 {
     "cSpell.language":  "en,en-GB",
     "cSpell.maxNumberOfProblems":  300,
-    "cSpell.enableFiletypes":  [
-                                   "markdown",
-                                   "shellscript"
-                               ],
+    "cSpell.enableFiletypes":   ["markdown","shellscript"],
     "terminal.integrated.profiles.linux":  {
                                                "bash (login)":  {
                                                                     "path":  "/bin/bash",
@@ -14,5 +11,10 @@
                                                                 }
                                            },
     "terminal.integrated.defaultProfile.linux":  "bash (login)",
-    "cSpell.configFile":  "${workspaceFolder}/cspell.json"
+    "cSpell.configFile":  "${workspaceFolder}/cspell.json",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false
+  }
 }

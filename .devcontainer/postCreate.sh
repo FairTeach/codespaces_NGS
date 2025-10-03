@@ -61,7 +61,7 @@ ensure_chromium() {
   sudo rm -rf /var/lib/apt/lists/*
 }
 
-ensure_chromium
+# ensure_chromium
 
 log "Ensuring conda is initialized for bash..."
 conda init bash || true

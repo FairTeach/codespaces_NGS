@@ -197,13 +197,13 @@ st_path=$PWD
 # st_path="/workspace/NGS_practicals"
 
 # The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
-# conda config --add channels defaults
-# conda config --add channels bioconda
-# conda config --add channels conda-forge
-# conda config --set channel_priority strict
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
 
 # Install MultiQC mamba in base environment for 
-mamba install -y -n base multiqc
+mamba install -y -n base multiqc firefox
 
 # Create and load mamba environment with all the tools needed to carry on this practical.
 mamba env create -f "${st_path}"/env/.environment_NGS.yaml
