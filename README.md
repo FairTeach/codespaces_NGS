@@ -1,55 +1,51 @@
+# Codespaces NGS Practicals
+
+[![GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
+
+This repository ([FairTeach/codespaces_NGS](https://github.com/FairTeach/codespaces_NGS)) hosts the teaching materials for the Next Generation Sequencing (NGS) practicals. The 2025 refresh targets GitHub Codespaces and ships an Ubuntu-based desktop environment with Xfce, noVNC, Miniforge+mamba, IGV, and supporting bioinformatics tooling.
+
+## Overview
+- End-to-end practicum content spanning command-line skills, NGS analysis, and downstream interpretation.
+- Reproducible Codespaces devcontainer with graphical desktop access for GUI-oriented workflows.
+- Course assets delivered in Markdown, HTML, and PDF to support classroom delivery and self-study.
+- Supplementary resources (reference genomes, datasets, figures) organised under `course_materials/` and `practicals/`.
+
+## Requirements
+- Approved GitHub account (students should request GitHub Education benefits for full access to course repositories and GitHub Copilot).
+- Stable internet connection to run GitHub Codespaces within the browser or VS Code desktop.
+- Optional: local PDF reader for offline lecture documents (`README.pdf`, `practicals/docs/*.pdf`).
+
+## Codespaces Environment
+- Base image: `mcr.microsoft.com/devcontainers/base:ubuntu-22.04` with the Dev Containers desktop-lite feature.
+- Desktop stack: Xfce exposed via TigerVNC/noVNC on forwarded port `6080` (password `vscode` by default).
+- Tooling: Miniforge+mamba (conda), IGV desktop, common bioinformatics CLI utilities, and VS Code extensions tailored for genomics.
+- Automation: `.devcontainer/postCreate.sh` handles conda initialisation and browser provisioning for the desktop session.
+
+For a step-by-step walkthrough on creating and operating a Codespace for this course, see `practicals/Intro_into_Codespaces.md`.
+
+## Repository Structure
+- `practicals/`: Guided exercises for each class (Markdown originals plus supporting docs and figures).
+- `course_materials/`: Reference genomes, resources, and source assets used across the modules.
+- `env/`: Environment definitions and auxiliary scripts.
+- `README.html` / `README.pdf`: Exported versions for distribution outside GitHub.
+
+## Practical Modules
+- `practicals/Intro_into_Codespaces.md`: Launching the Codespaces workspace and using the remote desktop.
+- `practicals/Intro_into_command_line.md`: Shell fundamentals for bioinformatics workflows.
+- `practicals/NextGenerationSequencingPractical.md`: Core NGS analysis pipeline.
+- `practicals/GenomeComparisionPractical.md`: Comparative genomics practical.
+- Additional modules on RNA-Seq, transcript sequencing, Snakemake, and GitHub Copilot integration are under development.
+
+## Staying Up to Date
+- Watch the repository on GitHub for release notes and updates.
+- Rebuild your Codespace when `.devcontainer/` changes land to pick up new tooling.
+- Report environment issues via repository discussions or pull requests.
+
 ---
-title: "Intro into Gitpod"
-author: "Igor Ruiz de los Mozos PhD"
-output:
-  html_document: default
-  pdf_document: default
-  date: 2025
----
 
-    
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/NGS_practicals?quickstart=1)
-
-> **New 2025 workflow:** This repository now targets GitHub Codespaces with an Ubuntu-based dev container that ships Xfce, TigerVNC/noVNC, Miniforge+mamba, and IGV desktop ready to use.
-<!--- cSpell:enable --->
+The teaching material has evolved from on-premises HPC clusters to local virtual machines and now GitHub Codespaces, delivering a consistent browser-based environment without the maintenance overhead of local virtualisation.
 
 
-## Codespaces Desktop Environment
-
-1. Open the repository in **GitHub Codespaces** (use the button above or Codespaces > New with this repo).
-2. Wait for the dev container build to finish; it installs Miniforge+mamba, IGV, Xfce, TigerVNC, noVNC, Supervisor, and supporting CLI tools.
-3. When VS Code connects the desktop stack starts automatically. If you need to restart it later run `sudo supervisorctl restart desktop`.
-
-### Using the remote desktop
-- In the **Ports** tab open port `6080` (label `noVNC Desktop`). When prompted, use VNC password `codespaces` to reach the Xfce session.
-- Launch `Applications -> Terminal Emulator` inside Xfce for GUI workflows, or keep using the VS Code terminal for CLI commands.
-- To verify X11 rendering, run `xeyes` or `xclock` from the desktop terminal and confirm the window appears.
-
-### Conda / mamba
-- `mamba` is available globally. Check with `which mamba` and `mamba --version`.
-- Login shells source `/opt/miniforge/etc/profile.d/conda.sh` automatically; the base environment activates on every terminal.
-- Install extra tools with `mamba install -y samtools` (example) and confirm with `samtools --version`.
-
-### IGV desktop and IGV-Web
-- Start IGV from any terminal with `igv &`; it launches inside the desktop session. Hardware acceleration is not available in Codespaces, so IGV uses software rendering.
-- Load reference genomes via `File -> Load Genome from Server` or add data stored in the workspace.
-- A lightweight IGV-Web demo is stored under `/opt/igv-web`. Serve it with `python3 -m http.server 8000` from that directory and open forwarded port `8000` (label `Local HTML Server`).
-
-### Serving HTML reports
-- From any project folder, run `python3 -m http.server 8000` and open the forwarded port in your browser or inside the desktop to preview static reports.
-- For notebook previews you can keep using VS Code built-ins, or export HTML and open it in the desktop browser.
-
-### Troubleshooting and health checks
-- Check service status with `sudo supervisorctl status`.
-- Run `.devcontainer/scripts/healthcheck.sh` to verify `mamba`, TigerVNC, and noVNC are healthy.
-- Rebuilds are idempotent. If a Codespace becomes unhealthy, stop it and create a fresh one; no manual reconfiguration is required.
-
-### Differences vs. the legacy Gitpod setup
-- Replaces Gitpod's `workspace-full-vnc` base image with a slimmer Ubuntu base tuned for Codespaces.
-- Miniforge + mamba are preinstalled and activated automatically; no post-start Gitpod tasks are required.
-- Supervisor keeps TigerVNC and noVNC running in the background and exposes them via Codespaces port forwarding (password `codespaces`).
-- IGV desktop and an optional IGV-Web demo ship with the image; desktop apps run via noVNC and CLI tools via VS Code terminals.
-- Gitpod-specific startup tasks and VNC helpers have been removed in favor of reproducible container build steps.
 
 ## Requirements  
        
@@ -109,4 +105,3 @@ But if you wish to learn more and use for your own purposes you could study thos
 
 ## GitHub IA with Copilot
     
-
