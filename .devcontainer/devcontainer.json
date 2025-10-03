@@ -3,6 +3,7 @@
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
     "features": {
         // https://containers.dev/features#:~:text=apt%20packages%20%20Rocker%20Project,org%2Fdevcontainer
+        // https://github.com/rocker-org/devcontainer-features/tree/main/src/rstudio-server 
       "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {
       },
       "ghcr.io/devcontainers/features/desktop-lite:1": {
