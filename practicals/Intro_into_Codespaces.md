@@ -4,7 +4,6 @@ author: "Igor Ruiz de los Mozos PhD"
 output:
   html_document: default
   pdf_document: default
-  date: 2025
 ---
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
@@ -69,8 +68,18 @@ When the build finishes, Codespaces forwards the desktop ports automatically. Op
 2. Click the globe icon to open the noVNC session in a new browser tab.
 3. Enter the VNC password `vscode` when prompted.
 
-## Working with conda/mamba
+## Staying in sync with the repository
 
+- Open the **Control de cambios** / **Source Control** tab (the branch icon on the Activity Bar) to review pending edits, stage files, and make commits without leaving the editor. The view lists modified or untracked files exactly as `git status` would.
+- Prefer the terminal? Run `git status` to inspect pending work, then pull updates with `git pull origin main` (or whatever branch you are tracking) to stay current with the course repository.
+
+![Sync Repository](figures/sync.png)
+
+- After pulling, look for a notification on the bottom-left **Codespaces** tab (two stacked squares). From that menu, choose **Rebuild Container** anytime files under `.devcontainer/` change or the environment behaves unexpectedly. You can reach the same command via `F1 → Codespaces: Rebuild Container`. Wait for the rebuild to complete before resuming work.
+
+![ReBuild Repository](figures/rebuild.png)
+
+## Working with conda/mamba
 - `mamba` is preinstalled; run `which mamba` or `mamba --version` to verify.
 - Shells automatically source Miniforge (`/opt/miniforge/etc/profile.d/conda.sh`), so the base environment is active whenever you open a new terminal.
 - Install extra packages with `mamba install -y <package>` (for example, `mamba install -y samtools`) and confirm with the corresponding `--version` command.
