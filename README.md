@@ -2,7 +2,7 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
 
-[![GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
+[![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
 This repository ([FairTeach/codespaces_NGS](https://github.com/FairTeach/codespaces_NGS)) hosts the teaching materials for the Next Generation Sequencing (NGS) practicals. The 2025 refresh targets GitHub Codespaces and ships an Ubuntu-based desktop environment with Xfce, noVNC, Miniforge+mamba, IGV, and supporting bioinformatics tooling.
 
