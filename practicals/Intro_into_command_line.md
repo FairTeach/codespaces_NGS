@@ -7,22 +7,15 @@ output:
 ---
 
     
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/FairTeach/NGS_practicals)
-    
-<a href="https://gitpod.io/workspaces/">
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+
+<a href="https://github.com/codespaces">
   <img
-    src="https://img.shields.io/badge/Gitpod%20-Workspaces-orange?logo=gitpod"
-    alt="Gitpod Workspaces"
+    src="https://img.shields.io/badge/Explore-GitHub%20Codespaces-181717?logo=github"
+    alt="GitHub Codespaces"
   />
 </a>
-    
-<a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals">
-  <img
-    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
-    alt="Contribute with Gitpod"
-  />
-</a>
-    
+
 # Download files on a web browser
 
 If you encounter some issue to download with command line you could also get file to workout this session. 
