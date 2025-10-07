@@ -9,12 +9,7 @@ output:
     
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
 
-<a href="https://github.com/codespaces">
-  <img
-    src="https://img.shields.io/badge/Explore-GitHub%20Codespaces-181717?logo=github"
-    alt="GitHub Codespaces"
-  />
-</a>
+[![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
 # Download files on a web browser
 
@@ -44,9 +39,9 @@ Each shell is essentially a programming language. It can read and interpret a la
 
 bash is somewhat special as it is the default shell for many open versions of Linux. It is also the shell favoured by many bioinformaticians.
     
-## What shell are we using on Gitpod
+## What shell are we using on Codespaces
 
-Unix bash is the default shell when you enter our Gitpod emulator. You can find out what the shell you are currently using is by typing:
+Unix bash is the default shell when you enter our Codespaces emulator. You can find out what the shell you are currently using is by typing:
 
 ```{bash, eval = FALSE}
 echo $0
@@ -73,17 +68,30 @@ Before we go on to see how to write a basic bash script, let's learn a few comma
 
 We will set a shortcut for the path where we keep the practical work for this set of sessions. We will then create a new directory for this practical and work in that directory.
   
-If you have copied the course_materials as suggested in the last practical, you should be able to start the practical. There is one ore thing you can do to make life easier: set a shell variable to point to the parent directory of the course_materials so you don't have to type the full path. The following will work on the default shell, elsewhere and and on GitPod:
+If you have copied the course_materials as suggested in the last practical, you should be able to start the practical. There is one ore thing you can do to make life easier: set a shell variable to point to the parent directory of the course_materials so you don't have to type the full path. The following will work on the default shell, elsewhere and and on Codespaces:
 
 ```{bash, eval = FALSE}
-# Create and load conda environment with all the tools needed to carry on this practical.
-mamba env create -f /workspace/NGS_practicals/env/.environment_NGS.yaml
-conda activate env_NGS
+# Include environmental variable ToDo
+st_path=$PWD
+# st_path="/workspace/NGS_practicals"
 
-# Set the path to your workspace or substitute if you are on a different system.
-st_path="/workspace/NGS_practicals/course_materials"
+# The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
 
+# Install MultiQC mamba in base environment for 
+mamba install -y -n base multiqc firefox
 
+# Create and load mamba environment with all the tools needed to carry on this practical.
+mamba env create -f "${st_path}"/env/.environment_NGS.yaml
+# Initialize your shell before using activate and deactivate.
+eval "$(mamba shell hook --shell bash)"
+# Activate environment
+mamba activate env_NGS
+# Cleaning index cache
+mamba clean --all --yes
 
 ```   
   
