@@ -19,7 +19,7 @@ GitHub Codespaces provides a fully managed, cloud-hosted development environment
 To deepen your understanding of Codespaces, explore these resources:
 - [Codespaces documentation home](https://docs.github.com/en/codespaces)
 - [Quickstart: Use GitHub Codespaces for the first time](https://docs.github.com/en/codespaces/getting-started/quickstart)
-- [Codespaces video walkthroughs](https://resources.github.com/webcasts/topics/codespaces/)
+- [Codespaces video walkthroughs](https://www.youtube.com/watch?v=fqQOu2JVI1o#:~:text=Developers%20spend%20countless%20hours%20struggling%20with%20setup,by%20allowing%20organizations%20to%20define%20the%20development)
 - [Developing in Codespaces guide](https://docs.github.com/en/codespaces/developing-in-codespaces)
 
 ## Launching the Codespace from GitHub Web
