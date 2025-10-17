@@ -58,7 +58,7 @@ All the materials will be handed to you over Moddle or ADI. Lectures will be PDF
 - `practicals/GenomeComparisionPractical.md`: Comparative genomics practical.
 
 ## Other Codespaces repository
-- Additional modules on RNA-Seq, transcript sequencing, Snakemake, and GitHub Copilot integration are under development.
+- Additional modules on RNA-Seq, transcript sequencing, Snakemake, and GitHub Copilot integration are under a different repository that we will load later on.
 
 ## Staying Up to Date
 - Watch the repository on GitHub for release notes and updates.

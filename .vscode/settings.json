@@ -16,5 +16,6 @@
         "*": false,
         "plaintext": false,
         "markdown": false
-  }
+},
+"livePreview.defaultPreviewPath": "/README.html"
 }
