@@ -13,6 +13,8 @@ output:
 
 [![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
+# Next Generation Sequencing practical
+This hands-on practical introduces core Next‑Generation Sequencing (NGS) data‑processing workflows used in microbial genomics. You will perform FASTQ quality control, demultiplexing and adapter/quality trimming, and read alignment to a reference genome, then summarise results with MultiQC. The emphasis is on practical command‑line skills and interpreting outputs rather than exhaustive tool theory. 
     
 *** 
     
@@ -49,7 +51,7 @@ mamba clean --all --yes
 
 # An introduction to NGS practical 1
 
-This document was written to help students understand the context of the second NGS practical. 
+This document was written to help students understand the context of the NGS practical. 
 
 ## 2. Background and aim of this practical
 
@@ -288,7 +290,7 @@ firefox multiqc_report.html
 
 ``` 
 
-If this doesn't work you could navigate with the folder system File System > Computer > workspaces > codespaces_NGS > course_materials > fastq ...
+If this doesn't work you could navigate with the folder system **File System > Computer > workspaces > codespaces_NGS > course_materials > fastq ...**
 and open "multiqc_report.html" with Firefox or any other web browser. To select a Web browser, open applications tab on the top left 
 corner and select Internet > Google Chrome. Or just drag and drop the multiqc-report to Chrome. 
 
@@ -577,7 +579,6 @@ Try out the code below to explore samtools - each of the commands following samt
 # Samtools manual
 samtools --help
 
-
 # samtools FILTER reads manual
 samtools view --help
 
@@ -699,20 +700,28 @@ multiqc . -f
 firefox multiqc_report.html
 ```
   
-  
-  
-  
-## 9. View aligned reads on a genome viewer
+
+## 9. Visualising alignments on a genome viewer with IGV
 
 The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.  
 
-Open IGV program by typing `igv`. Load genome Genomes > load genome from file > select path `"${st_path}"/course_materials/genomes/AFPN02.1" and fasta sequence "AFPN02.1.fasta"`.
+After you have created sorted, indexed BAM files (for example `Positive.bam`, `Positive.bam.bai`), you can inspect the alignments using IGV (Integrative Genomics Viewer). Below are quick instructions for both the desktop IGV and IGV-Web approaches.
 
-Open bam files file > load from file > select path `"${st_path}"/course_materials/results_NGS1/` and all the `*.bam files`. NOTE that you will need the bam file to be indexed with samtools (`*.bam.bai`).
-sam_format
+### IGV Desktop manual load
+
+1. Start the IGV desktop application by typing `igv` on your terminal.
+2. In IGV, set the genome to the reference you used (you can load a FASTA for a custom genome). 
+**Genomes > load genome from file > select path** `"${st_path}"/course_materials/genomes/AFPN02.1" and fasta sequence "AFPN02.1.fasta"`.
+3. **File > Load from File...** and select the `*.bam` files (IGV will automatically use the matching `.bai`).
+4. Navigate to regions of interest, zoom in/out, and inspect read coverage, mismatches and soft-clipping.
+
+Tips: enable "Show center line" and "Color alignments by" (strand or insert size) to make patterns easier to spot.
+
+### IGV Desktop automatic load
+
+This section is intended to automatically load the genome and reads to quickly demonstrate in class the alignments.
 
 ```{bash, eval = FALSE}
-
 
 # Load genome reference file "AFPN02.1_merge.fasta"
 # Go to genome locus "AFPN02.1_merge:2397587"
@@ -721,6 +730,17 @@ igv --genome "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta
 
 
 ```
+
+### What to look for
+
+- Coverage depth and uneven coverage regions
+- Soft-clipped bases and insertions/deletions in the CIGAR strings
+- Strand bias and read pair orientation issues
+- Clusters of mismatches indicating true variants or systematic errors
+
+A short visual inspection with IGV often clarifies mapping problems seen in summary statistics, and helps decide if further trimming or parameter changes are needed for better alignment.
+
+
   
 ![ IGV genome browser ](figures/IGV_1.PNG) 
     
