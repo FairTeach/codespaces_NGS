@@ -12,11 +12,14 @@
         "webPort": "6080",
         "vncPort": "5901",
         "installOhMyZsh": false
-      }
+      },
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+
     },
     "forwardPorts": [
         6080,
-        5901
+        5901,
+        5173
       ],
       "portsAttributes": {
         "6080": {
@@ -28,6 +31,11 @@
           "label": "VNC",
           "onAutoForward": "silent",
           "requireLocalPort": true
+        },
+         "5173": {
+         "label": "brick web UI",
+         "onAutoForward": "openBrowser",
+         "requireLocalPort": true
         }
       },
       "postCreateCommand": "bash .devcontainer/postCreate.sh",
