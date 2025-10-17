@@ -14,6 +14,7 @@ output:
 [![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
 # Next Generation Sequencing practical
+
 This hands-on practical introduces core Next‑Generation Sequencing (NGS) data‑processing workflows used in microbial genomics. You will perform FASTQ quality control, demultiplexing and adapter/quality trimming, and read alignment to a reference genome, then summarise results with MultiQC. The emphasis is on practical command‑line skills and interpreting outputs rather than exhaustive tool theory. 
     
 *** 
@@ -27,7 +28,7 @@ If you have copied the course_materials as suggested in the last practical, you 
 # Set the path to your workspace
 # Include environmental variable ToDo
 st_path=$PWD
-# st_path="/workspace/NGS_practicals"
+# st_path="/workspaces/codespaces_NGS"
 
 # The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
 conda config --add channels defaults
@@ -40,8 +41,10 @@ mamba install -y -n base multiqc firefox
 
 # Create and load mamba environment with all the tools needed to carry on this practical.
 mamba env create -f "${st_path}"/env/.environment_NGS.yaml
-# Initialize your shell before using activate and deactivate.
-eval "$(mamba shell hook --shell bash)"
+# add the hook to your ~/.bashrc so every new shell is initialized automatically
+echo 'eval "$(mamba shell hook --shell bash)"' >> ~/.bashrc
+# apply it now in this session
+source ~/.bashrc
 # Activate environment
 mamba activate env_NGS
 # Cleaning index cache

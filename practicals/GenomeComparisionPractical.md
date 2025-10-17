@@ -7,25 +7,12 @@ output:
 ---
 
     
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/FairTeach/NGS_practicals)
-    
-<a href="https://gitpod.io/workspaces/">
-  <img
-    src="https://img.shields.io/badge/Gitpod%20-Workspaces-orange?logo=gitpod"
-    alt="Gitpod Workspaces"
-  />
-</a>
-    
-<a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals">
-  <img
-    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
-    alt="Contribute with Gitpod"
-  />
-</a>
-    
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+
+[![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
     
-# An introduction to NGS practical (Genome Comparison)  
+# An introduction to Genome Comparison
 
 This part of the document was written to help students understand the context of the third NGS practical and should be read ideally *before* starting to work on that practical. It contains the background of the problem and an outline of the steps we aim to follow to solve the problem.
 
@@ -75,7 +62,7 @@ We expect that all students were introduced to BLAST in advance. For anyone not 
 *** 
 
 
-# Practical 2 guidelines
+# Practical Genome Comparison guidelines
 
 ## Set up your directory structure and working environment   
 
@@ -83,23 +70,30 @@ We will set a shortcut for the path where we keep the practical work for this se
   
 
 ```{bash, eval = FALSE}
+# Set the path to your workspace
+st_path=$PWD
+# st_path="/workspaces/codespaces_NGS"
 
 # Create and Load conda environment with all the tools needed to carry on this practical.
-mamba env create -f env/.environment_GC.yaml
+mamba env create -f "${st_path}"/env/.environment_GC.yaml
+# add the hook to your ~/.bashrc so every new shell is initialized automatically
+echo 'eval "$(mamba shell hook --shell bash)"' >> ~/.bashrc
+# apply it now in this session
+source ~/.bashrc
+# Activate environment
 conda activate env_GC
-
-# Set the path to your workspace
-st_path="/workspace/NGS_practicals"
+# Cleaning index cache
+mamba clean --all --yes
 
 # Create a new directory called results_GC (for Genome Comparison) for the current practical.
-mkdir "${st_path}"/results_GC
-cd "${st_path}"/results_GC
+mkdir "${st_path}"/course_materials/results_GC
+cd "${st_path}"/course_materials/results_GC
 
 # In that directory, create a directory called alignment and copy there the alignment Long.bam file created from the previous practical.
-mkdir "${st_path}"/results_GC/alignment
+mkdir "${st_path}"/course_materials/results_GC/alignment
 # Then change to the new alignment directory.
-cd "${st_path}"/results_GC/alignment/
-cp "${st_path}"/course_materials/resources/Long.bam "${st_path}"/results_GC/alignment/
+cd "${st_path}"/course_materials/results_GC/alignment/
+cp "${st_path}"/course_materials/resources/Long.bam "${st_path}"/course_materials/results_GC/alignment/
 
 
 ```   
@@ -113,7 +107,7 @@ We have a file containing a number of long reads mapped to the E. coli reference
 
 ```{bash, eval = FALSE}
 # Change directory
-cd "${st_path}"/results_GC/alignment/
+cd "${st_path}"/course_materials/results_GC/alignment/
 
 # Get the consensus sequence with freebayes
 # Create a variant call for all aligned nucleotides. We will create Single Nucleotide Polymorphisms and frecuencies for each nucleotide aligned.
@@ -178,14 +172,14 @@ If you want to repeat the annotation, go to the server, browse to your consensus
 
 ![ DFast](figures/DFast.png)
 
-When the job is finished, download the `annotation.zip` file and move it to: `"${st_path}"/results_GC/annotation`.
+When the job is finished, download the `annotation.zip` file and move it to: `"${st_path}"/course_materials/results_GC/annotation`.
 
 *However, we advise you to try this another time and use instead the annotation provided by us.*
 
 ```{bash, eval = FALSE}
 # Go to results_GC directory
-mkdir "${st_path}"/results_GC/annotation
-cd  "${st_path}"/results_GC/annotation
+mkdir "${st_path}"/course_materials/results_GC/annotation
+cd  "${st_path}"/course_materials/results_GC/annotation
 
 # Get the annotated files from resources directory:
 mv "${st_path}"/course_materials/resources/annotation.zip .
@@ -201,7 +195,7 @@ We can take a quick look at the various files that DFast produced.
 
 ```{bash, eval = FALSE}
 # Change directory to the annotation results
-cd  "${st_path}"/results_GC/annotation
+cd  "${st_path}"/course_materials/results_GC/annotation
 
 ## Explore the file formats present on the annotation folder
 
@@ -290,8 +284,8 @@ To give you an overview of how we will do this, below is a schematic of the step
   
 ```{bash, eval = FALSE}
 # Start off by creating an "antibiotics" directory in the results_GC directory and then
-mkdir  "${st_path}"/results_GC/antibiotics
-cd  "${st_path}"/results_GC/antibiotics
+mkdir  "${st_path}"/course_materials/results_GC/antibiotics
+cd  "${st_path}"/course_materials/results_GC/antibiotics
 # copy the file we obtained from the database to your own directories.
 cp "${st_path}"/course_materials/resources/antibiotic_resistance_genes_meglab.fasta .
 
@@ -358,7 +352,7 @@ Continuing the editing of file with antibiotic resistance genes from database
   
 ``` {bash, eval = FALSE}
 # Make sure we are in the right directory.
-cd "${st_path}"/results_GC/antibiotics
+cd "${st_path}"/course_materials/results_GC/antibiotics
 
 # To remove the "--" separator, we use the sed command:
 # sed manual https://www.gnu.org/software/sed/manual/sed.html
@@ -421,7 +415,7 @@ Starting from the annotation of our genome AFPN02.1 we will __grep__ antibiotic 
 ```{bash, eval = FALSE}
 
 # Go to the annotation directory
-cd  "${st_path}"/results_GC/annotation
+cd  "${st_path}"/course_materials/results_GC/annotation
 
 # AWK
 # Awk is stand-alone scripting language. You can do incredible tasks with it in a single line. 
@@ -507,7 +501,7 @@ chr7  127480532  127481699  Neg4  0  -  127480532  127481699  0,0,255
    
 ```{bash, eval = FALSE}
 # Go to the annotation directory
-cd  "${st_path}"/results_GC/annotation
+cd  "${st_path}"/course_materials/results_GC/annotation
 
 # Grep lines with "antibiotic"
 cat annotation.gff | grep -E 'antibiotic'
@@ -534,10 +528,10 @@ cat annotation.gff | grep -E 'antibio|penici|lactama|macrolide|tetracycli|strept
 > present_in_AFPN02_antibiotic_resistance_genes.bed
 
 # Move "present_in_AFPN02_antibiotic_resistance_genes.bed" o antibiotics/ folder
-mv present_in_AFPN02_antibiotic_resistance_genes.bed  "${st_path}"/results_GC/antibiotics
+mv present_in_AFPN02_antibiotic_resistance_genes.bed  "${st_path}"/course_materials/results_GC/antibiotics
 
 # Go to antibiotics directory
-cd  "${st_path}"/results_GC/antibiotics
+cd  "${st_path}"/course_materials/results_GC/antibiotics
 
 
 # BedTools
@@ -546,7 +540,7 @@ cd  "${st_path}"/results_GC/antibiotics
 # for this task we will use bedtools.
 # bedtools manual https://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html
 # bedtools getfasta manual https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html
-bedtools getfasta -nameOnly -s -fi  "${st_path}"/results_GC/annotation/genome.fna -bed present_in_AFPN02_antibiotic_resistance_genes.bed -fo present_in_AFPN02_antibiotic_resistance_genes.fasta
+bedtools getfasta -nameOnly -s -fi  "${st_path}"/course_materials/results_GC/annotation/genome.fna -bed present_in_AFPN02_antibiotic_resistance_genes.bed -fo present_in_AFPN02_antibiotic_resistance_genes.fasta
 
 # Note addition of nucleotide sequence
 head -n 1 present_in_AFPN02_antibiotic_resistance_genes.bed
@@ -567,8 +561,9 @@ mv temp.fasta present_in_AFPN02_antibiotic_resistance_genes.fasta
 
 ```
 
-```
-!!!Not needed!!! But if need to clean gene symbol you can follow this code
+**!!!Not needed!!! But if need to clean gene symbol you can follow this code**
+```{bash, eval = FALSE}
+
 # Realise that we have ">tetA::sequence1:66570-67769(-)" in the header of each fasta.
 head -n 1 present_in_AFPN02_antibiotic_resistance_genes.fasta
 
@@ -596,7 +591,7 @@ Finally we will merge **selected** genes from the meglab database and those that
 
 
 ```{bash, eval = FALSE}
-cd "${st_path}"/results_GC/antibiotics
+cd "${st_path}"/course_materials/results_GC/antibiotics
 
 
 # Merge antibiotic files.
@@ -648,7 +643,7 @@ To run BRIG from the command-line, we need to:
 mkdir -p  "${st_path}"/course_materials/results_GC/BRING_output
 
 # Copy finalAFPN02.1.genome.fasta sequence to wholeGenomeExamples folder.
-cp  "${st_path}"/results_GC/annotation/genome.fna "${st_path}"/course_materials/genomes/wholeGenomeExamples/AFPN02.1.genome.fasta
+cp  "${st_path}"/course_materials/results_GC/annotation/genome.fna "${st_path}"/course_materials/genomes/wholeGenomeExamples/AFPN02.1.genome.fasta
 
 # Decompress BRIG software
 unzip "${st_path}"/course_materials/src/BRIG-0.95-dist.zip -d "${st_path}"/course_materials/src/
