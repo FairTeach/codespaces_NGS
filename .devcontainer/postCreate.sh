@@ -62,8 +62,22 @@ log() {
 # }
 
 
-
 log "Ensuring conda is initialized for bash..."
 conda init bash || true
+
+# Start Docker daemon for docker-in-docker (if not already running)
+if ! sudo docker info >/dev/null 2>&1; then
+  log "Starting dockerd (dind) in background..."
+  sudo dockerd > /tmp/dockerd.log 2>&1 &
+
+  # wait until docker is responsive
+  for i in $(seq 1 30); do
+    if sudo docker info >/dev/null 2>&1; then
+      log "dockerd ready"
+      break
+    fi
+    sleep 1
+  done
+fi
 
 log "Post-create complete."

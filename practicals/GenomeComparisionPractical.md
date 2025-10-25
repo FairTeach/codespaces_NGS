@@ -74,6 +74,8 @@ We will set a shortcut for the path where we keep the practical work for this se
 st_path=$PWD
 # st_path="/workspaces/codespaces_NGS"
 
+# Install MultiQC mamba in base environment for 
+mamba install -y -n base firefox
 # Create and Load conda environment with all the tools needed to carry on this practical.
 mamba env create -f "${st_path}"/env/.environment_GC.yaml
 # add the hook to your ~/.bashrc so every new shell is initialized automatically
@@ -652,6 +654,9 @@ unzip "${st_path}"/course_materials/src/BRIG-0.95-dist.zip -d "${st_path}"/cours
 cd  "${st_path}"/course_materials/src/BRIG-0.95-dist
 java -Xmx1500M -jar BRIG.jar
 
+
+# Clone latest stable release on main
+git clone https://github.com/esteinig/brick && cd brick
 
 ```
   
