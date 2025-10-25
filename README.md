@@ -45,7 +45,11 @@ All the materials will be handed to you over Moddle or ADI. Lectures will be PDF
 [ Intro to GitHub Codespaces VSC ](practicals/Intro_into_Codespaces.md)
 - `practicals/Intro_into_Codespaces.md`: Launching the Codespaces workspace and using the remote desktop.
 
-## Intro to command line
+## Intro into UNIX Environment
+[ Intro to UNIX environment ](practicals/Intro_into_UNIX.md)
+- `practicals/Intro_into_UNIX.md`: Launching the intro to UNIX system main commands. Necessary to first approach to command line computing. 
+
+## Intro to Command Line
 [ Intro to command line ](practicals/Intro_into_command_line.md)
 - `practicals/Intro_into_command_line.md`: Shell fundamentals for bioinformatics workflows.
 
