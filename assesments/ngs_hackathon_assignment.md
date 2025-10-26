@@ -2,10 +2,17 @@
 ## *Master in Research and Innovation in Biotechnology — “Challenges in Biotechnology”*
 
 ---
+Date of the assignment: 	Thursday 30/01/2025
+
+Date assignment is due:	Friday 28/02/2025 – 23.59h
+
+Marking:	Challenge 1 — NGS Hackathon contributes 30% for Personalised Medicine section
+
+---
 
 ### 🎯 **Introduction**
 
-In this module, you will act as a **bioinformatician** analyzing **Illumina next-generation sequencing (NGS)** data.  
+In this challenge, you will act as a **bioinformatician** analyzing **Illumina next-generation sequencing (NGS)** data.  
 Your goal is not only to execute computational tools but to **understand, interpret, and improve** the quality of your analyses through evidence-based reasoning and iteration.  
 
 This assessment simulates a real-world bioinformatics scenario where reproducibility, accuracy, and interpretation are key.  
@@ -49,7 +56,7 @@ Teamwork, creativity, reproducibility, and biological insight will determine suc
 
 ---
 
-## 🧪 Coursework Tasks
+## 🧪 Assessment Tasks
 
 ---
 
@@ -58,20 +65,22 @@ Teamwork, creativity, reproducibility, and biological insight will determine suc
 You were given a FASTQ file (`Negative.fq`) from a simulated whole-genome sequencing experiment.  
 When reads were split using four barcodes (Negative, Positive, Long, BQ), the file `Negative.fq` showed **poor alignment**.
 
+![Mapping results](figures/mapping_resoults.png)  
+
 #### **Your task**
-1. Identify **two plausible explanations** for the poor mapping (e.g. adapter contamination, orientation issues, low base quality, corrupted read structure).  
+1. Identify **two plausible solution** for the poor mapping.  
 2. Test both hypotheses by applying corresponding corrections or parameter changes.  
 3. Re-map the reads against the reference genome.  
 4. Choose which hypothesis is most accurate, justify your choice, and provide a biological interpretation.
 
 #### **Hints**
 - Use `less` and `fastqc` to inspect raw reads.  
-- Try two different alignment modes with `bowtie2` (`--end-to-end` vs `--local`, `--sensitive` vs `--very-sensitive`).  
+- Try trimming options with `cutadapt` and different alignment modes with `bowtie2`.  
 - Evaluate performance with `samtools stats`, `samtools flagstat`, and `multiQC`.  
 
 #### **Include in your report**
 - All commands used.  
-- Description of both initial hypotheses.  
+- Description of both initial hypotheses and solutions.  
 - Identification of the correct cause and justification with evidence.  
 - Table comparing both alignments (mapping %, error rate, properly paired reads).  
 - **Strong biological interpretation** of what these findings imply about your sequencing data and experiment.  
@@ -86,7 +95,7 @@ Your objective is to **improve mapping accuracy and yield** through quality filt
 #### **Steps**
 - Inspect raw quality and adapter content with `fastqc`.  
 - Use `cutadapt` to trim adapters, low-quality tails, and short reads.  
-- Re-map cleaned reads with `bowtie2`, testing at least two different parameter sets.  
+- Re-map cleaned reads with `bowtie2`, testing different parameter sets.  
 - Compare **alignment rate**, **error rate**, and **number of properly paired reads** using `samtools` and `multiQC`.  
 - Reflect on the trade-off between **alignment rate** (quantity) and **alignment accuracy** (quality).  
 
@@ -105,12 +114,12 @@ This is the **competitive hackathon** section.
 You will use your optimized workflow from Question 2 to produce the **best possible mapping** for the `BQ` dataset.  
 
 #### **Rules**
-- You may use either standard commands or your **own developed scripts or pipelines** (e.g. Snakemake, Nextflow, custom Bash scripts, or Python wrappers).  
+- You may use either standard commands or your **own developed scripts or pipelines** (custom Bash scripts, or Python wrappers).  
 - Creativity and reproducibility are encouraged — clearly document your workflow so that others could reproduce your results.  
-- Each team must submit one final **command or script BOX** and final statistics.  
+- Each team must submit one final short **command or script BOX** and final statistics.  
 
 #### **Deliverables**
-- A **BOX** (or script snippet) containing your final `cutadapt`, `bowtie2`, and `samtools` commands or full custom pipeline.  
+- A **BOX** (or script snippet) containing your final `cutadapt` and `bowtie2` commands or full custom pipeline.  
 - Final **mapping table** with alignment %, mismatches/error rate, and total reads.  
 - Short (≤ 300 words) explanation of your optimization strategy and how it improved mapping results.  
 - A **biological interpretation** of what your optimizations imply about the sample or sequencing process.
@@ -118,18 +127,12 @@ You will use your optimized workflow from Question 2 to produce the **best possi
 #### **Example BOX**
 ```bash
 # Cutadapt trimming
-cutadapt -q 20,20 -m 30 -a AGATCGGAAGAGC -A AGATCGGAAGAGC \
-  -o BQ_trimmed_R1.fastq -p BQ_trimmed_R2.fastq BQ_R1.fastq BQ_R2.fastq
+cutadapt -q ¿¿¿¿¿ -m ¿¿¿¿¿ -a ¿¿¿¿¿ -A ¿¿¿¿¿¿¿?????? 
 
 # Bowtie2 alignment
 bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
-  --very-sensitive-local -p 8 -S BQ_aligned.sam
+  ¿¿¿¿¿ -p ?????? -S BQ_aligned_tried?.sam
 
-# Samtools post-processing
-samtools view -Sb BQ_aligned.sam | samtools sort -o BQ_sorted.bam
-samtools flagstat BQ_sorted.bam > BQ_flagstat.txt
-samtools stats BQ_sorted.bam > BQ_stats.txt
-multiqc .
 ```
 
 #### **Evaluation criteria**
@@ -145,7 +148,7 @@ multiqc .
 Use **`samtools`** to split and inspect your alignment file (`BQ_aligned.sam` or `.bam`) based on mapping characteristics.
 
 #### **Tasks**
-a) Split into:
+a) Split into two files:
 - Reads mapping to multiple locations (multimapping).  
 - Reads mapping uniquely.  
 
@@ -154,7 +157,8 @@ b) Split into:
 - Mapped reads.  
 
 c) Explain how you could achieve (b) directly using `bowtie2` parameters instead.  
-d) Use **BLAST** to identify the origin of unmapped reads and summarise findings.  
+
+d) Use **BLAST** to identify the origin of unmapped reads and summarise findings. Report your results.
 
 🧩 **Bonus (optional, extra marks)**  
 e) Split reads with **> 3 mismatches** vs **< 3 mismatches** and discuss whether these mismatches are biologically meaningful (e.g., real variants, errors, contamination).  
@@ -209,6 +213,9 @@ You can use Word or Google Docs, but **Markdown** is highly recommended for repr
 7. PDF will appear in the same folder.
 
 🔌 Use `Ctrl + Shift + V` for live Markdown preview in VS Code.
+
+![Markdown PDF (yzane)](figures/markdown.png)  
+
 
 ---
 
