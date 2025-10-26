@@ -1,10 +1,11 @@
 # 🧬 NGS Hackathon Challenge  
-## *Master in Research and Innovation in Biotechnology — “Challenges in Biotechnology”*
+## Master in Research and Innovation in Biotechnology  
+### Module: “Challenges in Biotechnology”
 
 ---
-Date of the assignment: 	Thursday 30/01/2025
+Date of the assignment: 	Tuesday 11/11/2025
 
-Date assignment is due:	Friday 28/02/2025 – 23.59h
+Date assignment is due:	-------------- – 23.59h
 
 Marking:	Challenge 1 — NGS Hackathon contributes 30% for Personalised Medicine section
 
@@ -48,6 +49,8 @@ In bioinformatics, hackathons are used to develop or benchmark workflows, test a
 Relevant examples:
 - **NCBI/NIH Bioinformatics Hackathons** — organized by the National Center for Biotechnology Information (NIH/NCBI) to prototype genomic analysis pipelines:  
   🔗 [https://ncbiinsights.ncbi.nlm.nih.gov/tag/bioinformatics-hackathon/](https://ncbiinsights.ncbi.nlm.nih.gov/tag/bioinformatics-hackathon/)  
+- **BioHackathon** - organized by DBCLS since 2008, focuses on standardization and interoperability of bioinformatics data and web services:
+  🔗 [https://www.biohackathon.org/](https://www.biohackathon.org/) 
 - **EMBL-EBI BioHackathon Europe** — focused on NGS interoperability and FAIR data standards:  
   🔗 [https://biohackathon-europe.org/](https://biohackathon-europe.org/)
 
@@ -89,7 +92,7 @@ When reads were split using four barcodes (Negative, Positive, Long, BQ), the fi
 
 ### **Question 2 – Quality Trimming and Re-mapping `BQ.fq`**
 
-The dataset `BQ.fq` also produced low alignment rates.  
+The dataset `BQ.fq` also produced null alignment rates.  
 Your objective is to **improve mapping accuracy and yield** through quality filtering and parameter optimization.
 
 #### **Steps**
@@ -138,8 +141,9 @@ bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
 #### **Evaluation criteria**
 1. Highest % of mapped reads.  
 2. Lowest mismatch/error rate.  
-3. Workflow clarity and reproducibility.  
-4. Quality of **biological interpretation**.  
+3. Lowest multimapping reads.
+4. Workflow clarity and reproducibility.  
+5. Quality of **biological interpretation**.  
 
 ---
 
@@ -199,12 +203,12 @@ You can use Word or Google Docs, but **Markdown** is highly recommended for repr
    `![description](figure.png)`.
 
 #### 🔹 Option 2: **Visual Studio Code (VSC) + Extensions**
-1. Install Visual Studio Code.  
+1. Open Visual Studio Code.  
 2. Open the Extensions panel (`Ctrl + Shift + X`).  
 3. Install:  
    - **Markdown All in One** → [link](https://open-vsx.org/vscode/item?itemName=yzhang.markdown-all-in-one)  
    - **Markdown PDF (yzane)** → [link](https://open-vsx.org/vscode/item?itemName=yzane.markdown-pdf)  
-4. Create a file named `NGS_Hackathon_Report.md`.  
+4. Create a file named `NGS_Hackathon_Report_{TEAM_NAME}.md`.  
 5. Write using Markdown syntax:
    - `#` for titles  
    - ```bash … ``` for code blocks  

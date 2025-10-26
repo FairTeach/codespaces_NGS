@@ -6,7 +6,7 @@
 
 ### 🎯 **Module Overview**
 
-The *Challenges in Biotechnology* module combines **advanced omics analysis**, **bioinformatics**, and **translational project design**.  
+The *Challenges in Biotechnology* module Personalised Medicine section, combines **advanced omics analysis**, **bioinformatics**, and **translational project design**.  
 It aims to bridge the gap between experimental biotechnology, high-performance computing (HPC), and personalised medicine innovation.
 
 Students will engage in **two major challenges**:
@@ -45,16 +45,15 @@ By the end of the module, students will be able to:
 - **Goal:** Align Illumina NGS reads using bioinformatics tools, improving alignment metrics and accuracy.
 - **Deliverables:**  
   - Markdown/PDF report with code, results, and interpretation.  
-  - Team leaderboard comparison.  
   - Biological interpretation of data quality and mapping performance.
 - **Evaluation:** Technical accuracy (40%), reproducibility (30%), interpretation (30%).
 
 #### **Challenge 2 — Omics Innovation Project Proposal**
 - **Goal:** Design a research project proposal applying one or several omics technologies to a novel problem in biotechnology or personalised medicine.
 - **Deliverables:**  
-  - Written report (10–20 pages) in Markdown or PDF format.  
-  - Oral presentation (10–15 min, PowerPoint).  
-  - Team or individual submission.
+  - Written report (10–20 pages) in Word or PDF format.  
+  - Oral presentation (15-20 min, PowerPoint).  
+  - Team submission.
 - **Evaluation:** See below (grading criteria).
 
 ---
@@ -65,7 +64,7 @@ By the end of the module, students will be able to:
 |------------|--------|-------------|
 | **Challenge 1 — NGS Hackathon** | 30% | Hands-on technical analysis, command-line proficiency, workflow optimisation, and interpretation. |
 | **Challenge 2 — Project Proposal (Written Report)** | 40% | Quality of scientific writing, originality, feasibility, and depth of biological reasoning. |
-| **Project Oral Presentation** | 20% | Clarity, slide design, communication skills, and ability to defend project rationale. |
+| **Project Oral Presentation** | 30% | Clarity, slide design, communication skills, and ability to defend project rationale. |
 
 > 💡 A minimum score of **5** is required in each component to pass the module.
 
@@ -117,7 +116,7 @@ By the end of the module, students will be able to:
 
 ### 🧩 **Learning Outcomes**
 
-By completing this module, students will:
+By completing this module section, students will:
 1. Understand the fundamentals of NGS data generation and analysis.  
 2. Execute and interpret sequence alignment workflows.  
 3. Design bioinformatics experiments using cloud and HPC environments.  
@@ -129,7 +128,7 @@ By completing this module, students will:
 
 ### 🧬 **Contact and Support**
 
-**Instructor:** Dr. Igor Ruiz de los Mozos Aliaga  
+**Instructor:** Igor Ruiz de los Mozos Aliaga  PhD
 **Institution:** NASERTIC / UPNA  
 **Email:** igor.ruiz@unavarra.es  
 **Office hours:** By appointment  

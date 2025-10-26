@@ -4,11 +4,11 @@
 
 ---
 
-Date of the assignment: 	Thursday 30/01/2025
+Date of the assignment: 	Tuesday 11/11/2025
 
-Date assignment is due:	Friday 28/02/2025 – 23.59h
+Date assignment is due:	-------------- – 23.59h
 
-Dissertation date: Friday 28/02/2025 – 23.59h
+Dissertation date: -------------- – 23.59h
 
 Marking:	Challenge 2 — Omics Innovation Project Proposal contributes 70% for Personalised Medicine section
 
@@ -19,7 +19,7 @@ Marking:	Challenge 2 — Omics Innovation Project Proposal contributes 70% for P
 In this second challenge, you will design a **research project proposal** inspired by one or several of the review articles provided.  
 Your goal is to **translate omics and sequencing technologies into a novel application** in biomedical research, biotechnology, or personalised medicine.  
 
-You will think like a **researcher preparing a funding proposal**, formulating a scientific hypothesis, a rationale, and an experimental or computational plan with clear impact.
+You will think like a **researcher preparing a funding proposal**, formulating a scientific hypothesis, a rationale, and an experimental and computational plan with clear impact.
 
 ---
 
