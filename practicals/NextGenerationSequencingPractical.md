@@ -9,206 +9,42 @@ output:
 ---
 
     
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/FairTeach/NGS_practicals)
-    
-<a href="https://gitpod.io/workspaces/">
-  <img
-    src="https://img.shields.io/badge/Gitpod%20-Workspaces-orange?logo=gitpod"
-    alt="Gitpod Workspaces"
-  />
-</a>
-    
-<a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals">
-  <img
-    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
-    alt="Contribute with Gitpod"
-  />
-</a>
-    
-    
-# Análisis e interpretación de datos de alto rendimiento  
-    
-1. ## Command Line (bash - shell introduction)    
-      
-On the next two lectures we are going to use command line. You can start visualizing the following tutorials:  
-    
-**Cheatsheet:**   
-       
-[https://devhints.io/bash](https://devhints.io/bash)
-    
-**Tutorial:**   
-       
-[https://www.learnshell.org/  ](https://www.learnshell.org/  )
-    
-** Complete book:**      
-      
-[https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ](https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf )
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
 
-**More advanced tutorial:**       
-    
-[https://guide.bash.academy/](https://guide.bash.academy/) 
+[![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
-#### Linux system structure   
+# Next Generation Sequencing practical
 
-![shell structure](figures/structure.PNG)  
-    
-#### Some important commands    
-    
-![principal command cheatsheet](figures/All_comands.PNG)
-      
-![shell pipes ](figures/Pipes.png)
-  
-    
-```{bash, eval = FALSE}
-
-pwd         # Print Working Directory
-ls -l       # List files
-cd          # Change Directory
-cp          # Copy file
-mv          # Move file
-
-# Change directory
-cd Desktop/course_materials/
-
-# Display tree structure
-tree        
-
-# List current folder
-ls -l
-ll        # short version of ls -l
-
-# list recursively (-r) all the files in course_materials subfolders 
-ls -l -r course_materials/*
-```
-      
-You should see something similar to this:       
-    
-
-![ course_materials_folder ](figures/course_materials_folder.PNG)     
+This hands-on practical introduces core Next‑Generation Sequencing (NGS) data‑processing workflows used in microbial genomics. You will perform FASTQ quality control, demultiplexing and adapter/quality trimming, and read alignment to a reference genome, then summarise results with MultiQC. The emphasis is on practical command‑line skills and interpreting outputs rather than exhaustive tool theory. 
     
 *** 
-
-#### First steps on bash   
-
-```{bash, eval = FALSE}
-
-# Print on screen. Writes its arguments to the standard output
-echo "My first echo"
-
-# Change directory
-cd /workspace/NGS_practicals
-
-# Command line editor (https://www.cs.colostate.edu/helpdocs/vi.html)
-#  i to edit
-#  ESC and then ":q" to quit
-#  ESC and then ":x" to save and exit
-vi test.txt
-
-# Read .gz compressed file        zless
-zless merge_syntetic_reads.fq.gz
-
-
-```
-  
-
-### Bash text editors   
-   
-##### Vi   
-   
-First steps with **Vi** editor.
-
-Vi manual https://www.cs.colostate.edu/helpdocs/vi.html   
-   
-```{bash, eval = FALSE}   
-# Change directory to student folder and pwd
-cd /workspace/NGS_practicals
-pwd
-
-# Create test folder
-mkdir test
-
-# Change directory to just created folder and pwd
-cd test
-pwd
-
-# Create test_file.txt and edit in bash with vi.
-vi my_first_file.txt
-
-```
     
-    
-##### Short vi editor cheatsheet:   
-  
-Press            |      to
------------------|-------------------------
-i                |      edit
-ESC              |      exit insert mode
-ESC and then :q" |      quit
-ESC and then :x  |      save and quit
-    
-![ https://www.ks.uiuc.edu/Training/Tutorials/Reference/virefcard.pdf ](figures/vi_refcard.PNG) 
-    
-
-      
-###### Nano     
-      
-First steps with **Nano** editor.
-    
-```{bash, eval = FALSE}   
-# Text editor in bash. NOTE Do not alter them !!!
-nano test_file.txt
-
-# ^       means "ctrl"
-# ^X      exit
-
-```    
-
-    
-![ http://www.cheat-sheets.org/saved-copy/Nano_Cheat_Sheet.pdf ](figures/nano_cheatsheet.PNG)   
-   
-#### Remove test folder 
-  
-```{bash, eval = FALSE} 
-
-# Remove test file
-rm my_first_file.txt
-
-# Move up one directory
-cd ..
-# Move up two directories
-cd ../..
-
-# Remove directory. NOTE -r will do recursively
-rm -r test/
-    
-
-```   
-*** 
-    
-## Set up your directory structure and working environment   
+## 1. Set up your directory structure and working environment   
 
 We will set a shortcut for the path where we keep the practical work for this set of sessions. We will then create a new directory for this practical and work in that directory.
-If you have copied the course_materials as suggested in the last practical, you should be able to start the practical. There is one ore thing you can do to make life easier: set a shell variable to point to the parent directory of the course_materials so you don't have to type the full path. The following will work on the default shell, elsewhere and and on GitPod:
+If you have copied the course_materials as suggested in the last practical, you should be able to start the practical. There is one ore thing you can do to make life easier: set a shell variable to point to the parent directory of the course_materials so you don't have to type the full path. The following will work on the default shell, elsewhere and and on Codespaces:
 
 ```{bash, eval = FALSE}
 # Set the path to your workspace
 # Include environmental variable ToDo
 st_path=$PWD
-# st_path="/workspace/NGS_practicals"
+# st_path="/workspaces/codespaces_NGS"
 
 # The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
-# conda config --add channels defaults
-# conda config --add channels bioconda
-# conda config --add channels conda-forge
-# conda config --set channel_priority strict
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
 
 # Install MultiQC mamba in base environment for 
-mamba install -y -n base multiqc
+mamba install -y -n base multiqc firefox
 
 # Create and load mamba environment with all the tools needed to carry on this practical.
 mamba env create -f "${st_path}"/env/.environment_NGS.yaml
-# Initialize your shell before using activate and deactivate.
-eval "$(mamba shell hook --shell bash)"
+# add the hook to your ~/.bashrc so every new shell is initialized automatically
+echo 'eval "$(mamba shell hook --shell bash)"' >> ~/.bashrc
+# apply it now in this session
+source ~/.bashrc
 # Activate environment
 mamba activate env_NGS
 # Cleaning index cache
@@ -218,7 +54,7 @@ mamba clean --all --yes
 
 # An introduction to NGS practical 1
 
-This document was written to help students understand the context of the second NGS practical. 
+This document was written to help students understand the context of the NGS practical. 
 
 ## 2. Background and aim of this practical
 
@@ -457,7 +293,7 @@ firefox multiqc_report.html
 
 ``` 
 
-If this doesn't work you could navigate with the folder system File System > Workspace > NGS_practicals > course_materials > fastq ...
+If this doesn't work you could navigate with the folder system **File System > Computer > workspaces > codespaces_NGS > course_materials > fastq ...**
 and open "multiqc_report.html" with Firefox or any other web browser. To select a Web browser, open applications tab on the top left 
 corner and select Internet > Google Chrome. Or just drag and drop the multiqc-report to Chrome. 
 
@@ -746,7 +582,6 @@ Try out the code below to explore samtools - each of the commands following samt
 # Samtools manual
 samtools --help
 
-
 # samtools FILTER reads manual
 samtools view --help
 
@@ -868,20 +703,28 @@ multiqc . -f
 firefox multiqc_report.html
 ```
   
-  
-  
-  
-## 9. View aligned reads on a genome viewer
+
+## 9. Visualising alignments on a genome viewer with IGV
 
 The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.  
 
-Open IGV program by typing `igv`. Load genome Genomes > load genome from file > select path `"${st_path}"/course_materials/genomes/AFPN02.1" and fasta sequence "AFPN02.1.fasta"`.
+After you have created sorted, indexed BAM files (for example `Positive.bam`, `Positive.bam.bai`), you can inspect the alignments using IGV (Integrative Genomics Viewer). Below are quick instructions for both the desktop IGV and IGV-Web approaches.
 
-Open bam files file > load from file > select path `"${st_path}"/course_materials/results_NGS1/` and all the `*.bam files`. NOTE that you will need the bam file to be indexed with samtools (`*.bam.bai`).
-sam_format
+### IGV Desktop manual load
+
+1. Start the IGV desktop application by typing `igv` on your terminal.
+2. In IGV, set the genome to the reference you used (you can load a FASTA for a custom genome). 
+**Genomes > load genome from file > select path** `"${st_path}"/course_materials/genomes/AFPN02.1" and fasta sequence "AFPN02.1.fasta"`.
+3. **File > Load from File...** and select the `*.bam` files (IGV will automatically use the matching `.bai`).
+4. Navigate to regions of interest, zoom in/out, and inspect read coverage, mismatches and soft-clipping.
+
+Tips: enable "Show center line" and "Color alignments by" (strand or insert size) to make patterns easier to spot.
+
+### IGV Desktop automatic load
+
+This section is intended to automatically load the genome and reads to quickly demonstrate in class the alignments.
 
 ```{bash, eval = FALSE}
-
 
 # Load genome reference file "AFPN02.1_merge.fasta"
 # Go to genome locus "AFPN02.1_merge:2397587"
@@ -890,6 +733,17 @@ igv --genome "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta
 
 
 ```
+
+### What to look for
+
+- Coverage depth and uneven coverage regions
+- Soft-clipped bases and insertions/deletions in the CIGAR strings
+- Strand bias and read pair orientation issues
+- Clusters of mismatches indicating true variants or systematic errors
+
+A short visual inspection with IGV often clarifies mapping problems seen in summary statistics, and helps decide if further trimming or parameter changes are needed for better alignment.
+
+
   
 ![ IGV genome browser ](figures/IGV_1.PNG) 
     

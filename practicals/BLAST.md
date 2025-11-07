@@ -6,9 +6,7 @@ output:
   html_document: default
 ---
 
-# Análisis e interpretación de datos de alto rendimiento  
-  
-## BLAST tutorial  
+# BLAST tutorial  
 
 Here, there is an additional BLAST tutorial as part of this practical. In this tutorial, we show you how to use a single hypothetical gene sequence (resulting from an ORF prediction) to run a BLAST search and predict what the function of this gene could be by looking at homologues retrieved with BLAST from a selection of other organisms.
 

@@ -365,59 +365,76 @@ code {
           : 'default'
     });
   </script>
-<p><a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"></a></p>
-<a href="https://gitpod.io/workspaces/">
-  <img
-    src="https://img.shields.io/badge/Gitpod%20-Workspaces-orange?logo=gitpod"
-    alt="Gitpod Workspaces"
-  />
-</a>
-<a href="https://gitpod.io/#https://github.com/FairTeach/NGS_practicals">
-  <img
-    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
-    alt="Contribute with Gitpod"
-  />
-</a>
-<!--- cSpell:enable --->
-<h2 id="requirements">Requirements</h2>
-<p>This document was written to help students enrolled. First of all, you will need to obtain a GitHub Education account to workout these classes. A part of the access to GitHub itself, you will get a bunch of professional software that will improve your code learning GitHub Education <a href="https://education.github.com/pack#offers"> GitHub Education </a>. Among them you will also get access to GitHub Copilot to use Artificial Intelligence to help your coding development GitHub Copilot  <a href="https://education.github.com/experiences/primer_copilot"> GitHum Copilot </a> that will be used later in this module. Therefore apply to GitHub Education <a href="https://education.github.com/pack/join">https://education.github.com/pack/join</a> straight away.</p>
-<p>In some cases it could take up to two weeks to grant your licence so do not delay since you won't be able to follow this course without it. Send me by email, your GitHub ID once you get it, to give you access to the practical material on this module.</p>
+<h1 id="codespaces-ngs-practicals">Codespaces NGS Practicals</h1>
+<p><a href="https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></a></p>
+<p><a href="https://github.com/codespaces"><img src="https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github" alt="Continue GitHub Codespaces"></a></p>
+<p>This repository (<a href="https://github.com/FairTeach/codespaces_NGS">FairTeach/codespaces_NGS</a>) hosts the teaching materials for the Next Generation Sequencing (NGS) practicals. The 2025 refresh targets GitHub Codespaces and ships an Ubuntu-based desktop environment with Xfce, noVNC, Miniforge+mamba, IGV, and supporting bioinformatics tooling.</p>
 <h1 id="introduction">Introduction</h1>
-<p>This Bioinformatics materials have been evolving since 2017 and therefore there where several hurdles to overcome since then. Initially, they ran on a HPC cluster on Birkbeck University London but it was difficult to manage dozens students accounts without interfering with normal users. Then I changed to a UNIX Virtual Machine (VirtualBox) that were installed on each student computer. This was successfully used on UCL (London), Birkbeck (London), UNAV (Navarra) and UPNA (Navarra). Unfortunately, this throw some difficulties as the need of 40Gb of empty disk space, computer crashes and later on, make impossible to continue with the appearance of the new M1-M2 chipsets on MACs that do not allow virtualisation. As a proof of concept, on 2022-2023 I decided to move to a cloud environment one class. This year 2023-2024 all the materials have been designed to run on Gitpod cloud environment integrated on Visual Studio code IDE and allowing a visual Desktop interface. So I expect several errors, so bear with me and beg you pardon!</p>
-<h1 id="classes-content">Classes content</h1>
-<p>All the materials will be handed to you over Moddle or ADI. Lectures will be PDF files that contain all the theory notions that you will need to carry on this module. Practical session will be handed in html and PDF formats to store for future enquiry and print (inadvisable). To follow classroom lectures, I recommend to open practicals folder or click on below links to each practical to follow the last version of the same material. Once you open Gitpod right click to corresponding markdown practical (e.g. <code>practicals/Intro_into_Gitpod.md</code> ended in .md), and open with build-in Markdown preview.</p>
-<h2 id="intro-into-gitpod">Intro into Gitpod</h2>
-<p>This manual contains a basic introduction on the Gitpod use [ <a href="https://www.gitpod.io/"> Gitpod </a> ](https://www.gitpod.io/) a Unix system emulating a small HPC. Its a cloud system that could also work in our desktop Visual Studio Code. Therefore we will learn Unix, Cloud computing, HPC, IDE integration and we will solve Biological problems and using NGS data. So it´s a perfect system to learn Bioinformatic data analyses. The only drawback is that on the free version we are allowed to use it 50 hours a month. This should suffice to work out this module but in case you need more time a simple subscription of 9€ will give you 100 extra hours.</p>
-<p>We will explore all Gitpod capabilities through learning during this module practicals. A simple manual to get started for this module development:</p>
+<p>This Bioinformatics materials have been evolving since 2017 and therefore there where several hurdles to overcome since then. Initially, they ran on a HPC cluster on Birkbeck University London but it was difficult to manage dozens students accounts without interfering with normal users. Then I changed to a UNIX Virtual Machine (VirtualBox) that were installed on each student computer. This was successfully used on UCL (London), Birkbeck (London), UNAV (Navarra) and UPNA (Navarra). Unfortunately, this throw some difficulties as the need of 40Gb of empty disk space, computer crashes and later on, make impossible to continue with the appearance of the new M1-M2 chipsets on MACs that do not allow virtualisation. As a proof of concept, on 2022-2023 I decided to move to a cloud environment one class. On 2025-2026 all the materials have been designed to run on GitHub Codespaces environment integrated on Visual Studio code IDE and allowing a visual Desktop interface. So I expect several errors, so bear with me and beg you pardon!</p>
+<h2 id="overview">Overview</h2>
 <ul>
-<li>Simple Manual</li>
+<li>End-to-end practicum content spanning command-line skills, NGS analysis, and downstream interpretation.</li>
+<li>Reproducible Codespaces devcontainer with graphical desktop access for GUI-oriented workflows.</li>
+<li>Course assets delivered in Markdown, HTML, and PDF to support classroom delivery and self-study.</li>
+<li>Supplementary resources (reference genomes, datasets, figures) organised under <code>course_materials/</code> and <code>practicals/</code>.</li>
 </ul>
-<p><a href="practicals/docs/Intro_into_Gitpod.pdf"> Intro into Gitpod </a></p>
-<p>But if you wish to learn more and use for your own purposes you could study those materials:</p>
+<h2 id="requirements">Requirements</h2>
+<p>This document was written to help students enrolled. First of all, you will need to obtain a GitHub Education account to workout these classes. A part of the access to GitHub itself, you will get a bunch of professional software that will improve your code learning GitHub Education <a href="https://education.github.com/pack#offers"> GitHub Education </a>. Among them you will also get access to GitHub Copilot to use Artificial Intelligence to help your coding development GitHub Copilot  <a href="https://education.github.com/experiences/primer_copilot"> GitHub Copilot </a> that will be used later in this module. Therefore apply to GitHub Education <a href="https://education.github.com/pack/join">https://education.github.com/pack/join</a> straight away.</p>
+<p>In some cases it could take up to two weeks to grant your licence so do not delay since you won't be able to follow this course without it. Send me by email, your GitHub ID once you get it, to give you access to the practical material on this module. Once you get the gitHub ID email it to me.</p>
 <ul>
-<li>
-<p>Getting Started
-<a href="https://www.gitpod.io/docs/introduction"> Getting Started </a></p>
-</li>
-<li>
-<p>Video Tutorials
-<a href="https://www.gitpod.io/screencasts"> Screencast </a></p>
-</li>
-<li>
-<p>Guides
-<a href="https://www.gitpod.io/guides"> Guides </a></p>
-</li>
+<li>Approved GitHub account (students should request GitHub Education benefits for full access to course repositories and GitHub Copilot).</li>
+<li>Stable internet connection to run GitHub Codespaces within the browser or VS Code desktop.</li>
+<li>Optional: local PDF reader for offline lecture documents (<code>README.pdf</code>, <code>practicals/docs/*.pdf</code>).</li>
+</ul>
+<h2 id="codespaces-environment">Codespaces Environment</h2>
+<ul>
+<li>Base image: <code>mcr.microsoft.com/devcontainers/base:ubuntu-22.04</code> with the Dev Containers desktop-lite feature.</li>
+<li>Desktop stack: Xfce exposed via TigerVNC/noVNC on forwarded port <code>6080</code> (password <code>vscode</code> by default).</li>
+<li>Tooling: Miniforge+mamba (conda), IGV desktop, common bioinformatics CLI utilities, and VS Code extensions tailored for genomics.</li>
+<li>Automation: <code>.devcontainer/postCreate.sh</code> handles conda initialisation and browser provisioning for the desktop session.</li>
+</ul>
+<p>For a step-by-step walkthrough on creating and operating a Codespace for this course, see <code>practicals/Intro_into_Codespaces.md</code>.</p>
+<h2 id="repository-structure">Repository Structure</h2>
+<ul>
+<li><code>practicals/</code>: Guided exercises for each class (Markdown originals plus supporting docs and figures).</li>
+<li><code>course_materials/</code>: Reference genomes, resources, and source assets used across the modules.</li>
+<li><code>env/</code>: Environment definitions and auxiliary scripts.</li>
+<li><code>README.html</code> / <code>README.pdf</code>: Exported versions for distribution outside GitHub.</li>
+</ul>
+<h1 id="practical-modules">Practical Modules</h1>
+<p>All the materials will be handed to you over Moddle or ADI. Lectures will be PDF files that contain all the theory notions that you will need to carry on this module. Practical session will be handed in html and PDF formats to store for future enquiry and print (inadvisable). To follow classroom lectures, I recommend to open practicals folder or click on below links to each practical to follow the last version of the same material. Once you open Codespaces right click to corresponding markdown practical (e.g. <code>practicals/Intro_into_Codespaces.md</code> ended in .md), and open with build-in Markdown preview.</p>
+<h2 id="intro-to-github-codespaces-vsc">Intro to GitHub Codespaces VSC</h2>
+<p><a href="practicals/Intro_into_Codespaces.md"> Intro to GitHub Codespaces VSC </a></p>
+<ul>
+<li><code>practicals/Intro_into_Codespaces.md</code>: Launching the Codespaces workspace and using the remote desktop.</li>
 </ul>
 <h2 id="intro-to-command-line">Intro to command line</h2>
 <p><a href="practicals/Intro_into_command_line.md"> Intro to command line </a></p>
+<ul>
+<li><code>practicals/Intro_into_command_line.md</code>: Shell fundamentals for bioinformatics workflows.</li>
+</ul>
 <h2 id="next-generation-sequencing">Next Generation Sequencing</h2>
 <p><a href="practicals/NextGenerationSequencingPractical.md"> Next Generation Sequencing </a></p>
+<ul>
+<li><code>practicals/NextGenerationSequencingPractical.md</code>: Core NGS analysis pipeline.</li>
+</ul>
 <h2 id="genome-comparison">Genome Comparison</h2>
 <p><a href="practicals/GenomeComparisionPractical.md"> Genome Comparison </a></p>
-<h2 id="rna-sequencing-and-differential-gene-expression">RNA Sequencing and Differential Gene Expression</h2>
-<h2 id="transcript-sequencing">Transcript Sequencing</h2>
-<h2 id="snakemake-pipelines">Snakemake Pipelines</h2>
-<h2 id="github-ia-with-copilot">GitHub IA with Copilot</h2>
+<ul>
+<li><code>practicals/GenomeComparisionPractical.md</code>: Comparative genomics practical.</li>
+</ul>
+<h2 id="other-codespaces-repository">Other Codespaces repository</h2>
+<ul>
+<li>Additional modules on RNA-Seq, transcript sequencing, Snakemake, and GitHub Copilot integration are under development.</li>
+</ul>
+<h2 id="staying-up-to-date">Staying Up to Date</h2>
+<ul>
+<li>Watch the repository on GitHub for release notes and updates.</li>
+<li>Rebuild your Codespace when <code>.devcontainer/</code> changes land to pick up new tooling.</li>
+<li>Report environment issues via repository discussions or pull requests.</li>
+</ul>
+<hr>
+<p>The teaching material has evolved from on-premises HPC clusters to local virtual machines and now GitHub Codespaces, delivering a consistent browser-based environment without the maintenance overhead of local virtualisation.</p>
 
 </body>
 </html>
