@@ -32,7 +32,7 @@ Interpretation will be the **most heavily weighted** criterion in grading.
 ### 📋 **Assessment Overview**
 
 You will complete **three main tasks** (plus one extended exercise).  
-Each builds on the previous one, representing together **40 % of the module grade**.
+Each builds on the previous one, representing together **30 % of the module grade**.
 
 Deliverables:
 - Submit a **single PDF report** (generated from Markdown) to ADI before the deadline.  
@@ -128,7 +128,8 @@ You will use your optimized workflow from Question 2 to produce the **best possi
 - A **biological interpretation** of what your optimizations imply about the sample or sequencing process.
 
 #### **Example BOX**
-```bash
+```{bash}
+
 # Cutadapt trimming
 cutadapt -q ¿¿¿¿¿ -m ¿¿¿¿¿ -a ¿¿¿¿¿ -A ¿¿¿¿¿¿¿?????? 
 

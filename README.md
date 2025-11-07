@@ -42,6 +42,7 @@ For a step-by-step walkthrough on creating and operating a Codespace for this co
 All the materials will be handed to you over Moddle or ADI. Lectures will be PDF files that contain all the theory notions that you will need to carry on this module. Practical session will be handed in html and PDF formats to store for future enquiry and print (inadvisable). To follow classroom lectures, I recommend to open practicals folder or click on below links to each practical to follow the last version of the same material. Once you open Codespaces right click to corresponding markdown practical (e.g. ` practicals/Intro_into_Codespaces.md ` ended in .md), and open with build-in Markdown preview.
 
 ## Intro to GitHub Codespaces VSC
+
 [ Intro to GitHub Codespaces VSC ](practicals/Intro_into_Codespaces.md)
 - `practicals/Intro_into_Codespaces.md`: Launching the Codespaces workspace and using the remote desktop.
 

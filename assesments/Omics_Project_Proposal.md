@@ -25,7 +25,10 @@ You will think like a **researcher preparing a funding proposal**, formulating a
 
 ### 🧩 **Assignment Overview**
 
-- **Select** one (or a combination of up to three) review articles from the provided list.  
+- **Select** one (or a combination of up to three) review articles from the following provided list. 
+---
+#     🧩  🔗 [**List of articles to chose** ](https://docs.google.com/spreadsheets/d/1mZdAAMBhLZ1a-GPtAdsS6eO52a1VSLMeDBJUzhkNeM4/edit?usp=sharing)  
+---
 - **Propose a novel research idea** applying those concepts to solve a concrete scientific or clinical problem.  
 - **Write a full project proposal** (10–20 pages, excluding references) following a funding-style structure.  
 - **Prepare a PowerPoint presentation** (15-20 minutes) to present and defend your project in class.
