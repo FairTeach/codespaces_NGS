@@ -32,9 +32,12 @@ The UNIX filesystem is arranged like an upside-down tree. The `/` directory sits
 
 If you prefer a graphical view, you can open the noVNC desktop that ships with this Codespace. In VS Code select the **Ports** tab, find the forwarded port named `Desktop noVNC` (**port 6080**), and click the globe icon to launch the desktop in your browser. From there you can explore folders visually while mirroring the same locations in the terminal.
 
+![Open the forwarded desktop port in your browser](figures/OpenDesktop.png)
+
+
 On the Desktop point to the small arrow on the left corner at the bottom and press `File Manager` 
 
-![Linux system structure](figures/desktop.PNG)
+![Linux system structure](figures/desktop.png)
 
 
 If you are working on your own computer, open the system Desktop/Finder/Explorer window next to the terminal and browse to the same folders. Seeing the folder tree while you run commands helps build intuition.
