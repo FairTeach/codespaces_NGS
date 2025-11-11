@@ -73,6 +73,8 @@ ls -a
 
 # List files with extra details (permissions, size, dates)
 ls -l
+# Short version of ls -l
+ll
 
 # Move into a folder
 cd practicals
@@ -108,6 +110,7 @@ To get a quick visual overview of the structure you can use `tree -L 1` (the `-L
 You will often need a scratch area to test commands. The steps below create a practice folder and file so you can try later commands safely.
 
 ```{bash, eval=FALSE}
+cd /workspaces/codespaces_NGS
 # Make a new folder for experiments
 mkdir sandbox
 
@@ -118,7 +121,7 @@ cd sandbox
 touch notes.txt
 
 # Confirm it exists
-ls
+ll
 
 # Show what is inside (it is empty for now)
 cat notes.txt
@@ -151,11 +154,14 @@ cat notes.txt | grep "Sample"
 Pipes (`|`) let you join commands together. The example above sends the output of `cat` into `grep`. Another handy pattern is to inspect recent commands:
 
 ```{bash, eval=FALSE}
+# Show complete commands you ran 
+history
+
 # Show the last few commands you ran
 history | tail -n 5
 
 # Rerun a previous command by number
-!22       # replace 22 with the number shown in the history list
+!20       # replace 20 with the number shown in the history list
 
 # Rerun the very last command
 !!
@@ -260,21 +266,34 @@ zless <compressed_file.gz>
 <command> --help
 man <command>
 ```
+---
 
-Cheatsheet:
+## 10. Tutorial & Cheatsheets
 
-https://devhints.io/bash
 
-Tutorial:
+A small curated list of resources to learn and reference shell basics. Use them in the order below: start with a quick cheatsheet, practise interactively, then consult the book or the advanced guide when you need deeper explanations.
 
-https://www.learnshell.org/
+- Quick cheatsheet — devhints.io/bash  
+  A concise, printable reference for common commands and patterns (flags, redirection, pipes). Good to keep open while you work.
+  https://devhints.io/bash 
 
-** Complete book:**
+- Interactive tutorial — learnshell.org  
+  Hands‑on exercises that run in the browser. Useful to practice typing commands and seeing immediate feedback.
+  https://www.learnshell.org/ 
 
-https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
+- Beginner book — Bash Beginners Guide (TLDP)  
+  A complete PDF reference that explains concepts in depth and includes many examples. Use as a long‑form reference when you want fuller explanations.
+  https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf 
 
-More advanced tutorial:
+- Advanced guide — Bash Academy  
+  For students who want to understand shell internals, quoting rules, functions and scripting best practices.
+  https://guide.bash.academy/ 
 
-https://guide.bash.academy/
+- Local help (always available) — man, --help, and built‑in shell features  
+  man <command> and <command> --help are the fastest way to get accurate usage details for tools you already have installed.
 
-Keep this page open the first few times you work in the shell. With repeated use, the commands will become second nature. Happy exploring!
+
+Keep this pages bookmarked while you learn; the combination of a cheatsheet, hands‑on exercises and the full book is an efficient way to build lasting command‑line skills.
+// ...existing code...
+
+

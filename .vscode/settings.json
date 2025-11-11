@@ -12,6 +12,7 @@
                                            },
     "terminal.integrated.defaultProfile.linux":  "bash (login)",
     "cSpell.configFile":  "${workspaceFolder}/cspell.json",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,
