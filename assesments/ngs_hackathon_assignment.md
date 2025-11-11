@@ -150,6 +150,8 @@ bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
 
 ### **Question 4 – Exploring SAM Flags (Advanced Task)**
 
+> ¡¡ This is a non required questions. Student and groupd completing this task will get extra points but will not compute on the total mark points!!
+
 Use **`samtools`** to split and inspect your alignment file (`BQ_aligned.sam` or `.bam`) based on mapping characteristics.
 
 #### **Tasks**

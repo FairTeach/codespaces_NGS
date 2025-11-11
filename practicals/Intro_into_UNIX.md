@@ -32,9 +32,12 @@ The UNIX filesystem is arranged like an upside-down tree. The `/` directory sits
 
 If you prefer a graphical view, you can open the noVNC desktop that ships with this Codespace. In VS Code select the **Ports** tab, find the forwarded port named `Desktop noVNC` (**port 6080**), and click the globe icon to launch the desktop in your browser. From there you can explore folders visually while mirroring the same locations in the terminal.
 
+![Open the forwarded desktop port in your browser](figures/OpenDesktop.png)
+
+
 On the Desktop point to the small arrow on the left corner at the bottom and press `File Manager` 
 
-![Linux system structure](figures/desktop.PNG)
+![Linux system structure](figures/desktop.png)
 
 
 If you are working on your own computer, open the system Desktop/Finder/Explorer window next to the terminal and browse to the same folders. Seeing the folder tree while you run commands helps build intuition.
@@ -70,6 +73,8 @@ ls -a
 
 # List files with extra details (permissions, size, dates)
 ls -l
+# Short version of ls -l
+ll
 
 # Move into a folder
 cd practicals
@@ -105,6 +110,7 @@ To get a quick visual overview of the structure you can use `tree -L 1` (the `-L
 You will often need a scratch area to test commands. The steps below create a practice folder and file so you can try later commands safely.
 
 ```{bash, eval=FALSE}
+cd /workspaces/codespaces_NGS
 # Make a new folder for experiments
 mkdir sandbox
 
@@ -115,7 +121,7 @@ cd sandbox
 touch notes.txt
 
 # Confirm it exists
-ls
+ll
 
 # Show what is inside (it is empty for now)
 cat notes.txt
@@ -141,18 +147,63 @@ tail -n 1 notes.txt
 cat notes.txt | grep "Sample"
 ```
 
-- `>` sends output to a file and overwrites it; use this when you want to start fresh.
-- `>>` appends to the end of the file so you can keep adding notes.
-- `grep` searches for matching text; here it keeps only the lines containing "Sample".
+### Copying and Moving Files (cp, mv)
+
+Use cp to duplicate files or directories, and mv to rename or relocate them. Do these inside sandbox so it is safe to experiment.
+
+```{bash, eval=FALSE}
+# Make sure you are inside the sandbox
+cd /workspaces/codespaces_NGS/sandbox
+pwd
+
+# 1) Copy a file
+cp notes.txt copy_notes.txt          # creates a duplicate
+
+# Safer copy: ask before overwriting (-i)
+cp -i notes.txt copy_notes.txt       # prompts if copy_notes.txt exists
+
+# 2) Copy a directory recursively (-r)
+mkdir -p data
+echo "alpha" > data/values.txt
+cp -r data data_backup               # copies the whole folder
+
+# 3) Move (rename) a file
+mv copy_notes.txt notes_renamed.txt  # rename a file
+
+# 4) Move a file into a folder
+mv notes_renamed.txt data/           # relocate into data/
+
+# 5) Rename a directory
+mv data_backup data_backup_old
+
+# Tips:
+# -i : interactive prompt before overwrite (cp -i, mv -i)
+# -r : recursive copy of directories (cp -r dir dest)
+# -a : archive copy (preserves timestamps/permissions) e.g., cp -a dir dir_copy
+```
+
+mv also renames things quickly without making a second copy:
+
+```{bash, eval=FALSE}
+# Rename then rename back
+mv notes.txt notes.tmp
+mv notes.tmp notes.txt
+```
+
+Keep the sandbox folder and its files (at least notes.txt and the data/ folder) for Section 6 where you will edit a file in VS Code.
+// ...existing code...
 
 Pipes (`|`) let you join commands together. The example above sends the output of `cat` into `grep`. Another handy pattern is to inspect recent commands:
 
 ```{bash, eval=FALSE}
+# Show complete commands you ran 
+history
+
 # Show the last few commands you ran
 history | tail -n 5
 
 # Rerun a previous command by number
-!22       # replace 22 with the number shown in the history list
+!20       # replace 20 with the number shown in the history list
 
 # Rerun the very last command
 !!
@@ -161,10 +212,17 @@ history | tail -n 5
 Once you finish experimenting you can tidy up:
 
 ```{bash, eval=FALSE}
-# Still inside the sandbox folder
-rm notes.txt
-cd ..          # leave the folder first
-rm -r sandbox  # remove the folder and anything in it (be careful!)
+# Stay inside the sandbox folder
+pwd
+
+# OPTIONAL: remove only temporary example artefacts you created above.
+# Keep sandbox/, notes.txt, and data/ for Section 6.
+rm -rf data_backup_old
+# If you created an extra backup by mistake, you can remove it too:
+rm -rf data_backup
+
+# Verify what remains
+ls -l
 ```
 
 > Be cautious with `rm -r`. It deletes folders permanently and does not use a recycle bin.
@@ -257,21 +315,34 @@ zless <compressed_file.gz>
 <command> --help
 man <command>
 ```
+---
 
-Cheatsheet:
+## 10. Tutorial & Cheatsheets
 
-https://devhints.io/bash
 
-Tutorial:
+A small curated list of resources to learn and reference shell basics. Use them in the order below: start with a quick cheatsheet, practise interactively, then consult the book or the advanced guide when you need deeper explanations.
 
-https://www.learnshell.org/
+- Quick cheatsheet — devhints.io/bash  
+  A concise, printable reference for common commands and patterns (flags, redirection, pipes). Good to keep open while you work.
+  https://devhints.io/bash 
 
-** Complete book:**
+- Interactive tutorial — learnshell.org  
+  Hands‑on exercises that run in the browser. Useful to practice typing commands and seeing immediate feedback.
+  https://www.learnshell.org/ 
 
-https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
+- Beginner book — Bash Beginners Guide (TLDP)  
+  A complete PDF reference that explains concepts in depth and includes many examples. Use as a long‑form reference when you want fuller explanations.
+  https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf 
 
-More advanced tutorial:
+- Advanced guide — Bash Academy  
+  For students who want to understand shell internals, quoting rules, functions and scripting best practices.
+  https://guide.bash.academy/ 
 
-https://guide.bash.academy/
+- Local help (always available) — man, --help, and built‑in shell features  
+  man <command> and <command> --help are the fastest way to get accurate usage details for tools you already have installed.
 
-Keep this page open the first few times you work in the shell. With repeated use, the commands will become second nature. Happy exploring!
+
+Keep this pages bookmarked while you learn; the combination of a cheatsheet, hands‑on exercises and the full book is an efficient way to build lasting command‑line skills.
+// ...existing code...
+
+

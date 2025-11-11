@@ -29,10 +29,10 @@ By the end of the module, students will be able to:
 
 | Date | Classroom | Session | Description | 
 |------|-----------|----------|-------------|
-| **Nov 10 (Mon)** | Sario 603 |**Introduction to Advanced NGS & Molecular Infrastructure** | Overview of NGS technologies, sequencing pipelines, and applications. Presentation of NASERTIC’s Molecular Laboratory and Synthetic Biology Facilities. | 
+| **Nov 10 (Mon)** | Sario 603 |**Introduction to Personalised Medicine, Advanced Omics & Molecular Infrastructure** | Overview of Personalised Medicine, Omics, NGS technologies, sequencing pipelines, and applications. Presentation of NASERTIC’s Molecular Laboratory and Synthetic Biology Facilities. | 
 | **Nov 11 (Tue)** | Sario 502 |**Introduction to HPC and UNIX** | Hands-on introduction to command-line environments, cloud HPC systems, and workflow execution. | 
 | **Nov 12 (Wed)** | Sario 502 |**NGS Alignment Challenge + Hackathon** | Competitive analysis of sequencing datasets. Teams optimise pipelines to achieve highest mapping performance. | 
-| **Nov 13 (Thu)** | Sario 616A |**Visit to NASERTIC & Polo de Innovación Molecular** | Guided visit to sequencing, HPC, and synthetic biology facilities. Followed by a 1-hour **brainstorming session** to initiate project proposal ideas. |
+| **Nov 13 (Thu)** | Sario Polo de Innovacción 4a planta ~~616A~~ |**Visit to NASERTIC & Polo de Innovación Molecular** | Guided visit to sequencing, HPC, and synthetic biology facilities. Followed by a 1-hour **brainstorming session** to initiate project proposal ideas. |
 | **Nov 14 (Fri)** | Sario 603 |**Team Work & Project Development Workshop** | Teams refine Hackathon results and begin writing the **Omics Innovation Project Proposal**. Q&A session for technical or conceptual issues. | 
 | **Nov 29–Dec 4 (TBD)** | **Project and Hackathon Submission** | Upload NGS Alignment Challenge + Hackathon and project proposal report (10–20 pages) in PDF format. |
 | **+2 days after submission** | **Project Defense & Presentation** | 15-20 min PowerPoint presentation + discussion in classroom. | 
