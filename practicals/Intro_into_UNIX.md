@@ -147,9 +147,51 @@ tail -n 1 notes.txt
 cat notes.txt | grep "Sample"
 ```
 
-- `>` sends output to a file and overwrites it; use this when you want to start fresh.
-- `>>` appends to the end of the file so you can keep adding notes.
-- `grep` searches for matching text; here it keeps only the lines containing "Sample".
+### Copying and Moving Files (cp, mv)
+
+Use cp to duplicate files or directories, and mv to rename or relocate them. Do these inside sandbox so it is safe to experiment.
+
+```{bash, eval=FALSE}
+# Make sure you are inside the sandbox
+cd /workspaces/codespaces_NGS/sandbox
+pwd
+
+# 1) Copy a file
+cp notes.txt copy_notes.txt          # creates a duplicate
+
+# Safer copy: ask before overwriting (-i)
+cp -i notes.txt copy_notes.txt       # prompts if copy_notes.txt exists
+
+# 2) Copy a directory recursively (-r)
+mkdir -p data
+echo "alpha" > data/values.txt
+cp -r data data_backup               # copies the whole folder
+
+# 3) Move (rename) a file
+mv copy_notes.txt notes_renamed.txt  # rename a file
+
+# 4) Move a file into a folder
+mv notes_renamed.txt data/           # relocate into data/
+
+# 5) Rename a directory
+mv data_backup data_backup_old
+
+# Tips:
+# -i : interactive prompt before overwrite (cp -i, mv -i)
+# -r : recursive copy of directories (cp -r dir dest)
+# -a : archive copy (preserves timestamps/permissions) e.g., cp -a dir dir_copy
+```
+
+mv also renames things quickly without making a second copy:
+
+```{bash, eval=FALSE}
+# Rename then rename back
+mv notes.txt notes.tmp
+mv notes.tmp notes.txt
+```
+
+Keep the sandbox folder and its files (at least notes.txt and the data/ folder) for Section 6 where you will edit a file in VS Code.
+// ...existing code...
 
 Pipes (`|`) let you join commands together. The example above sends the output of `cat` into `grep`. Another handy pattern is to inspect recent commands:
 
@@ -170,10 +212,17 @@ history | tail -n 5
 Once you finish experimenting you can tidy up:
 
 ```{bash, eval=FALSE}
-# Still inside the sandbox folder
-rm notes.txt
-cd ..          # leave the folder first
-rm -r sandbox  # remove the folder and anything in it (be careful!)
+# Stay inside the sandbox folder
+pwd
+
+# OPTIONAL: remove only temporary example artefacts you created above.
+# Keep sandbox/, notes.txt, and data/ for Section 6.
+rm -rf data_backup_old
+# If you created an extra backup by mistake, you can remove it too:
+rm -rf data_backup
+
+# Verify what remains
+ls -l
 ```
 
 > Be cautious with `rm -r`. It deletes folders permanently and does not use a recycle bin.
