@@ -17,6 +17,8 @@
         "*": false,
         "plaintext": false,
         "markdown": false
-},
-"livePreview.defaultPreviewPath": "/README.html"
+    },
+    "github.copilot-chat.enable": false,
+    "github.copilot-chat.openOnStartup": false,
+    "livePreview.defaultPreviewPath": "/README.html"
 }
