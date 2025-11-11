@@ -49,11 +49,11 @@ After launching a new Codespace via the badge, sign in to GitHub if prompted and
 
 Once inside the desktop, start a terminal from `Applications → Terminal Emulator`, or continue working in the VS Code terminal.
 
-![Open the main terminal inside Codespaces](figures/terminal.png)
+![Open the main terminal inside Codespaces](figures/VSC_view.png)
 
 Browse the repository through the left-hand `File Explorer`.
 
-![Browse files via the Codespaces explorer](figures/file_explorer.png)
+![Browse files via the Codespaces explorer](figures/VSC_view2.png)
 
 Right-click any practical Markdown (for example, `practicals/Intro_into_Codespaces.md`) and choose **Open Preview** to read the instructions alongside your terminal.
 
