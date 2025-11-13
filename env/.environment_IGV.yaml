@@ -1,0 +1,8 @@
+name: env_IGV
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - igv
+  - glib
