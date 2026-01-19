@@ -73,7 +73,7 @@ If you have copied the course_materials as suggested in the last practical, you 
 ```{bash, eval = FALSE}
 # Include environmental variable ToDo
 st_path=$PWD
-# st_path="/workspace/NGS_practicals"
+# st_path="/workspaces/codespaces_NGS"
 
 # The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
 conda config --add channels defaults
@@ -97,7 +97,7 @@ mamba clean --all --yes
   
 ## Prepare a directory with some files
 
-In order to practice the use of the command line, let's first copy some files to your directories. You will need these files for the NGS practicals. To be able to run and export this lecture over many systems we will use a trick using a variable to substitute the $PATH. I will assume that you are already under `/workspace/NGS_practicals/course_materials` before you follow these commands:
+In order to practice the use of the command line, let's first copy some files to your directories. You will need these files for the NGS practicals. To be able to run and export this lecture over many systems we will use a trick using a variable to substitute the $PATH. I will assume that you are already under `/workspaces/codespaces_NGS` before you follow these commands:
 
 
 ```{bash, eval = FALSE}
@@ -120,9 +120,9 @@ Below are the most popular commands you will need to be familiar with in order t
 ```{bash, eval = FALSE}
 ls
 # show files starting with . (hidden files)
-ls -a /workspace/NGS_practicals/env
+ls -a /workspaces/codespaces_NGS/env
 # Note we are not using -a on this command. Could you identify any difference?
-ls /workspace/NGS_practicals/env
+ls /workspaces/codespaces_NGS/env
 # list files in long format, in reverse chronological order (newest will be last)
 ls -lrt
 # long listing, in reverse order of size, printing size in human-readable format
@@ -142,11 +142,11 @@ pwd
 ```{bash, eval = FALSE}
 # Go to your /home
 cd
-# Return to  /workspace/NGS_practicals/course_materials/
+# Return to  /workspaces/codespaces_NGS/course_materials/
 cd "${st_path}"
 # Go to folder for this practical
 cd intro_UNIX
-# Return to upper level same as cd /workspace/NGS_practicals
+# Return to upper level same as cd /workspaces/codespaces_NGS
 cd ../..
 # Display tree Unix structure
 tree
@@ -502,7 +502,7 @@ echo $file
 
 ### Practice example
    
-Write a bash script (call it "setup_NGS.sh") to do the copying of the course materials to your own space on ` /workspace/NGS_practicals/course_materials ` so that if you need to repeat this process (as described above), you can run a script to do it. Your script should take as arguments the file name you want to copy (including its full path) and the directory name where the file is to be saved and it then should do the following:
+Write a bash script (call it "setup_NGS.sh") to do the copying of the course materials to your own space on ` /workspaces/codespaces_NGS/course_materials ` so that if you need to repeat this process (as described above), you can run a script to do it. Your script should take as arguments the file name you want to copy (including its full path) and the directory name where the file is to be saved and it then should do the following:
 1. Create a directory named `course_materials` under `"${st_path}"` (assuming the directory exists) and under `course_materials` create a directory called `fastq`.
 2. Copy the file `ERR1880948_subset.fastq.gz` to this fastq directory. 
 3. Print out the first four lines of the FASTQ file on the screen. HINT: you do not need to unzip the file; the `zcat` command will read the zipped file and work like `cat` would on an unzipped file.
