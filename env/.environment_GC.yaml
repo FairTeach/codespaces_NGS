@@ -14,7 +14,9 @@ dependencies:
   - vcflib
   - bedtools
   - blast
+  - htslib
+  - tabix
   # tabixpp is sometimes hard to resolve due to tight htslib/libdeflate pins.
   # If solver still fails, try replacing `tabixpp` with `htslib` and `tabix` or
   # remove it and install later via conda-forge/bioconda separately.
-  - tabixpp
+  #- tabixpp

@@ -25,7 +25,7 @@ done
 # .     Parse this directory and downastream
 echo "Running MultiQC..."
 echo "Capturing FastQC statistics"
-multiqc -f .
+/opt/conda/bin/multiqc -f .
 
 #filename=$(basename "$f")
 #extension="${filename##*.}"

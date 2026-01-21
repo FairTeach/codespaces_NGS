@@ -1,7 +1,10 @@
 # Ignore
+# course_materials/src/*
 course_materials/genomes/*
 course_materials/resources/*
-# course_materials/src/*
 course_materials/*
 
+course_materials/fastq*
+
 # Ignore
+# *

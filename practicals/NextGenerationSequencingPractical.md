@@ -155,10 +155,11 @@ cd "${st_path}"/course_materials/fastq/
 fastqc final_merge_synthetic_reads.fq 
 
 # Visualise fastQC report in firefox web-browser. NOTE exit with "ctr + c" from the command line.
-firefox final_merge_synthetic_reads_fastqc.html
+/opt/conda/bin/firefox final_merge_synthetic_reads_fastqc.html
 
 ```
-
+> Open the desktop GUI, or Graphical User Interface, using the port 6080, to visualize the MultiQC report using Firefox browser!! 
+> Close the browser with the `X` top right window or `Ctrl + C` to liberate terminal.
 
      
 ## 4. Sample de-multiplexing using DNA barcodes 
@@ -277,7 +278,7 @@ Your cutadapt output should look like more or less like this:
 
 ``` {bash, eval = FALSE}
 # Manual
-multiqc --help
+/opt/conda/bin/multiqc --help
 
 ####################################################
 # Summarising statistics with MultiQC 
@@ -285,10 +286,10 @@ multiqc --help
 # run multiQC. 
 # "." dot means in the current directory and downstream.
 # "-f" removing previous results.
-multiqc . -f
+/opt/conda/bin/multiqc . -f
 
 # Open in Firefox
-firefox multiqc_report.html
+/opt/conda/bin/firefox multiqc_report.html
 
 
 ``` 
@@ -327,7 +328,7 @@ less Iterate_fastq.sh
 bash Iterate_fastq.sh
 
 # Open multiple FastQC reports on Firefox. Check multiQC report !!! NOTE Close firefox window or "ctr + c" on the command line.
-firefox multiqc_report.html
+/opt/conda/bin/firefox multiqc_report.html
 
 ```
 
@@ -343,7 +344,7 @@ We have quality-inspected, demultiplexed, quality-inspected again our reads and 
 
 A commonly used program for aligning short reads to a reference genome is **bowtie2**. There are many more such programs: bwa, STAR, hisat2 etc. The new generation of sequencing that produces much longer reads uses its own set of aligners that are more suitable for much longer sequences and sequences that generally also contain a higher error rate compared with Illumina's short reads.
 
-In this practical, we use Illumina short reads and we will map them using bowtie2. This program is installed by mamba, but the latest version can be run by loading mamba `  env_NGS ` environment.
+In this practical, we use Illumina short reads and we will map them using bowtie2. This program is installed by mamba, but the latest version can be run by loading  ~~`activate mamba  env_NGS `~~ environment.
      
 #### Bowtie2 manual   
     
@@ -519,22 +520,22 @@ head Negative_bowtie_stats.txt
 #### run MultiQC to capture all the Bowtie2 alignment statistics.
 
 ```{bash, eval = FALSE}
-multiqc . -f
+/opt/conda/bin/multiqc . -f
 
 # Open in Firefox and explore mapping results. 
 # Are you able to map negative or BQ samples? 
 # Why? Check fastQC statistics of negative or BQ samples in comparison with Positive or Long samples.
 # Can you improve mapping trimming reads using previous steps? or even using Bowtie2?
-firefox multiqc_report.html
+/opt/conda/bin/firefox multiqc_report.html
 
 ```
 
 ![ Bowtie2_stats ](figures/Bowtie2_stats.PNG)   
   
-#### Think about the following questions:
-Are you able to map negative or BQ samples?
-If not, why not? Check fastQC statistics of negative or BQ samples and compare them with Positive or Long samples.
-Can you improve the mapping by trimming reads or by using Bowtie2 alone?
+> #### Think about the following questions:
+  Are you able to map negative or BQ samples?
+  If not, why not? Check fastQC statistics of negative or BQ samples and compare them with Positive or Long samples.
+  Can you improve the mapping by trimming reads or by using Bowtie2 alone?
 
 
 ## 8. SAM Sequence Alignment/Map format
@@ -697,10 +698,10 @@ cd "${st_path}"/course_materials/
 # Final MultiQC capturing all the data
 ####################################################
 # Run MultiQC on the initial folder
-multiqc . -f
+/opt/conda/bin/multiqc . -f
 
 # Inspect MultiQC report
-firefox multiqc_report.html
+/opt/conda/bin/firefox multiqc_report.html
 ```
   
 
