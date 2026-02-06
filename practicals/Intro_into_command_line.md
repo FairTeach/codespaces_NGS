@@ -502,7 +502,7 @@ echo $file
 
 ### Practice example
    
-Write a bash script (call it "setup_NGS.sh") to do the copying of the course materials to your own space on ` /workspaces/codespaces_NGS/course_materials ` so that if you need to repeat this process (as described above), you can run a script to do it. Your script should take as arguments the file name you want to copy (including its full path) and the directory name where the file is to be saved and it then should do the following:
+Write a bash script (call it "third.sh") to do the copying of the course materials to your own space on ` /workspaces/codespaces_NGS/course_materials ` so that if you need to repeat this process (as described above), you can run a script to do it. Your script should take as arguments the file name you want to copy (including its full path) and the directory name where the file is to be saved and it then should do the following:
 1. Create a directory named `course_materials` under `"${st_path}"` (assuming the directory exists) and under `course_materials` create a directory called `fastq`.
 2. Copy the file `ERR1880948_subset.fastq.gz` to this fastq directory. 
 3. Print out the first four lines of the FASTQ file on the screen. HINT: you do not need to unzip the file; the `zcat` command will read the zipped file and work like `cat` would on an unzipped file.
@@ -667,7 +667,7 @@ BEGIN {# set parameters like the field separator}
 END {# end commands}
 ```
   
-The last awk command we wrote in awk could be rewritten as a script like this (we will call the script script.awk and use a text editor to input the code below):
+The last awk command we wrote in awk could be rewritten as a script like this (we will call the script `script.awk` and use a text editor to input the code below):
   
 ```{bash, eval = FALSE}
 BEGIN {
@@ -686,7 +686,7 @@ END {
 We can run the script using:
   
 ```{bash, eval = FALSE}
-awk -f test.awk ERR1880948_subset.fastq | head -4 | sed 's/\/1//'
+awk -f script.awk ERR1880948_subset.fastq | head -4 | sed 's/\/1//'
 ```
   
 The output should be identical to what we obtained before.
