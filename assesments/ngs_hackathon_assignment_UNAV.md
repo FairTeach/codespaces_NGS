@@ -1,13 +1,14 @@
-# 🧬 NGS Hackathon Challenge  
-## Master in Research and Innovation in Biotechnology  
-### Module: “Challenges in Biotechnology”
+# 🧬 1st Assessment - NGS Hackathon Challenge  
+## Universidad de Navarra  
+## Máster en Métodos Computacionales en Ciencias 
+### Module: “Análisis e interpretación de datos de alto rendimiento”
 
 ---
-Date of the assignment: 	Tuesday 11/11/2025
+Date of the assignment: 	Tuesday 11/02/2026
 
 Date assignment is due:	-------------- – 23.59h
 
-Marking:	Challenge 1 — NGS Hackathon contributes 30% for Personalised Medicine section
+Marking:	1st Assessment — NGS Hackathon contributes 40% for module
 
 ---
 
@@ -24,7 +25,7 @@ Throughout the assignment, you will:
 - Document everything in **Markdown** for reproducibility.  
 
 > 🧠 **Most important:** every section of your report must include a **strong biological interpretation** of the computational results.  
-Explain what your observations mean in biological terms — e.g. sequencing quality, sample contamination, genomic complexity, or organismal biology.  
+Explain what your observations mean in biological terms — e.g. sequencing quality, sample contamination, genomic complexity, or organismal biology, sequencer failure...  
 Interpretation will be the **most heavily weighted** criterion in grading.
 
 ---
@@ -32,12 +33,12 @@ Interpretation will be the **most heavily weighted** criterion in grading.
 ### 📋 **Assessment Overview**
 
 You will complete **three main tasks** (plus one extended exercise).  
-Each builds on the previous one, representing together **30 % of the module grade**.
+Each builds on the previous one, representing together **40 % of the module grade**.
 
 Deliverables:
-- Submit a **single PDF report** (generated from Markdown) to ADI before the deadline.  
+- Submit a **single PDF report** (generated from Markdown) to ADI before the deadline. Word or similar are allowed but Markdown is preferred. 
 - Include all code, outputs (figures, tables, screenshots), and your biological interpretations.  
-- Demonstrate iterative improvement, clear reasoning, and teamwork.  
+- Demonstrate iterative improvement, clear reasoning and thorough analysis.  
 
 ---
 
@@ -54,8 +55,8 @@ Relevant examples:
 - **EMBL-EBI BioHackathon Europe** — focused on NGS interoperability and FAIR data standards:  
   🔗 [https://biohackathon-europe.org/](https://biohackathon-europe.org/)
 
-In this course, you will participate in a **mini-hackathon**, where teams will compete to achieve the **best mapping performance** (highest alignment rate and lowest error) on the same dataset.  
-Teamwork, creativity, reproducibility, and biological insight will determine success.
+In this course, you will participate in a **mini-hackathon**, where Students will compete to achieve the **best mapping performance** (highest alignment rate and lowest error) on the same dataset.  
+Hard work, creativity, reproducibility, and biological insight will determine success.
 
 ---
 
@@ -74,14 +75,14 @@ When reads were split using four barcodes (Negative, Positive, Long, BQ), the fi
 1. Identify **two plausible solution** for the poor mapping.  
 2. Test both hypotheses by applying corresponding corrections or parameter changes.  
 3. Re-map the reads against the reference genome.  
-4. Choose which hypothesis is most accurate, justify your choice, and provide a biological interpretation.
+4. From **two plausible solution** choose which hypothesis is most accurate, justify your choice, and provide a biological interpretation.
 
 #### **Hints**
 - Use `less` and `fastqc` to inspect raw reads.  
 - Try trimming options with `cutadapt` and different alignment modes with `bowtie2`.  
 - Evaluate performance with `samtools stats`, `samtools flagstat`, and `multiQC`.  
 
-#### **Include in your report**
+#### **Include in your report** - Suggestions
 - All commands used.  
 - Description of both initial hypotheses and solutions.  
 - Identification of the correct cause and justification with evidence.  
@@ -102,7 +103,7 @@ Your objective is to **improve mapping accuracy and yield** through quality filt
 - Compare **alignment rate**, **error rate**, and **number of properly paired reads** using `samtools` and `multiQC`.  
 - Reflect on the trade-off between **alignment rate** (quantity) and **alignment accuracy** (quality).  
 
-#### **Include in your report**
+#### **Include in your report** - Suggestions
 - All trimming and mapping commands.  
 - Tables with mapping statistics.  
 - Explanation of how trimming thresholds affected results.  
@@ -117,9 +118,9 @@ This is the **competitive hackathon** section.
 You will use your optimized workflow from Question 2 to produce the **best possible mapping** for the `BQ` dataset.  
 
 #### **Rules**
-- You may use either standard commands or your **own developed scripts or pipelines** (custom Bash scripts, or Python wrappers).  
+- You may use either standard commands or your **own developed scripts or pipelines** (custom Bash scripts, or Python wrappers or Rscripts).  
 - Creativity and reproducibility are encouraged — clearly document your workflow so that others could reproduce your results.  
-- Each team must submit one final short **command or script BOX** and final statistics.  
+- Each Student must submit one final short **command or script BOX** and final statistics.  
 
 #### **Deliverables**
 - A **BOX** (or script snippet) containing your final `cutadapt` and `bowtie2` commands or full custom pipeline.  
@@ -140,6 +141,7 @@ You will use your optimized workflow from Question 2 to produce the **best possi
 > ```
 
 #### **Evaluation criteria**
+What is more important? What do you prioritise?
 1. Highest % of mapped reads.  
 2. Lowest mismatch/error rate.  
 3. Lowest multimapping reads.
@@ -148,9 +150,7 @@ You will use your optimized workflow from Question 2 to produce the **best possi
 
 ---
 
-### **Question 4 – Exploring SAM Flags (Advanced Task)**
-
-> ¡¡ This is a non required questions. Student and groupd completing this task will get extra points but will not compute on the total mark points!!
+### **Question 4 – Exploring `BQ_aligned` (Advanced Task)**
 
 Use **`samtools`** to split and inspect your alignment file (`BQ_aligned.sam` or `.bam`) based on mapping characteristics.
 
@@ -203,7 +203,7 @@ You can use Word or Google Docs, but **Markdown** is highly recommended for repr
 3. Install:  
    - **Markdown All in One** → [link](https://open-vsx.org/vscode/item?itemName=yzhang.markdown-all-in-one)  
    - **Markdown PDF (yzane)** → [link](https://open-vsx.org/vscode/item?itemName=yzane.markdown-pdf)  
-4. Create a file named `NGS_Hackathon_Report_{TEAM_NAME}.md`.  
+4. Create a file named `NGS_Hackathon_Report_{Student_NAME}.md`.  
 5. Write using Markdown syntax:
    - `#` for titles  
    - ```bash … ``` for code blocks  

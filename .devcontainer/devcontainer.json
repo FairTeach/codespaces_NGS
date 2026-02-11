@@ -48,7 +48,8 @@
             "streetsidesoftware.code-spell-checker",
             "streetsidesoftware.code-spell-checker-english",
             "bioSyntax.bioSyntax",
-            "igvteam.vscode-igv"
+            "igvteam.vscode-igv",
+            "mathematic.vscode-pdf@0.1.6"
           ]
         }
       }
