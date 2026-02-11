@@ -158,6 +158,18 @@ rm -r ${output_name}.sam ${output_name}_bowtie_stats.txt
 ```
 
 
+## Ideas to push automation (and reproducibility) further
+
+- **Parameter grids:** loop over multiple Cutadapt/Bowtie2 combinations and automatically select/report the best-scoring run (store metrics in CSV/JSON).
+- **Config files:** read inputs and tool settings from a `.env` or YAML/JSON file so teammates can reproduce your run by editing a single document.
+- **Logging helpers:** pipe every command through `tee -a ${output_name}.log`, timestamp key stages, and print summaries at the end.
+- **Workflow guards:** detect whether required binaries exist, automatically create conda/mamba environments if missing, and validate FASTQ/index paths before running heavy steps.
+- **Parallelisation:** use `GNU parallel` or background jobs to evaluate parameter sweeps faster (after checking available CPUs/RAM).
+- **Notifications:** send a desktop/SMS/Slack alert when the script finishes or fails by checking exit codes.
+- **Packaging:** ship a small `Makefile`, wrapper, or `--config` mode so the same script can launch analyses for multiple datasets without edits.
+- **Self-diagnostics:** add `--dry-run` / `--check` modes that print intended commands, helping you debug before spending HPC hours.
+
+
 # Some tutorials and cheatsheet  
 
 ```  
