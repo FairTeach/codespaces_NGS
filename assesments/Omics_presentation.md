@@ -20,7 +20,8 @@ Your first assignment is a **10–15 minute oral presentation** built on one or 
 
 ## 2. Article selection & signup
 
-1. **Pick your article(s):** browse the [official article list](https://docs.google.com/spreadsheets/d/1oqXY3J095RBh7L3sNqA75EfJzxutRxuc/edit?usp=sharing&ouid=107346863868631409847&rtpof=true&sd=true). You may cover **one** review or combine up to **three** if they share a coherent storyline.
+1. **Pick your article(s):** browse the **[official article list](https://docs.google.com/spreadsheets/d/1oqXY3J095RBh7L3sNqA75EfJzxutRxuc/edit?usp=sharing&ouid=107346863868631409847&rtpof=true&sd=true)**. You may cover **one** review or combine up to **three** if they share a coherent storyline.
+   - The corresponding PDFs are already available inside the UPNA ADI under `recursos/practicals/3_Omics/`, so you can open them directly from  without needing to find them elsewhere.
 2. **Reserve your slot:** write your name in the shared sheet. Capacity per article is limited—first come, first served.
 
 

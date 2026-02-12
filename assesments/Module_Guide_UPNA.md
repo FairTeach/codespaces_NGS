@@ -35,13 +35,13 @@ By the end of the module, students will be able to:
 | Date | Classroom | Session | Description | 
 |------|-----------|----------|-------------|
 | **Feb 12 2026 (Tue)** | Classroom | **Assessment 1 Briefing** | Release of Omics Presentation instructions; students pick review articles and register slots. |
-| **Feb (TBD)** | ADI | **Assessment 1 Slide Upload Deadline** | Submit Omics Presentation slide deck (PDF/PowerPoint) before in-class talks. |
-| **Feb (TBD)** | Classroom | **Assessment 1 Live Presentations** | 10–15 min talks + Q&A following the Omics Presentation rubric. |
+| **Mar 4 8:00** | ADI | **Assessment 1 Slide Upload Deadline** | Submit Omics Presentation slide deck (PDF/PowerPoint) before in-class talks. |
+| **Mar 5 16:30-19:30** | Classroom | **Assessment 1 Live Presentations** | 10–15 min talks + Q&A following the Omics Presentation rubric. |
 | **Mar (lab week TBD)** | Codespaces / HPC Lab | **Assessment 2 — NGS Hackathon Sprint** | In-class sprint to optimise alignment workflows; instructors provide datasets and checkpoints. |
 | **Mar (TBD)** | ADI | **Assessment 2 Report Submission** | Upload the NGS Hackathon report (Markdown → PDF) with code, metrics, and interpretations. |
-| **End of February** | Virtual (ADI) | **Assessment 3 Briefing Release** | Final Coursework brief published; students choose their task (1–4) and book advisor check-ins. |
+| **(TBD)** | Virtual (ADI) | **Assessment 3 Briefing Release** | Final Coursework brief published; students choose their task (1–4) and book advisor check-ins. |
 | **One day before public defense (TBD)** | ADI | **Assessment 3 PDF Submission Deadline** | Upload the Final Coursework package (Task 1/2/3/4) as a PDF or HTML export with embedded code and figures. |
-| **Mar 25 2026 (Wed) 17–20h** | Classroom / Tribunal (TBD) | **Assessment 3 Public Dissertation** | 15–20 min poster-style or PowerPoint defense plus Q&A before the tribunal. |
+| **Ma 28 2026 16:30-19:30** | Classroom / Tribunal (TBD) | **Assessment 3 Public Dissertation** | 10–15 min PowerPoint defense plus Q&A before the tribunal. |
 
 
 ---
@@ -79,7 +79,7 @@ By the end of the module, students will be able to:
   2. **Bacterial genome comparison:** Virulence panel + BRIG analysis to identify intervention targets in *E. coli* AFPN02.1.  
   3. **RNA-seq DESeq2 analysis:** Full DGE workflow with filtering, plots, GO/KEGG enrichment, and batch-effect commentary.  
   4. **Optional TFM fast-track:** Early Máster thesis package aligned with module scope and pre-approved by Igor.
-- Deliverables: One PDF/HTML package (code, figures, citations) plus a 15–20 min poster/PowerPoint defense. Details and rubrics are inside the coursework brief.
+- Deliverables: One PDF/HTML package (code, figures, citations) plus a 15–20 min PowerPoint defense. Details and rubrics are inside the coursework brief.
 - Evaluation: Minimum 5/10 required in both written and oral components (see grading table below).
 
 ---
@@ -91,7 +91,7 @@ By the end of the module, students will be able to:
 | **Assessment 1 — Omics Presentation** | 20% | Clarity of exposition, slide design (original + article figures), understanding of the review, and Q&A performance. |
 | **Assessment 2 — NGS Hackathon** | 30% | Hands-on technical analysis, command-line proficiency, workflow optimisation, and interpretation. |
 | **Assessment 3 — Final Coursework (PDF)** | 30% | Depth of computational/biological reasoning, code quality, figures, and clarity of documentation within the chosen task. |
-| **Assessment 3 — Public Dissertation** | 20% | Storytelling, scientific defense, visual quality (poster/PowerPoint), handling of questions, and translation of findings into recommendations. |
+| **Assessment 3 — Public Dissertation** | 20% | Storytelling, scientific defense, visual quality (PowerPoint), handling of questions, and translation of findings into recommendations. |
 
 > 💡 A minimum score of **5** is required in each component to pass the module.
 
@@ -136,7 +136,7 @@ By the end of the module, students will be able to:
 | **Omics Presentation Slides (Assessment 1)** | PowerPoint or PDF deck | See Course Calendar (Assessment 1 slide upload) | ADI |
 | **NGS Hackathon Report (Assessment 2)** | Markdown → PDF (with repo link) | See Course Calendar (Assessment 2 report submission) | ADI |
 | **Final Coursework (Assessment 3) PDF/HTML** | Markdown-first PDF or HTML with embedded code + figures | See Course Calendar (Assessment 3 PDF submission milestone) | ADI |
-| **Final Coursework Public Dissertation** | Poster-style or PowerPoint (15–20 min + Q&A) | See Course Calendar (Assessment 3 public dissertation) | In-class tribunal |
+| **Final Coursework Public Dissertation** | PowerPoint (10–15 min + Q&A) | See Course Calendar (Assessment 3 public dissertation) | In-class tribunal |
 
 ---
 
@@ -157,7 +157,7 @@ By completing this module section, students will:
 
 **Professor:** Igor Ruiz de los Mozos Aliaga  PhD
 **Institution:** NASERTIC / UPNA  
-**Email:** igor.ruiz@unav.es  
+**Email:** igor.ruiz@unavarra.es  
 **Office hours:** By appointment  
 **Facilities:** IRIS Polo de Innovación Digital – Molecular Biology, Synthetic Biology, and HPC laboratories  
 
