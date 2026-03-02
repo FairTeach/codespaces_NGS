@@ -33,7 +33,7 @@ By the end of the module, students will be able to:
 
 | Date | Classroom | Session | Description | 
 |------|-----------|----------|-------------|
-| **¿?¿? (TBD)** | — | **Assessment 1 Submission Window** | Upload the NGS Hackathon report (Markdown → PDF) via ADI for grading. |
+| **Mar 3 23:59h** | — | **Assessment 1 Submission Window** | Upload the NGS Hackathon report (Markdown → PDF) via ADI for grading. |
 | **End of February** | Virtual (ADI) | **Assessment 2 Briefing Release** | Final Coursework brief published; students choose their task (1–4) and book advisor check-ins. |
 | **one day prior dissertation (TBD)** | ADI | **Assessment 2 PDF Submission Deadline** | Upload the Final Coursework package (Task 1/2/3/4) as a PDF or HTML export with embedded code and figures. |
 | **Mar 25 2026 (Wed) 17-20h** | Classroom / Tribunal (TBD) | **Assessment 2 Public Dissertation** | 10-15 min poster-style or PowerPoint defense plus Q&A before the tribunal. |
