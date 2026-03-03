@@ -6,7 +6,7 @@
 ---
 Date of the assignment: 	Tuesday 11/02/2026
 
-Date assignment is due:	-------------- – 23.59h
+Date assignment is due:	Mar 6th 23:59h – 23.59h
 
 Marking:	1st Assessment — NGS Hackathon contributes 40% for module
 
