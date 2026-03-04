@@ -40,6 +40,10 @@ Investigate virulence-associated genes in *E. coli* AFPN02.1 following the Sessi
 2. **Question 2 (deep dive)**
    - Select one virulence gene/operon present in AFPN02.1.
    - Describe its biological mechanism and run BLAST-derived phylogeny/orthology analysis.
+   - More specifically, you should:
+•	      Find information on the biological action/mechanism of this gene
+•	      Study the phylogeny of the gene (again following the steps suggested in the practical)
+
 3. **Question 3 (extension menu — choose any that fit your narrative)**
    1. Functional annotation of virulence-associated genes to pinpoint roles in pathogenesis.
    2. Pathway enrichment analysis to highlight biological modules or secretion systems involved.
