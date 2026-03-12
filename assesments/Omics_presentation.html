@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Omics_presentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%A7%AC-assessment-1--omics-presentation">🧬 Assessment 1 — Omics Presentation</h1>
+<h2 id="universidad-p%C3%BAblica-de-navarra">Universidad Pública de Navarra</h2>
+<h2 id="master-in-biomedical-engineering">Master in Biomedical Engineering</h2>
+<h3 id="module-advanced-bioinformatics">Module: “Advanced Bioinformatics”</h3>
+<hr>
+<p><strong>Release date:</strong> Tuesday, 12 February 2026<br>
+<strong>Slide upload:</strong> <em>TBD, 23:59</em><br>
+<strong>In-class presentation:</strong> <em>TBD</em><br>
+<strong>Weight:</strong> 20 % of the module mark</p>
+<hr>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Your first assignment is a <strong>10–15 minute oral presentation</strong> built on one or more review articles provided by the instructors. The aim is <strong>not</strong> to master every omics technology, but to explore this field from your engineering curiosity—understand the problem, the proposed technology, and its potential impact on biomedical engineering or personalised medicine.</p>
+<hr>
+<h2 id="2-article-selection--signup">2. Article selection &amp; signup</h2>
+<ol>
+<li><strong>Pick your article(s):</strong> browse the <strong><a href="https://docs.google.com/spreadsheets/d/1oqXY3J095RBh7L3sNqA75EfJzxutRxuc/edit?usp=sharing&amp;ouid=107346863868631409847&amp;rtpof=true&amp;sd=true">official article list</a></strong>. You may cover <strong>one</strong> review or combine up to <strong>three</strong> if they share a coherent storyline.
+<ul>
+<li>The corresponding PDFs are already available inside the UPNA ADI under <code>recursos/practicals/3_Omics/</code>, so you can open them directly from  without needing to find them elsewhere.</li>
+</ul>
+</li>
+<li><strong>Reserve your slot:</strong> write your name in the shared sheet. Capacity per article is limited—first come, first served.</li>
+</ol>
+<hr>
+<h2 id="3-presentation-structure-10%E2%80%9315-min--qa">3. Presentation structure (10–15 min + Q&amp;A)</h2>
+<ol>
+<li><strong>Personal intro:</strong> why you chose the topic / what you hoped to learn.</li>
+<li><strong>Problem &amp; motivation:</strong> biomedical need addressed by the review.</li>
+<li><strong>Technology overview:</strong> explain key omics concepts in your own words, using analogies if needed.</li>
+<li><strong>Experimental/computational workflow:</strong> include at least one <strong>original diagram</strong> (BioRender, PowerPoint, Figma) showing samples, data flow, and analysis steps.</li>
+<li><strong>Main findings / proposals:</strong> what makes the article novel or disruptive.</li>
+<li><strong>Impact on biomedical engineering:</strong> opportunities, limitations, ethical considerations.</li>
+<li><strong>Open questions / future steps:</strong> what you would investigate next, uncertainties that remain.</li>
+<li><strong>References and figure credits.</strong></li>
+</ol>
+<blockquote>
+<p>Be transparent about sections you did not fully understand—describe how you would clarify them. Honesty and curiosity are part of the evaluation.</p>
+</blockquote>
+<hr>
+<h2 id="4-preparing-the-talk">4. Preparing the talk</h2>
+<ul>
+<li><strong>Break the reading</strong> into blocks (context, methods, case studies) and summarise in your own words.</li>
+<li><strong>Rehearse with a timer</strong> once or twice to stay within 10–15 minutes.</li>
+<li><strong>Use guiding questions:</strong> What problem does it solve? What data/sensors does it need? Which steps limit adoption?</li>
+<li><strong>Design for clarity:</strong> avoid text-heavy slides, highlight key figures, include your own diagram.</li>
+<li><strong>Engage the audience:</strong> finish with 1–2 questions for classmates or the instructor.</li>
+</ul>
+<hr>
+<h2 id="5-evaluation-rubric">5. Evaluation rubric</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Description</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Presentation quality</strong></td>
+<td>Storytelling, clarity, pacing, audience-friendly language.</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td><strong>Visual support</strong></td>
+<td>Slide structure, original diagram(s), proper references.</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td><strong>Understanding</strong></td>
+<td>Ability to explain the article’s concepts, limitations, and contributions.</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td><strong>Q&amp;A performance</strong></td>
+<td>Handling questions, openness to feedback, teamwork in answers.</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td><strong>Participation</strong></td>
+<td>Ask questions to your peers, respect for timing, balanced roles.</td>
+<td>20 %</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You are not expected to be omics experts; we value your capacity to learn, interpret, and communicate complex ideas credibly.</p>
+</blockquote>
+<hr>
+<h2 id="6-resources">6. Resources</h2>
+<ul>
+<li>Reference managers: <a href="https://www.zotero.org/">Zotero</a>, <a href="https://www.mendeley.com/">Mendeley</a></li>
+<li>Visual tools: BioRender, PowerPoint, Canva, Figma</li>
+<li>Pitch templates / omics glossary: available on ADI</li>
+</ul>
+<hr>
+<h2 id="7-pre-presentation-checklist">7. Pre-presentation checklist</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">Topic reserved in the shared sheet</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">Slides uploaded before the deadline</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Original workflow diagram included</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Rehearsal completed (10–15 min)</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Questions prepared for the Q&amp;A segment</label></li>
+</ul>
+<hr>
+<p><strong>End of document</strong></p>
+
+</body>
+</html>
