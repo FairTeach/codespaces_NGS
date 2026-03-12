@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Final_Coursework.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="final-coursework--assessment-2">Final Coursework — Assessment 2</h1>
+<blockquote>
+<p>Refer to the <strong>Course Calendar</strong> in <code>Module_Guide_UNAV.md</code> for the official release date, submission deadline, and public dissertation slot. Those dates are the single source of truth; timelines here are descriptive only.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>The final coursework is an individual dossier plus a public defense worth <strong>60%</strong> of the module grade (30% written submission, 30% public dissertation). Choose <strong>one</strong> of the tasks below and produce a polished, reproducible analysis that demonstrates mastery of the omics/HPC toolchain developed during the module.</p>
+<h2 id="common-requirements">Common Requirements</h2>
+<ul>
+<li>Submit a single PDF or HTML export (Markdown-first encouraged) through ADI.</li>
+<li>Include code listings, command logs, and links to scripts/notebooks stored in your repo.</li>
+<li>Embed 6–8 high-quality figures or tables with captions.</li>
+<li>Cite all external datasets, tools, and references (APA/Harvard acceptable).</li>
+<li>Document individual contributions when collaborating during ideation.</li>
+<li>Prepare a 10-15 minute PowerPoint presentation for the tribunal, covering Abstract → Introduction → Methods → Results → Conclusions.</li>
+</ul>
+<h2 id="task-1--automated-ngs-pipeline">Task 1 — Automated NGS Pipeline</h2>
+<p>Derive your solution from <code>CourseWork_Task1.Rmd</code> and extend it into a production-ready Bash workflow for the NGS1 practical (BQ.fq reads).</p>
+<h3 id="minimum-checklist">Minimum Checklist</h3>
+<ol>
+<li><strong>Script structure</strong>: shebang, author/date/purpose block, usage instructions, parameter parsing (<code>$1…$4</code> → descriptive variable names).</li>
+<li><strong>Pipeline stages</strong>: QC (FastQC/MultiQC), optional trimming (Cutadapt), Bowtie2 alignment with parameter exploration, Samtools post-processing, MultiQC summary export.</li>
+<li><strong>Automation</strong>: accepts arbitrary FASTQ paths, echoes resolved commands before execution, logs stats to timestamped files, removes intermediates after summarising.</li>
+<li><strong>Documentation</strong>: inline comments outlining each stage, README snippet on how to run the script, and references to the Bash tutorials listed at the bottom of the original Rmd.</li>
+</ol>
+<h3 id="deliverables">Deliverables</h3>
+<ul>
+<li>Bash script(s) + helper configs.</li>
+<li>Sample run log demonstrating parameter tuning and its impact on mapping metrics.</li>
+<li>Short discussion on optimisation strategy and reproducibility safeguards.</li>
+</ul>
+<h2 id="task-2--bacterial-genome-comparison">Task 2 — Bacterial Genome Comparison</h2>
+<blockquote>
+<p>Dear Universidad de Navarra students,<br>
+We are terribly grateful for your advice on antibiotic prescriptions for our <em>E. coli</em> AFPN02.1 infected patients. After a few doses we have controlled the progression of the outbreak in most of the infected—your advice is saving human lives! Unfortunately, we still have extreme cases where the infection has systemically progressed and normal prescriptions no longer work. We need you to further identify the nature of the AFPN02.1 virulence-associated genes to treat our patients. Aside from antibiotic resistance genes, AFPN02.1 carries myriad defensive and offensive functions to infect, spread, and in some occasions kill the host. More virulence references are available in the course material folder; you may also incorporate any peer-reviewed sources to complement your investigation. Please keep pushing — people are counting on you.</p>
+</blockquote>
+<p>Investigate virulence-associated genes in <em>E. coli</em> AFPN02.1 following the Session 3 comparative genomics workflow.</p>
+<ol>
+<li>
+<p><strong>Question 1 (pan-virulence panel)</strong></p>
+<ul>
+<li>Build virulence gene sets from VFDB/PAIDB or the provided <code>/home/manager/Desktop/course_materials/genomes/wholeGenomeExamples/EHEC_vir.fn</code> file plus literature.</li>
+<li>Annotate AFPN02.1 and comparator strains; identify presence/absence patterns via BRIG.</li>
+<li>Recommend candidate targets for therapeutic intervention.</li>
+</ul>
+</li>
+<li>
+<p><strong>Question 2 (deep dive)</strong></p>
+<ul>
+<li>Select one virulence gene/operon present in AFPN02.1.</li>
+<li>Describe its biological mechanism and run BLAST-derived phylogeny/orthology analysis.</li>
+<li>More specifically, you should:
+•	      Find information on the biological action/mechanism of this gene
+•	      Study the phylogeny of the gene (again following the steps suggested in the practical)</li>
+</ul>
+</li>
+<li>
+<p><strong>Question 3 (extension menu — choose any that fit your narrative)</strong></p>
+<ol>
+<li>Functional annotation of virulence-associated genes to pinpoint roles in pathogenesis.</li>
+<li>Pathway enrichment analysis to highlight biological modules or secretion systems involved.</li>
+<li>Structural assessments (domains/motifs) linking genotype to molecular function.</li>
+<li>Evolutionary analysis: phylogenies, gene duplication, selection pressures, horizontal transfer evidence.</li>
+<li>Regulatory network mapping (sigma factors, transcriptional regulators, non-coding RNAs).</li>
+<li>Comparative genomics across strains/species to identify conserved vs. lineage-specific determinants.</li>
+<li>Host-pathogen interaction profiling (e.g., host immune evasion markers, receptor binding predictions).</li>
+<li>Drug-target prediction or virtual screening concepts for prioritized virulence genes.</li>
+<li>Epidemiological synthesis merging genomic findings with outbreak metadata.</li>
+<li>Machine-learning or rule-based scoring of virulence genes to prioritise therapeutic targets.</li>
+<li>Rapid response dashboard that visualises gene presence/absence, patient clusters, and recommended interventions for hospital staff.</li>
+</ol>
+</li>
+</ol>
+<p>Include code snippets, BRIG snapshots, and clearly articulated conclusions plus citations.</p>
+<h2 id="task-3--rna-seq-differential-expression-deseq2">Task 3 — RNA-seq Differential Expression (DESeq2)</h2>
+<p>Starting from the shared count table, complete the core workflow below and then explore any optional extensions that strengthen your biological narrative.</p>
+<ol>
+<li>Filter DEGs on padj &lt; 0.01 and |log2FC| &gt; 2; print the top 10 genes (symbols, not Ensembl IDs).</li>
+<li>Produce:
+<ul>
+<li>A volcano plot with labels for the 20 most significant genes.</li>
+<li>A heatmap covering the 30 most significant genes (symbols only).</li>
+</ul>
+</li>
+<li>Run GO over-representation tests for Molecular Function and Biological Process; report enriched terms.</li>
+<li>Build Molecular Function and Biological Process concept networks / enrichment maps.</li>
+<li>Identify KEGG pathways affected by dexamethasone treatment (e.g., using ClusterProfiler).</li>
+<li>Compare differential expression across multiple experimental groups or contrasts (pairwise and group-wise).</li>
+<li>Apply batch-effect mitigation (e.g., <code>removeBatchEffect</code> or DESeq2 design terms), then describe how the results change.</li>
+<li>Deliver a structured report (introduction, computing code/methods, results, plots, citations).</li>
+</ol>
+<p><strong>Optional enhancements (tackle any that inspire you):</strong></p>
+<ol>
+<li>Functional annotation of the top gene clusters (e.g., Reactome, MSigDB Hallmarks).</li>
+<li>Isoform-level or alternative splicing follow-ups (IsoformSwitchAnalyzeR).</li>
+<li>Reproducibility automation (targets/Makefile/bash script) that rebuilds all figures.</li>
+<li>Benchmark your DESeq2 results against another method (edgeR, limma-voom) and discuss discrepancies.</li>
+<li>Build an interactive dashboard (Shiny, Quarto) summarising DE findings for clinicians.</li>
+</ol>
+<h2 id="task-4--optional-tfm-fast-track">Task 4 — Optional TFM Fast-Track</h2>
+<p>Pitch the opening package of your Máster Final Project, ensuring tight alignment with the module’s omics/HPC scope.</p>
+<ol>
+<li><strong>Advisor agreement</strong>: meet with Igor to define topic boundaries, deliverables, and evaluation criteria; include a signed or emailed summary.</li>
+<li><strong>Concept note</strong>: 2–3 page narrative tying objectives, datasets, and computational methods to module competencies and the broader TFM roadmap.</li>
+<li><strong>Pilot evidence</strong>: prototype scripts, preliminary analyses, or workflow diagrams demonstrating feasibility within the module timeline.</li>
+<li><strong>Reflection</strong>: describe how completing this fast-track reduces risk for the full TFM.</li>
+</ol>
+<h2 id="evaluation-snapshot">Evaluation Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NGS Hackathon (Assessment 1)</td>
+<td>40%</td>
+<td>See module guide.</td>
+</tr>
+<tr>
+<td>Final Coursework PDF/HTML</td>
+<td>30%</td>
+<td>Rubric emphasises scientific depth, clarity, and reproducibility.</td>
+</tr>
+<tr>
+<td>Public Dissertation</td>
+<td>30%</td>
+<td>Presentation, defense quality, and ability to answer tribunal questions.</td>
+</tr>
+</tbody>
+</table>
+<p>A minimum mark of <strong>5/10</strong> is required in each component. Plan backwards from the Course Calendar milestones and keep your advisor informed of progress.</p>
+
+</body>
+</html>
