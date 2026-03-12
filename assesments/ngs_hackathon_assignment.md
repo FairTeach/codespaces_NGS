@@ -85,7 +85,7 @@ When reads were split using four barcodes (Negative, Positive, Long, BQ), the fi
 - All commands used.  
 - Description of both initial hypotheses and solutions.  
 - Identification of the correct cause and justification with evidence.  
-- Table comparing both alignments (mapping %, error rate, properly paired reads).  
+- Table comparing both alignments (mapping %, error rate, number of reads, multimapping).  
 - **Strong biological interpretation** of what these findings imply about your sequencing data and experiment.  
 
 ---
@@ -99,7 +99,7 @@ Your objective is to **improve mapping accuracy and yield** through quality filt
 - Inspect raw quality and adapter content with `fastqc`.  
 - Use `cutadapt` to trim adapters, low-quality tails, and short reads.  
 - Re-map cleaned reads with `bowtie2`, testing different parameter sets.  
-- Compare **alignment rate**, **error rate**, and **number of properly paired reads** using `samtools` and `multiQC`.  
+- Compare **alignment rate**, **error rate**, **multimaping**, and **number of reads** using `samtools` and `multiQC`.  
 - Reflect on the trade-off between **alignment rate** (quantity) and **alignment accuracy** (quality).  
 
 #### **Include in your report**
