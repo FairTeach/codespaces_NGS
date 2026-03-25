@@ -64,7 +64,7 @@ Starting from the shared count table, complete the core workflow below and then 
 
 1. Filter DEGs on padj < 0.01 and |log2FC| > 2; print the top 10 genes (symbols, not Ensembl IDs).
 2. Produce:
-   - A volcano plot with labels for the 20 most significant genes.
+   - A volcano plot with gen symbol labels for the 20 most significant genes.
    - A heatmap covering the 30 most significant genes (symbols only).
 3. Run GO over-representation tests for Molecular Function and Biological Process; report enriched terms.
 4. Build Molecular Function and Biological Process concept networks / enrichment maps.
