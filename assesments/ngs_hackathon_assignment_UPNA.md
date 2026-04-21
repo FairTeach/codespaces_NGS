@@ -1,14 +1,14 @@
-# 🧬 1st Assessment - NGS Hackathon Challenge  
-## Universidad de Navarra  
-## Máster en Métodos Computacionales en Ciencias 
-### Module: “Análisis e interpretación de datos de alto rendimiento”
+# 🧬 2nd Assessment - NGS Hackathon Challenge  
+## Universidad Publica de Navarra  
+## Máster Universitario en Ingeniería Biomédica
+### Module: “Bioinformática Avanzada”
 
 ---
 Date of the assignment: 	Tuesday 21/04/2026
 
 Date assignment is due:	TBC, tentative May 8th 23:59h – 23.59h
 
-Marking:	1st Assessment — NGS Hackathon contributes 40% for module
+Marking:	2nd Assessment — NGS Hackathon contributes 30% for module
 
 ---
 
@@ -33,7 +33,7 @@ Interpretation will be the **most heavily weighted** criterion in grading.
 ### 📋 **Assessment Overview**
 
 You will complete **three main tasks** (plus one extended exercise).  
-Each builds on the previous one, representing together **40 % of the module grade**.
+Each builds on the previous one, representing together **30 % of the module grade**.
 
 Deliverables:
 - Submit a **single PDF report** (generated from Markdown) to ADI before the deadline. Word or similar are allowed but Markdown is preferred. 
