@@ -188,9 +188,11 @@ When the job is finished, download the `annotation.zip` file and move it to: `"$
 # Go to results_GC directory
 mkdir "${st_path}"/course_materials/results_GC/annotation
 cd  "${st_path}"/course_materials/results_GC/annotation
+# wget -O annotation.zip --no-check-certificate -r 'https://drive.google.com/uc?export=download&id=14B6f03FYp4rsIY4kz-7Zytr_z2t47-Wt'
+
 
 # Get the annotated files from resources directory:
-mv "${st_path}"/course_materials/resources/annotation.zip .
+cp "${st_path}"/course_materials/resources/annotation.zip .
 
 # Decompress annotation folder
 unzip annotation.zip
