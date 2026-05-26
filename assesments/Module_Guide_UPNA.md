@@ -72,7 +72,7 @@ By the end of the module, students will be able to:
 - **Evaluation:** Technical accuracy (40%), reproducibility (30%), interpretation (30%). Teams may collaborate during the sprint but must clearly attribute contributions in the report.
 
 #### **Assessment 3 — Final Coursework (PDF + Public Dissertation)**
-- Individual dossier + tribunal defense worth 60% of the module (30% written, 30% oral). Official dates live in the **Course Calendar**.
+- Individual dossier + tribunal defense worth 50% of the module (30% written, 20% oral). Official dates live in the **Course Calendar**.
 - Full specifications: `codespaces_NGS/assesments/Final_Coursework.md` (task brief) and `codespaces_NGS/assesments/CourseWork_Task1.md` for the automation template.
 - Task options (pick one):  
   1. **Automated NGS pipeline:** Bash-driven version of the NGS1 workflow with reproducible parameter logging.  
@@ -134,8 +134,8 @@ By the end of the module, students will be able to:
 | Task | Format | Deadline | Platform |
 |------|---------|-----------|-----------|
 | **Omics Presentation Slides (Assessment 1)** | PowerPoint or PDF deck | See Course Calendar (Assessment 1 slide upload) | ADI |
-| **NGS Hackathon Report (Assessment 2)** | Markdown → PDF (with repo link) | See Course Calendar (Assessment 2 report submission) | ADI |
-| **Final Coursework (Assessment 3) PDF/HTML** | Markdown-first PDF or HTML with embedded code + figures | See Course Calendar (Assessment 3 PDF submission milestone) | ADI |
+| **NGS Hackathon Report (Assessment 2)** | Markdown → PDF (with repo link) + embedded code (zipped)| See Course Calendar (Assessment 2 report submission) | ADI |
+| **Final Coursework (Assessment 3) PDF/HTML** | Markdown-first PDF or HTML with embedded code (zipped) + figures | See Course Calendar (Assessment 3 PDF submission milestone) | ADI |
 | **Final Coursework Public Dissertation** | PowerPoint (10–15 min + Q&A) | See Course Calendar (Assessment 3 public dissertation) | In-class tribunal |
 
 ---
