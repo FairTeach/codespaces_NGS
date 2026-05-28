@@ -1,9 +1,9 @@
-﻿# Final Coursework — Assessment 2
+﻿# Final Coursework — Assessment 3
 
-> Refer to the **Course Calendar** in `Module_Guide_UNAV.md` for the official release date, submission deadline, and public dissertation slot. Those dates are the single source of truth; timelines here are descriptive only.
+> Refer to the **Course Calendar** in `Module_Guide_UPNA.md` for the official release date, submission deadline, and public dissertation slot. Those dates are the single source of truth; timelines here are descriptive only.
 
 ## Overview
-The final coursework is an individual dossier plus a public defense worth **60%** of the module grade (30% written submission, 30% public dissertation). Choose **one** of the tasks below and produce a polished, reproducible analysis that demonstrates mastery of the omics/HPC toolchain developed during the module.
+The final coursework is an individual dossier plus a public defense worth **50%** of the module grade (30% written submission, 20% public dissertation). Choose **one** of the tasks below and produce a polished, reproducible analysis that demonstrates mastery of the omics/HPC toolchain developed during the module.
 
 ## Common Requirements
 - Submit a single PDF or HTML export (Markdown-first encouraged) through ADI.
@@ -34,7 +34,7 @@ Derive your solution from `CourseWork_Task1.Rmd` and extend it into a production
 Investigate virulence-associated genes in *E. coli* AFPN02.1 following the Session 3 comparative genomics workflow.
 
 1. **Question 1 (pan-virulence panel)**
-   - Build virulence gene sets from VFDB/PAIDB or the provided `/home/manager/Desktop/course_materials/genomes/wholeGenomeExamples/EHEC_vir.fn` file plus literature.
+   - Build virulence gene sets from VFDB/PAIDB or the provided `/workspaces/codespaces_NGS/course_materials/genomes/wholeGenomeExamples/EHEC_vir.fna` file plus literature.
    - Annotate AFPN02.1 and comparator strains; identify presence/absence patterns via BRIG.
    - Recommend candidate targets for therapeutic intervention.
 2. **Question 2 (deep dive)**
@@ -44,7 +44,7 @@ Investigate virulence-associated genes in *E. coli* AFPN02.1 following the Sessi
 •	      Find information on the biological action/mechanism of this gene
 •	      Study the phylogeny of the gene (again following the steps suggested in the practical)
 
-3. **Question 3 (extension menu — choose any that fit your narrative)**
+1. **Question 3 (extension menu — choose any that fit your narrative)**
    1. Functional annotation of virulence-associated genes to pinpoint roles in pathogenesis.
    2. Pathway enrichment analysis to highlight biological modules or secretion systems involved.
    3. Structural assessments (domains/motifs) linking genotype to molecular function.
