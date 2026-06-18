@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Module_Guide_UNAV.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%A7%AC-module-guide--an%C3%A1lisis-e-interpretaci%C3%B3n-de-datos-de-alto-rendimiento">🧬 Module Guide — “Análisis e interpretación de datos de alto rendimiento”</h1>
+<h2 id="universidad-de-navarra">Universidad de Navarra</h2>
+<h2 id="m%C3%A1ster-en-m%C3%A9todos-computacionales-en-ciencias">Máster en Métodos Computacionales en Ciencias</h2>
+<hr>
+<h3 id="%F0%9F%8E%AF-module-overview">🎯 <strong>Module Overview</strong></h3>
+<p>The <em>Análisis e interpretación de datos de alto rendimiento</em> module , combines <strong>advanced omics analysis</strong>, <strong>bioinformatics</strong>, and <strong>translational project design</strong>.<br>
+It aims to bridge the gap between experimental High Throughput Omics Technologies, high-performance computing (HPC), and personalised medicine innovation.</p>
+<p>Students will engage in <strong>two major challenges</strong>:</p>
+<ol>
+<li><strong>NGS Hackathon (Assessment 1):</strong><br>
+A hands-on competition analysing Illumina next-generation sequencing data to achieve optimal alignment and quality control.</li>
+<li><strong>Final Coursework (Assessment 2):</strong><br>
+A comprehensive written plus oral assessment anchored to the milestone dates shown in the <strong>Course Calendar</strong>. Students select <strong>one</strong> advanced omics task (automation pipeline, virulence investigation, DESeq2 analysis, or the optional TFM fast-track) and deliver both a PDF report and a defended presentation. All module assets and specifications live in the FairTeach teaching repositories: <code>FairTeach/codespaces_NGS</code> (this workspace) and the companion <code>FairTeach/codespaces_RStudio</code>.</li>
+</ol>
+<p>By the end of the module, students will be able to:</p>
+<ul>
+<li>Work confidently in a Unix/HPC environment for omics analysis.</li>
+<li>Apply critical reasoning to optimise NGS workflows.</li>
+<li>Translate omics technologies into innovative project ideas.</li>
+<li>Analyse High Throughput Omics data as DNA-Seq, RNA-Seq DEG, RNA-Seq splicing, and comparative genomics.</li>
+<li>Learn and use modern tools for reproducible research (GitHub Codespaces, RStudio Server, Markdown, etc.).</li>
+<li>Use high-level workflows as Snakemake or Nextflow to automate complex analyses.</li>
+<li>Integrate biological, computational, and ethical reasoning in a professional scientific context.</li>
+<li>Present and defend their ideas effectively, both in writing and orally.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%93%85-course-calendar">📅 <strong>Course Calendar</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Classroom</th>
+<th>Session</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>¿?¿? (TBD)</strong></td>
+<td>—</td>
+<td><strong>Assessment 1 Submission Window</strong></td>
+<td>Upload the NGS Hackathon report (Markdown → PDF) via ADI for grading.</td>
+</tr>
+<tr>
+<td><strong>End of February</strong></td>
+<td>Virtual (ADI)</td>
+<td><strong>Assessment 2 Briefing Release</strong></td>
+<td>Final Coursework brief published; students choose their task (1–4) and book advisor check-ins.</td>
+</tr>
+<tr>
+<td><strong>one day prior dissertation (TBD)</strong></td>
+<td>ADI</td>
+<td><strong>Assessment 2 PDF Submission Deadline</strong></td>
+<td>Upload the Final Coursework package (Task 1/2/3/4) as a PDF or HTML export with embedded code and figures.</td>
+</tr>
+<tr>
+<td><strong>Mar 25 2026 (Wed) 17-20h</strong></td>
+<td>Classroom / Tribunal (TBD)</td>
+<td><strong>Assessment 2 Public Dissertation</strong></td>
+<td>10-15 min poster-style or PowerPoint defense plus Q&amp;A before the tribunal.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%F0%9F%9B%A0%EF%B8%8F-specifications--platforms">🛠️ <strong>Specifications &amp; Platforms</strong></h3>
+<ul>
+<li><strong>FairTeach/codespaces_NGS:</strong> Ubuntu 22.04 GitHub Codespace with a desktop-lite (Xfce + noVNC) layer, Miniforge+mamba, IGV, FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, and walkthroughs in <code>practicals/*.md</code>. Automation and package initialisation run through <code>.devcontainer/postCreate.sh</code>.</li>
+<li><strong>FairTeach/codespaces_RStudio:</strong> Rocker-based RStudio Server (port 8787) plus optional XFCE desktop (port 6080), the <code>rnaseq-tools</code> mamba environment defined at <code>env/mamba-environment.yml</code>, and preinstalled Bioconductor stacks (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) for RNA-seq case studies.</li>
+<li><strong>Shared workflow:</strong> Both repos rely on GitHub Education accounts, Codespaces/VS Code Dev Containers, and reproducible devcontainers so every student opens the same toolkit whether in the browser or locally.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%A7%A9-tasks-and-deliverables">🧩 <strong>Tasks and Deliverables</strong></h3>
+<h4 id="challenge-1--ngs-hackathon"><strong>Challenge 1 — NGS Hackathon</strong></h4>
+<ul>
+<li><strong>Goal:</strong> Align Illumina NGS reads using bioinformatics tools, improving alignment metrics and accuracy.</li>
+<li><strong>Deliverables:</strong>
+<ul>
+<li>Markdown/PDF report with code, results, and interpretation.</li>
+<li>Biological interpretation of data quality and mapping performance.</li>
+</ul>
+</li>
+<li><strong>Evaluation:</strong> Technical accuracy (40%), reproducibility (30%), interpretation (30%).</li>
+</ul>
+<h4 id="assessment-2--final-coursework-pdf--public-dissertation"><strong>Assessment 2 — Final Coursework (PDF + Public Dissertation)</strong></h4>
+<ul>
+<li>Individual dossier + tribunal defense worth 60% of the module (30% written, 30% oral). Official dates live in the <strong>Course Calendar</strong>.</li>
+<li>Full specifications: <code>codespaces_NGS/assesments/Final_Coursework.md</code> (task brief) and <code>codespaces_NGS/assesments/CourseWork_Task1.md</code> for the automation template.</li>
+<li>Task options (pick one):
+<ol>
+<li><strong>Automated NGS pipeline:</strong> Bash-driven version of the NGS1 workflow with reproducible parameter logging.</li>
+<li><strong>Bacterial genome comparison:</strong> Virulence panel + BRIG analysis to identify intervention targets in <em>E. coli</em> AFPN02.1.</li>
+<li><strong>RNA-seq DESeq2 analysis:</strong> Full DGE workflow with filtering, plots, GO/KEGG enrichment, and batch-effect commentary.</li>
+<li><strong>Optional TFM fast-track:</strong> Early Máster thesis package aligned with module scope and pre-approved by Igor.</li>
+</ol>
+</li>
+<li>Deliverables: One PDF/HTML package (code, figures, citations) plus a 15–20 min poster/PowerPoint defense. Details and rubrics are inside the coursework brief.</li>
+<li>Evaluation: Minimum 5/10 required in both written and oral components (see grading table below).</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%A7%BE-grading-criteria">🧾 <strong>Grading Criteria</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assessment 1 — NGS Hackathon</strong></td>
+<td>40%</td>
+<td>Hands-on technical analysis, command-line proficiency, workflow optimisation, and interpretation.</td>
+</tr>
+<tr>
+<td><strong>Assessment 2 — Final Coursework (PDF)</strong></td>
+<td>30%</td>
+<td>Depth of computational/biological reasoning, code quality, figures, and clarity of documentation within the chosen task.</td>
+</tr>
+<tr>
+<td><strong>Assessment 2 — Public Dissertation</strong></td>
+<td>30%</td>
+<td>Storytelling, scientific defense, visual quality (PowerPoint), handling of questions, and translation of findings into recommendations.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 A minimum score of <strong>5</strong> is required in each component to pass the module.</p>
+</blockquote>
+<hr>
+<h3 id="%F0%9F%A7%A0-detailed-evaluation-rubric">🧠 <strong>Detailed Evaluation Rubric</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Excellent (9–10)</th>
+<th>Good (7–8)</th>
+<th>Satisfactory (5–6)</th>
+<th>Poor (&lt;5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scientific understanding</strong></td>
+<td>Deep, accurate, integrated biological &amp; computational reasoning</td>
+<td>Mostly correct with minor gaps</td>
+<td>Partial understanding</td>
+<td>Major conceptual errors</td>
+</tr>
+<tr>
+<td><strong>Bioinformatics proficiency</strong></td>
+<td>Expert use of tools, automation, and reproducibility</td>
+<td>Competent with minor issues</td>
+<td>Basic tool use, some manual steps</td>
+<td>Incorrect or no tool usage</td>
+</tr>
+<tr>
+<td><strong>Innovation &amp; originality</strong></td>
+<td>Highly original and creative idea</td>
+<td>Moderate innovation</td>
+<td>Derivative or limited novelty</td>
+<td>Repetition of known concepts</td>
+</tr>
+<tr>
+<td><strong>Feasibility &amp; methods</strong></td>
+<td>Clear, realistic methodology, technically detailed</td>
+<td>Mostly sound but some missing details</td>
+<td>Feasible but underdeveloped</td>
+<td>Unrealistic or unclear</td>
+</tr>
+<tr>
+<td><strong>Biological interpretation</strong></td>
+<td>Strong and insightful integration of omics into biology</td>
+<td>Good but lacks depth in discussion</td>
+<td>Basic level of biological link</td>
+<td>Weak or absent biological analysis</td>
+</tr>
+<tr>
+<td><strong>Data visualisation / Figures</strong></td>
+<td>Clear, professional, self-explanatory</td>
+<td>Readable, minor design issues</td>
+<td>Limited clarity</td>
+<td>Poorly labelled or irrelevant</td>
+</tr>
+<tr>
+<td><strong>Presentation / communication</strong></td>
+<td>Engaging, concise, confident, well-structured</td>
+<td>Mostly clear and coherent</td>
+<td>Acceptable but uneven</td>
+<td>Unstructured or unclear presentation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%F0%9F%A7%AD-student-guidance">🧭 <strong>Student Guidance</strong></h3>
+<ul>
+<li>Secure your GitHub Education account early so you can open both <code>FairTeach/codespaces_NGS</code> and <code>FairTeach/codespaces_RStudio</code> in GitHub Codespaces or VS Code Dev Containers.</li>
+<li>Follow the repo READMEs for authentication details (e.g., RStudio Server credentials <code>rstudio</code> / <code>rstudio</code>, Codespaces desktop password <code>vscode</code> in the NGS image).</li>
+<li>Keep project notes in Markdown, linked to your scripts/notebooks inside each repo, and cite every external dataset or pipeline you reuse.</li>
+<li>When collaborating, log individual contributions; only the final writeup and defense are graded individually.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%A7%B0-software-and-resources">🧰 <strong>Software and Resources</strong></h3>
+<ul>
+<li><strong>codespaces_NGS stack:</strong> Devcontainer image (<code>mcr.microsoft.com/devcontainers/base:ubuntu-22.04</code>) with FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, IGV, Miniforge+mamba, and desktop-lite (Xfce + noVNC). Use VS Code or the browser desktop to follow <code>practicals/*.md</code>.</li>
+<li><strong>codespaces_RStudio stack:</strong> Rocker-based RStudio Server (port 8787) plus XFCE desktop (port 6080), preloaded Bioconductor packages (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, airway, SummarizedExperiment, etc.), and the <code>rnaseq-tools</code> mamba env for CLI utilities (FastQC, MultiQC, Salmon, STAR, samtools).</li>
+<li><strong>Editors &amp; docs:</strong> VS Code with Markdown tooling for NGS workflows, and RStudio Server for R/Bioconductor notebooks; export deliverables to PDF/HTML from either toolchain.</li>
+<li><strong>Visualization &amp; references:</strong> BioRender/Figma/PowerPoint for figures; Zotero or Mendeley for citation management; public datasets from GEO, ENCODE, Zenodo, or the <code>course_materials/</code> folders inside each repo.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%93%AC-submission-summary">📬 <strong>Submission Summary</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Format</th>
+<th>Deadline</th>
+<th>Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NGS Hackathon Report</strong></td>
+<td>Markdown → PDF</td>
+<td>See Course Calendar (Assessment 1 submission window)</td>
+<td>ADI</td>
+</tr>
+<tr>
+<td><strong>Final Coursework (Assessment 2) PDF/HTML</strong></td>
+<td>Markdown-first PDF or HTML with embedded code + figures</td>
+<td>See Course Calendar (Assessment 2 PDF submission milestone)</td>
+<td>ADI</td>
+</tr>
+<tr>
+<td><strong>Final Coursework Public Dissertation</strong></td>
+<td>Poster-style or PowerPoint (10-15 min + Q&amp;A)</td>
+<td>See Course Calendar (Assessment 2 public dissertation)</td>
+<td>In-class tribunal</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%F0%9F%A7%A9-learning-outcomes">🧩 <strong>Learning Outcomes</strong></h3>
+<p>By completing this module section, students will:</p>
+<ol>
+<li>Launch and manage reproducible GitHub Codespaces/Dev Containers from <code>FairTeach/codespaces_NGS</code> and <code>FairTeach/codespaces_RStudio</code>, including desktop-lite and RStudio Server workflows.</li>
+<li>Visit a real HPC facility NASERTIC CPD, and a real Sequencing Facility and Systems Biology Lab(IRIS Polo de Innovación Digital) to understand the physical infrastructure supporting omics analyses and the role of HPC in personalised medicine.</li>
+<li>Automate NGS pipelines with Bash, Miniforge/mamba environments, and core CLI tools (FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, IGV).</li>
+<li>Execute RNA-seq and omics analyses in RStudio using the preinstalled Bioconductor stack (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) and document outputs in Markdown or R Markdown.</li>
+<li>Integrate comparative genomics, differential expression, and translational case studies into coherent project proposals aligned with personalised medicine challenges.</li>
+<li>Communicate findings effectively through reproducible repositories, ADI submissions, and tribunal defenses while crediting all external resources.</li>
+<li>Critically evaluate how cloud-based HPC, automation, and R/Bioconductor tooling accelerate research translation and de-risk their future TFM projects.</li>
+</ol>
+<hr>
+<h3 id="%F0%9F%A7%AC-contact-and-support">🧬 <strong>Contact and Support</strong></h3>
+<p><strong>Professor:</strong> Igor Ruiz de los Mozos Aliaga  PhD
+<strong>Institution:</strong> NASERTIC / UNAV<br>
+<strong>Email:</strong> igor.ruiz@unav.es<br>
+<strong>Office hours:</strong> By appointment<br>
+<strong>Facilities:</strong> IRIS Polo de Innovación Digital – Molecular Biology, Synthetic Biology, and HPC laboratories</p>
+<hr>
+<p><strong>End of Module Guide</strong></p>
+
+</body>
+</html>

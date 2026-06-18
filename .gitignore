@@ -4,7 +4,13 @@ course_materials/genomes/*
 course_materials/resources/*
 # course_materials/*
 
+course_materials/*
 course_materials/fastq*
 
+# 
+awk_test*
+intro_UNIX*
+
 # Ignore
+# *
 # *

@@ -85,7 +85,7 @@ When reads were split using four barcodes (Negative, Positive, Long, BQ), the fi
 - All commands used.  
 - Description of both initial hypotheses and solutions.  
 - Identification of the correct cause and justification with evidence.  
-- Table comparing both alignments (mapping %, error rate, properly paired reads).  
+- Table comparing both alignments (mapping %, error rate, number of reads, multimapping).  
 - **Strong biological interpretation** of what these findings imply about your sequencing data and experiment.  
 
 ---
@@ -99,7 +99,7 @@ Your objective is to **improve mapping accuracy and yield** through quality filt
 - Inspect raw quality and adapter content with `fastqc`.  
 - Use `cutadapt` to trim adapters, low-quality tails, and short reads.  
 - Re-map cleaned reads with `bowtie2`, testing different parameter sets.  
-- Compare **alignment rate**, **error rate**, and **number of properly paired reads** using `samtools` and `multiQC`.  
+- Compare **alignment rate**, **error rate**, **multimaping**, and **number of reads** using `samtools` and `multiQC`.  
 - Reflect on the trade-off between **alignment rate** (quantity) and **alignment accuracy** (quality).  
 
 #### **Include in your report**
@@ -128,16 +128,16 @@ You will use your optimized workflow from Question 2 to produce the **best possi
 - A **biological interpretation** of what your optimizations imply about the sample or sequencing process.
 
 #### **Example BOX**
-```{bash}
-
-# Cutadapt trimming
-cutadapt -q ¿¿¿¿¿ -m ¿¿¿¿¿ -a ¿¿¿¿¿ -A ¿¿¿¿¿¿¿?????? 
-
-# Bowtie2 alignment
-bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
-  ¿¿¿¿¿ -p ?????? -S BQ_aligned_tried?.sam
-
-```
+> ```{bash}
+> 
+> # Cutadapt trimming
+> cutadapt -q ¿¿¿¿¿ -m ¿¿¿¿¿ -a ¿¿¿¿¿ -A ¿¿¿¿¿¿¿?????? 
+> 
+> # Bowtie2 alignment
+> bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
+>   ¿¿¿¿¿ -p ?????? -S BQ_aligned_tried?.sam
+> 
+> ```
 
 #### **Evaluation criteria**
 1. Highest % of mapped reads.  
@@ -197,15 +197,7 @@ Submit a **single PDF file** including:
 
 You can use Word or Google Docs, but **Markdown** is highly recommended for reproducibility.
 
-#### 🔹 Option 1: [Dillinger.io](https://dillinger.io/)
-1. Open [https://dillinger.io/](https://dillinger.io/).  
-2. Write your Markdown text directly.  
-3. Use the preview pane to visualise formatting.  
-4. Export or print to **PDF** or **HTML**.  
-5. Include figures as:  
-   `![description](figure.png)`.
-
-#### 🔹 Option 2: **Visual Studio Code (VSC) + Extensions**
+#### 🔹 Option 1: **Visual Studio Code (VSC) + Extensions**
 1. Open Visual Studio Code.  
 2. Open the Extensions panel (`Ctrl + Shift + X`).  
 3. Install:  
@@ -222,6 +214,15 @@ You can use Word or Google Docs, but **Markdown** is highly recommended for repr
 🔌 Use `Ctrl + Shift + V` for live Markdown preview in VS Code.
 
 ![Markdown PDF (yzane)](figures/markdown.png)  
+
+
+#### 🔹 Option 2: [Dillinger.io](https://dillinger.io/)
+1. Open [https://dillinger.io/](https://dillinger.io/).  
+2. Write your Markdown text directly.  
+3. Use the preview pane to visualise formatting.  
+4. Export or print to **PDF** or **HTML**.  
+5. Include figures as:  
+   `![description](figure.png)`.
 
 
 ---

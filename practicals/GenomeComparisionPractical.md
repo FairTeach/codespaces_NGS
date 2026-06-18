@@ -65,8 +65,14 @@ We will set a shortcut for the path where we keep the practical work for this se
 st_path=$PWD
 # st_path="/workspaces/codespaces_NGS"
 
-# Install MultiQC mamba in base environment for
-mamba install -y -n base firefox
+# The order of conda channels is important! Please make sure that you have configured your conda channels prior to installing anything with BioConda:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+# Install MultiQC mamba in base environment for 
+mamba install -y -n base multiqc firefox
 # Create and Load conda environment with all the tools needed to carry on this practical.
 mamba env create -f "${st_path}"/env/.environment_GC.yaml
 # add the hook to your ~/.bashrc so every new shell is initialized automatically
@@ -114,7 +120,7 @@ head -n 10 Long.vcffile
 vcf2fasta -f  "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta -P 1 Long.vcffile -p AFPN02.1_consensus.fasta
 
 # Rename consensus file
-mv AFPN02.1_consensus.fastaunknown_AFPN02.1_merge:0.fa AFPN02.1_merge_consensus.fa
+mv AFPN02.1_consensus.fastaunknown_AFPN02.1_merge:0.fasta AFPN02.1_merge_consensus.fa
 
 # Examine the resulting consensus fasta file (To exit less press 'q').
 less AFPN02.1_merge_consensus.fa
@@ -169,6 +175,8 @@ _However, we advise you to try this another time and use instead the annotation 
 # Go to results_GC directory
 mkdir "${st_path}"/course_materials/results_GC/annotation
 cd  "${st_path}"/course_materials/results_GC/annotation
+# wget -O annotation.zip --no-check-certificate -r 'https://drive.google.com/uc?export=download&id=14B6f03FYp4rsIY4kz-7Zytr_z2t47-Wt'
+
 
 # Get the annotated files from resources directory:
 cp "${st_path}"/course_materials/resources/annotation.zip .
@@ -634,7 +642,7 @@ git clone https://github.com/esteinig/brick && cd brick
 
 ### Set-up the window size
 
-To correctly display the genome comparison you should set the height and width pixel maps. Go to `Main window > Preferences > Image options` and change to `3000` pixels. _Save & close_ your selection.
+To correctly display the genome comparison you should set the height and width pixel maps. Go to `Main window > Preferences > Image options` and change **Height** and **Width** to `3000` pixels. *Save & close* your selection.
 
 ![ BRIG window size ](figures/BRIG_option.png)
 
@@ -645,12 +653,13 @@ https://sourceforge.net/projects/brig/files/BRIG_examples.zip/download
 
 ### Load data into BRIG
 
-Initially, we need to select the reference sequence. The aim of this circular BLAST comparison is to search for homology between our reference sequence **final_comparison_antibiotics.fasta** obtained in the previous steps of this tutorial and our _E. coli_ sequence from the Germany outbreak AFPN02.1 as well as other known _E. coli_ bacterial genomes.
+Initially, we need to select the reference sequence. The aim of this circular BLAST comparison is to search for homology between our reference sequence **final_comparison_antibiotics.fasta** obtained in the previous steps of this tutorial and our *E. coli* sequence from the Germany outbreak AFPN02.1 as well as other known *E. coli* bacterial genomes.
 
-1. Select `/workspace/NGS_practicals/course_materials/genomes/wholeGenomeExamples/AFPN02.1.genome.fasta` as _Reference/Database sequence_. Users can use the browse button to traverse the file system.
-2. Set `/workspace/NGS_practicals/course_materials/genomes/wholeGenomeExamples/` as _Query sequence folder_
+  
+1. Select `/workspaces/codespaces_NGS/course_materials/genomes/wholeGenomeExamples/final_comparison_antibiotics.fasta` as *Reference/Database sequence*. **This is the file we have been preparing during this practical.** Users can use the browse button to traverse the file system. 
+2. Set `/workspaces/codespaces_NGS/course_materials/genomes/wholeGenomeExamples/` as *Query sequence folder*
 3. Press `Add data to pool`, this should load several items into the pool list.
-4. Define an _Output folder_ `/workspace/NGS_practicals/course_materials/results_GC/BRING_output`.
+4. Define an *Output folder* `/workspaces/codespaces_NGS/course_materials/results_GC/BRING_output`.
 5. Click `Next`.
 
 ![ BRIG initial set ](figures/BRING_initial.png)
@@ -668,26 +677,30 @@ Initially, we need to select the reference sequence. The aim of this circular BL
 
 ### Configure last ring German Outbreak E.coli AFPN02.1
 
-We need to compare the last annotation ring ( reference sequence -ring 4 below) against this ring (ring 3). If an annotated antibiotic genes is present in AFPN02.1 we will detect it as a colored red box in this ring with higher similarity appearing in bright red.
+We need to compare  the last annotation ring ( reference sequence -ring 4 below) against this ring (ring 3) and previous ones. If an annotated antibiotic genes is present in AFPN02.1 we will detect it as a colored red box in this ring with higher similarity appearing in bright red.
 
 1. **Add new ring**.
 1. Double click to select ring.
-1. Modify **Legend text** to `German_Outbreak_AFPN02.1.`
-1. Select `/workspace/NGS_practicals/course_materials/genomes/wholeGenomeExamples/AFPN02.1.genome.fasta` from the **Data pool** and click **Add data** to include the comparison sequence.
-1. Choose **Ring colour**.
-1. Set upper 90 and lower 70 **Identity thresholds**.
+2. Modify **Legend text** to `German_Outbreak_AFPN02.1.`
+3. Select `/workspaces/codespaces_NGS/course_materials/genomes/wholeGenomeExamples/AFPN02.1.genome.fasta` from the **Data pool** and click **Add data** to include the comparison sequence.
+4. Choose **Ring colour** to RED.
+5. Set upper 90 and lower 70 **Identity thresholds**.
 
-![ Configure last ring ](figures/AFPN02_Ring.png)
 
+  
+![ Configure last ring ](figures/AFPN02_Ring.png)  
+
+  
 ### Configure annotation ring (Features ring)
 
 Although we include our reference sequence as the very first of this BRIG analysis we will include an outside ring with the genes present on the **final_comparison_antibiotics.fasta**. To this end, we will **Add custom features** that will get information for each gene from the fasta header that we prepared during this practical. Now you may understand that reducing the fasta header was to have a clean legend and avoid clutter in the final plot.
 
 1. **Add new ring** and leave **Legend text** empty.
 2. Select **Add custom features**.
-
-![ ](figures/custom_features.png)
-
+3. DO NOT **ADD DATA** SHOWN ON THIS RING!!
+  
+![ ](figures/custom_features.png)  
+  
 After **Add custom features** window opened:
 
 3. Double click on the empy **null ring**.
