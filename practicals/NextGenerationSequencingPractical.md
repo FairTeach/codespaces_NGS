@@ -88,7 +88,7 @@ where the quality scores correspond to the following ASCII:
   
 We had improved the initial fastq file. Please, use this version on all the practical:  
 
-https://www.dropbox.com/s/91iqhvmd3ckysju/final_merge_syntetic_reads.fq.gz
+https://www.dropbox.com/scl/fi/ybydpinv321r5xgs36xis/final_merge_synthetic_reads.fq.gz?rlkey=aisd5gxlqpom574j6k6qo4i2p&st=45jmepek&dl=0
 
   
 Check the first few lines of your own fastq file:
@@ -101,7 +101,7 @@ cd "${st_path}"/course_materials/fastq/
 
 
 # Download fastq file
-wget "https://www.dropbox.com/s/91iqhvmd3ckysju/final_merge_syntetic_reads.fq.gz" -O final_merge_synthetic_reads.fq.gz
+wget "https://www.dropbox.com/scl/fi/ybydpinv321r5xgs36xis/final_merge_synthetic_reads.fq.gz?rlkey=aisd5gxlqpom574j6k6qo4i2p&st=45jmepek&dl=1" -O final_merge_synthetic_reads.fq.gz
 
 # Examine .gz compress fastq file with `zless`. You can advance pages by pressing "space bar". NOTE exit pressing "q" quit!
 zless final_merge_synthetic_reads.fq.gz
@@ -767,7 +767,7 @@ freebayes -f "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta
 vcf2fasta -f "${st_path}"/course_materials/genomes/AFPN02.1/AFPN02.1_merge.fasta -P 1 Long.vcffile -p AFPN02.1_consensus.fasta
 
 # Rename file to more precise name
-mv AFPN02.1_consensus.fastaunknown_AFPN02.1_merge:0.fa AFPN02.1_merge_consensus.fa
+mv AFPN02.1_consensus.fastaunknown_AFPN02.1_merge:0.fasta AFPN02.1_merge_consensus.fa
 
 # Read VCF file
 less Long.vcffile

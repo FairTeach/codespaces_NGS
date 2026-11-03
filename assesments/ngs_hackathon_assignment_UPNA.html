@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ngs_hackathon_assignment_UPNA.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%A7%AC-2nd-assessment---ngs-hackathon-challenge">🧬 2nd Assessment - NGS Hackathon Challenge</h1>
+<h2 id="universidad-publica-de-navarra">Universidad Publica de Navarra</h2>
+<h2 id="m%C3%A1ster-universitario-en-ingenier%C3%ADa-biom%C3%A9dica">Máster Universitario en Ingeniería Biomédica</h2>
+<h3 id="module-bioinform%C3%A1tica-avanzada">Module: “Bioinformática Avanzada”</h3>
+<hr>
+<p>Date of the assignment: 	Tuesday 21/04/2026</p>
+<p>Date assignment is due:	TBC, tentative May 8th 23:59h – 23.59h</p>
+<p>Marking:	2nd Assessment — NGS Hackathon contributes 30% for module</p>
+<hr>
+<h3 id="%F0%9F%8E%AF-introduction">🎯 <strong>Introduction</strong></h3>
+<p>In this challenge, you will act as a <strong>bioinformatician</strong> analyzing <strong>Illumina next-generation sequencing (NGS)</strong> data.<br>
+Your goal is not only to execute computational tools but to <strong>understand, interpret, and improve</strong> the quality of your analyses through evidence-based reasoning and iteration.</p>
+<p>This assessment simulates a real-world bioinformatics scenario where reproducibility, accuracy, and interpretation are key.<br>
+Throughout the assignment, you will:</p>
+<ul>
+<li>Work with raw FASTQ files and identify quality issues.</li>
+<li>Use standard bioinformatics tools (<code>FastQC</code>, <code>Cutadapt</code>, <code>Bowtie2</code>, <code>Samtools</code>, <code>MultiQC</code>).</li>
+<li>Apply parameter optimization and critical thinking to improve results.</li>
+<li>Document everything in <strong>Markdown</strong> for reproducibility.</li>
+</ul>
+<blockquote>
+<p>🧠 <strong>Most important:</strong> every section of your report must include a <strong>strong biological interpretation</strong> of the computational results.<br>
+Explain what your observations mean in biological terms — e.g. sequencing quality, sample contamination, genomic complexity, or organismal biology, sequencer failure...<br>
+Interpretation will be the <strong>most heavily weighted</strong> criterion in grading.</p>
+</blockquote>
+<hr>
+<h3 id="%F0%9F%93%8B-assessment-overview">📋 <strong>Assessment Overview</strong></h3>
+<p>You will complete <strong>three main tasks</strong> (plus one extended exercise).<br>
+Each builds on the previous one, representing together <strong>30 % of the module grade</strong>.</p>
+<p>Deliverables:</p>
+<ul>
+<li>Submit a <strong>single PDF report</strong> (generated from Markdown) to ADI before the deadline. Word or similar are allowed but Markdown is preferred.</li>
+<li>Include all code, outputs (figures, tables, screenshots), and your biological interpretations.</li>
+<li>Demonstrate iterative improvement, clear reasoning and thorough analysis.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%9A%80-what-is-a-hackathon">🚀 <strong>What Is a Hackathon?</strong></h3>
+<p>A <strong>hackathon</strong> is a collaborative and competitive event where participants solve technical problems in a short, intense timeframe.<br>
+In bioinformatics, hackathons are used to develop or benchmark workflows, test algorithms, and promote open collaboration with real datasets.</p>
+<p>Relevant examples:</p>
+<ul>
+<li><strong>NCBI/NIH Bioinformatics Hackathons</strong> — organized by the National Center for Biotechnology Information (NIH/NCBI) to prototype genomic analysis pipelines:<br>
+🔗 <a href="https://ncbiinsights.ncbi.nlm.nih.gov/tag/bioinformatics-hackathon/">https://ncbiinsights.ncbi.nlm.nih.gov/tag/bioinformatics-hackathon/</a></li>
+<li><strong>BioHackathon</strong> - organized by DBCLS since 2008, focuses on standardization and interoperability of bioinformatics data and web services:
+🔗 <a href="https://www.biohackathon.org/">https://www.biohackathon.org/</a></li>
+<li><strong>EMBL-EBI BioHackathon Europe</strong> — focused on NGS interoperability and FAIR data standards:<br>
+🔗 <a href="https://biohackathon-europe.org/">https://biohackathon-europe.org/</a></li>
+</ul>
+<p>In this course, you will participate in a <strong>mini-hackathon</strong>, where Students will compete to achieve the <strong>best mapping performance</strong> (highest alignment rate and lowest error) on the same dataset.<br>
+Hard work, creativity, reproducibility, and biological insight will determine success.</p>
+<hr>
+<h2 id="%F0%9F%A7%AA-assessment-tasks">🧪 Assessment Tasks</h2>
+<hr>
+<h3 id="question-1-%E2%80%93-diagnosing-and-re-mapping-negativefq"><strong>Question 1 – Diagnosing and Re-mapping <code>Negative.fq</code></strong></h3>
+<p>You were given a FASTQ file (<code>Negative.fq</code>) from a simulated whole-genome sequencing experiment.<br>
+When reads were split using four barcodes (Negative, Positive, Long, BQ), the file <code>Negative.fq</code> showed <strong>poor alignment</strong>.</p>
+<p><img src="figures/mapping_resoults.png" alt="Mapping results"></p>
+<h4 id="your-task"><strong>Your task</strong></h4>
+<ol>
+<li>Identify <strong>two plausible solution</strong> for the poor mapping.</li>
+<li>Test both hypotheses by applying corresponding corrections or parameter changes.</li>
+<li>Re-map the reads against the reference genome.</li>
+<li>From <strong>two plausible solution</strong> choose which hypothesis is most accurate, justify your choice, and provide a biological interpretation.</li>
+</ol>
+<h4 id="hints"><strong>Hints</strong></h4>
+<ul>
+<li>Use <code>less</code> and <code>fastqc</code> to inspect raw reads.</li>
+<li>Try trimming options with <code>cutadapt</code> and different alignment modes with <code>bowtie2</code>.</li>
+<li>Evaluate performance with <code>samtools stats</code>, <code>samtools flagstat</code>, and <code>multiQC</code>.</li>
+</ul>
+<h4 id="include-in-your-report---suggestions"><strong>Include in your report</strong> - Suggestions</h4>
+<ul>
+<li>All commands used.</li>
+<li>Description of both initial hypotheses and solutions.</li>
+<li>Identification of the correct cause and justification with evidence.</li>
+<li>Table comparing both alignments (mapping %, error rate, properly paired reads).</li>
+<li><strong>Strong biological interpretation</strong> of what these findings imply about your sequencing data and experiment.</li>
+</ul>
+<hr>
+<h3 id="question-2-%E2%80%93-quality-trimming-and-re-mapping-bqfq"><strong>Question 2 – Quality Trimming and Re-mapping <code>BQ.fq</code></strong></h3>
+<p>The dataset <code>BQ.fq</code> also produced null alignment rates.<br>
+Your objective is to <strong>improve mapping accuracy and yield</strong> through quality filtering and parameter optimization.</p>
+<h4 id="steps"><strong>Steps</strong></h4>
+<ul>
+<li>Inspect raw quality and adapter content with <code>fastqc</code>.</li>
+<li>Use <code>cutadapt</code> to trim adapters, low-quality tails, and short reads.</li>
+<li>Re-map cleaned reads with <code>bowtie2</code>, testing different parameter sets.</li>
+<li>Compare <strong>alignment rate</strong>, <strong>error rate</strong>, and <strong>multimapping or secondary reads</strong> using <code>samtools</code> and <code>multiQC</code>.</li>
+<li>Reflect on the trade-off between <strong>alignment rate</strong> (quantity) and <strong>alignment accuracy</strong> (quality) and <strong>error rate</strong> (quality).</li>
+</ul>
+<h4 id="include-in-your-report---suggestions"><strong>Include in your report</strong> - Suggestions</h4>
+<ul>
+<li>All trimming and mapping commands.</li>
+<li>Tables with mapping statistics.</li>
+<li>Explanation of how trimming thresholds affected results.</li>
+<li>Discussion of which parameters produced biologically most meaningful results.</li>
+<li><strong>Biological interpretation:</strong> e.g., does quality trimming remove contamination, low-quality regions, or artifacts from sample prep?</li>
+</ul>
+<hr>
+<h3 id="question-3-%E2%80%93-%F0%9F%A7%A0-hackathon-challenge-the-box"><strong>Question 3 – 🧠 Hackathon Challenge (“The Box”)</strong></h3>
+<p>This is the <strong>competitive hackathon</strong> section.<br>
+You will use your optimized workflow from Question 2 to produce the <strong>best possible mapping</strong> for the <code>BQ</code> dataset.</p>
+<h4 id="rules"><strong>Rules</strong></h4>
+<ul>
+<li>You may use either standard commands or your <strong>own developed scripts or pipelines</strong> (custom Bash scripts, or Python wrappers or Rscripts).</li>
+<li>Creativity and reproducibility are encouraged — clearly document your workflow so that others could reproduce your results.</li>
+<li>Each Student must submit one final short <strong>command or script BOX</strong> and final statistics.</li>
+</ul>
+<h4 id="deliverables"><strong>Deliverables</strong></h4>
+<ul>
+<li>A <strong>BOX</strong> (or script snippet) containing your final <code>cutadapt</code> and <code>bowtie2</code> commands or full custom pipeline.</li>
+<li>Final <strong>mapping table</strong> with alignment %, mismatches/error rate, and total reads.</li>
+<li>Short (≤ 300 words) explanation of your optimization strategy and how it improved mapping results.</li>
+<li>A <strong>biological interpretation</strong> of what your optimizations imply about the sample or sequencing process.</li>
+</ul>
+<h4 id="example-box"><strong>Example BOX</strong></h4>
+<blockquote>
+<pre class="hljs"><code><div>
+# Cutadapt trimming
+cutadapt -parameter ¿¿¿¿¿ -parameter ¿¿¿¿¿ -parameter ¿¿¿¿¿ -parameter ¿¿¿¿¿¿¿?????? 
+
+# Bowtie2 alignment
+bowtie2 -x reference_genome -1 BQ_trimmed_R1.fastq -2 BQ_trimmed_R2.fastq \
+  ¿¿¿¿¿ -parameter ?????? -S BQ_aligned_tried?.sam
+
+</div></code></pre>
+</blockquote>
+<h4 id="evaluation-criteria"><strong>Evaluation criteria</strong></h4>
+<p>What is more important? What do you prioritise?</p>
+<ol>
+<li>Highest % of mapped reads.</li>
+<li>Lowest mismatch/error rate.</li>
+<li>Lowest multimapping reads.</li>
+<li>Workflow clarity and reproducibility.</li>
+<li>Quality of <strong>biological interpretation</strong>.</li>
+</ol>
+<hr>
+<h3 id="question-4-%E2%80%93-exploring-bqaligned-advanced-task"><strong>Question 4 – Exploring <code>BQ_aligned</code> (Advanced Task)</strong></h3>
+<p>Use <strong><code>samtools</code></strong> to split and inspect your alignment file (<code>BQ_aligned.sam</code> or <code>.bam</code>) based on mapping characteristics.</p>
+<h4 id="tasks"><strong>Tasks</strong></h4>
+<p>a) Split into two files:</p>
+<ul>
+<li>Reads mapping to multiple locations (multimapping).</li>
+<li>Reads mapping uniquely.</li>
+</ul>
+<p>b) Split into:</p>
+<ul>
+<li>Unmapped reads.</li>
+<li>Mapped reads.</li>
+</ul>
+<p>c) Explain how you could achieve (b) directly using <code>bowtie2</code> parameters instead.</p>
+<p>d) Use <strong>BLAST</strong> to identify the origin of unmapped reads and summarise findings. Report your results.</p>
+<p>🧩 <strong>Bonus (optional, extra marks)</strong><br>
+e) Split reads with <strong>&gt; 3 mismatches</strong> vs <strong>&lt; 3 mismatches</strong> and discuss whether these mismatches are biologically meaningful (e.g., real variants, errors, contamination).<br>
+f) Separate <strong>trimmed</strong> from <strong>untrimmed</strong> reads and interpret differences.</p>
+<h4 id="hints"><strong>Hints</strong></h4>
+<ul>
+<li>Use <code>samtools view -f</code> and <code>-F</code> for flag filtering.</li>
+<li>Reference for flags: <a href="https://broadinstitute.github.io/picard/explain-flags.html">https://broadinstitute.github.io/picard/explain-flags.html</a></li>
+<li>Combine <code>grep</code>, <code>awk</code>, or regular expressions for more complex filters.</li>
+</ul>
+<h4 id="include"><strong>Include</strong></h4>
+<ul>
+<li>All filtering commands used.</li>
+<li>Screenshots or tables showing your outputs.</li>
+<li>Short answers to (c) and (d) with <strong>biological interpretations</strong>.</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%97%BE-submission-and-markdown-instructions">🗾 <strong>Submission and Markdown Instructions</strong></h2>
+<p>Submit a <strong>single PDF file</strong> including:</p>
+<ul>
+<li>Code boxes and scripts.</li>
+<li>Figures and screenshots.</li>
+<li>Tables with summary statistics.</li>
+<li>Written answers with explicit biological interpretation.</li>
+</ul>
+<hr>
+<h3 id="%F0%9F%97%BA%EF%B8%8F-creating-your-report-in-markdown">🗺️ <strong>Creating Your Report in Markdown</strong></h3>
+<p>You can use Word or Google Docs, but <strong>Markdown</strong> is highly recommended for reproducibility.</p>
+<h4 id="%F0%9F%94%B9-option-1-visual-studio-code-vsc--extensions">🔹 Option 1: <strong>Visual Studio Code (VSC) + Extensions</strong></h4>
+<ol>
+<li>Open Visual Studio Code.</li>
+<li>Open the Extensions panel (<code>Ctrl + Shift + X</code>).</li>
+<li>Install:
+<ul>
+<li><strong>Markdown All in One</strong> → <a href="https://open-vsx.org/vscode/item?itemName=yzhang.markdown-all-in-one">link</a></li>
+<li><strong>Markdown PDF (yzane)</strong> → <a href="https://open-vsx.org/vscode/item?itemName=yzane.markdown-pdf">link</a></li>
+</ul>
+</li>
+<li>Create a file named <code>NGS_Hackathon_Report_{Student_NAME}.md</code>.</li>
+<li>Write using Markdown syntax:
+<ul>
+<li><code>#</code> for titles</li>
+<li><code>bash … </code> for code blocks</li>
+<li><code>![caption](image.png)</code> for figures</li>
+</ul>
+</li>
+<li>To export: <code>Ctrl + Shift + P</code> → <em>Markdown PDF: Export (pdf)</em>.</li>
+<li>PDF will appear in the same folder.</li>
+</ol>
+<p>🔌 Use <code>Ctrl + Shift + V</code> for live Markdown preview in VS Code.</p>
+<p><img src="figures/markdown.png" alt="Markdown PDF (yzane)"></p>
+<h4 id="%F0%9F%94%B9-option-2-dillingerio">🔹 Option 2: <a href="https://dillinger.io/">Dillinger.io</a></h4>
+<ol>
+<li>Open <a href="https://dillinger.io/">https://dillinger.io/</a>.</li>
+<li>Write your Markdown text directly.</li>
+<li>Use the preview pane to visualise formatting.</li>
+<li>Export or print to <strong>PDF</strong> or <strong>HTML</strong>.</li>
+<li>Include figures as:<br>
+<code>![description](figure.png)</code>.</li>
+</ol>
+<hr>
+<h3 id="%F0%9F%94%AF-recommended-markdown-resources">🔯 <strong>Recommended Markdown Resources</strong></h3>
+<ul>
+<li><a href="https://www.markdownguide.org/">https://www.markdownguide.org/</a></li>
+<li><a href="https://open-vsx.org/vscode/item?itemName=yzane.markdown-pdf">Markdown PDF (yzane)</a></li>
+<li><a href="https://open-vsx.org/vscode/item?itemName=yzhang.markdown-all-in-one">Markdown All in One</a></li>
+</ul>
+
+</body>
+</html>
