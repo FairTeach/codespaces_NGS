@@ -16,7 +16,7 @@ output:
 If you encounter some issue to download with command line you could also get file to workout this session. 
 
 ### Subset of real ENA data
-https://www.dropbox.com/s/mhsfrgl9esx9qdb/ERR1880948_subset.fastq.gz?dl=0
+https://www.dropbox.com/scl/fi/l5p9eip52yxbl1wxlcnxo/ERR1880948_subset.fastq.gz?rlkey=whguvn1papuv0pjhjjvuazylb&st=7cesr739&dl=0
 
 
 # A short introduction to using the Unix command line
@@ -107,7 +107,7 @@ mkdir intro_UNIX
 cd "${st_path}"/intro_UNIX
 
 # Download fastq sequencing data to use during this practical
-wget "https://www.dropbox.com/s/mhsfrgl9esx9qdb/ERR1880948_subset.fastq.gz" -O ERR1880948_subset.fastq.gz
+wget "https://www.dropbox.com/scl/fi/l5p9eip52yxbl1wxlcnxo/ERR1880948_subset.fastq.gz?rlkey=whguvn1papuv0pjhjjvuazylb&st=7cesr739&dl=1" -O ERR1880948_subset.fastq.gz
 
 ```
 
@@ -164,7 +164,7 @@ ls
   
 ```{bash, eval = FALSE}
 # Download fastq sequencing data to use during this practical
-wget "https://www.dropbox.com/s/mhsfrgl9esx9qdb/ERR1880948_subset.fastq.gz" -O ERR1880948_subset.fastq.gz
+wget "https://www.dropbox.com/scl/fi/l5p9eip52yxbl1wxlcnxo/ERR1880948_subset.fastq.gz?rlkey=whguvn1papuv0pjhjjvuazylb&st=7cesr739&dl=1" -O ERR1880948_subset.fastq.gz
 # list files
 ls
 # unzip the file
@@ -522,8 +522,8 @@ mydir="third_folder"
 mydir2="course_materials"
 mydir3="fastq"
 
-# Download file 
-wget "https://www.dropbox.com/s/mhsfrgl9esx9qdb/ERR1880948_subset.fastq.gz?dl=0" -O ERR1880948_subset.fastq.gz
+# Download file
+wget "https://www.dropbox.com/scl/fi/l5p9eip52yxbl1wxlcnxo/ERR1880948_subset.fastq.gz?rlkey=whguvn1papuv0pjhjjvuazylb&st=7cesr739&dl=1" -O ERR1880948_subset.fastq.gz
 
 # Create folder
 mkdir ${mydir}
@@ -578,7 +578,7 @@ cd awk_test
 # Download whole fastq file
 # wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR188/008/ERR1880948/ERR1880948.fastq.gz
 # Download ERR1880948 subset
-wget "https://www.dropbox.com/s/mhsfrgl9esx9qdb/ERR1880948_subset.fastq.gz?dl=0" -O ERR1880948_subset.fastq.gz
+wget "https://www.dropbox.com/scl/fi/l5p9eip52yxbl1wxlcnxo/ERR1880948_subset.fastq.gz?rlkey=whguvn1papuv0pjhjjvuazylb&st=7cesr739&dl=1" -O ERR1880948_subset.fastq.gz
 
 ```
   
