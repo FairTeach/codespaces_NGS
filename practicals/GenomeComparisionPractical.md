@@ -161,7 +161,7 @@ We now have a FASTA file of the most likely genomic sequence of our strain BUT w
 
 This produces a number of files containing the predicted annotation of genes in our genomic sequence (genbank, gff etc).
 
-**You can try to annotate your consensus sequence with DFast. But for time efficiency we provide you with a pre-compiled annotation in ${st_path}/course_materials/resources/annotation**
+**You can try to annotate your consensus sequence with DFast. But for time efficiency we provide you with a pre-compiled annotation for download below.**
 
 If you want to repeat the annotation, go to the server, browse to your consensus sequence, provide a job title and your email address. Select `E. coli` additional DB, `100` minimum sequence length, Enable `HMM scan against TIGRFAM`, Enable `RPSBLAST against COG` and `Rotate/flip` the chromosome so that the dnaA gene comes first.
 
@@ -175,11 +175,8 @@ _However, we advise you to try this another time and use instead the annotation 
 # Go to results_GC directory
 mkdir "${st_path}"/course_materials/results_GC/annotation
 cd  "${st_path}"/course_materials/results_GC/annotation
-# wget -O annotation.zip --no-check-certificate -r 'https://drive.google.com/uc?export=download&id=14B6f03FYp4rsIY4kz-7Zytr_z2t47-Wt'
-
-
-# Get the annotated files from resources directory:
-cp "${st_path}"/course_materials/resources/annotation.zip .
+# Download the provided annotation:
+wget "https://www.dropbox.com/scl/fi/eixd21f7alb9fyx2qhpdc/annotation.zip?rlkey=d753r0gslhtyh37w4axvcghsy&st=q2lr86c0&dl=1" -O annotation.zip
 
 # Decompress annotation folder
 unzip annotation.zip
@@ -604,7 +601,7 @@ https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-12-402
 #### BRIG manual
 
 ```
-https://www.dropbox.com/s/xbuh9fetzmu630g/BRIGMANUAL.pdf?dl=0
+https://www.dropbox.com/scl/fi/7qvroy4fmil72bzu2l8gk/BRIGMANUAL.pdf?rlkey=1yxpuj3z44gw16p3tvf8a7iko&st=0t2rhuk2&dl=0
 
 BRIG http://sourceforge.net/projects/brig/
 
