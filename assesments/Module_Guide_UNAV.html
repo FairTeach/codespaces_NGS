@@ -377,7 +377,7 @@ It aims to bridge the gap between experimental High Throughput Omics Technologie
 <li><strong>NGS Hackathon (Assessment 1):</strong><br>
 A hands-on competition analysing Illumina next-generation sequencing data to achieve optimal alignment and quality control.</li>
 <li><strong>Final Coursework (Assessment 2):</strong><br>
-A comprehensive written plus oral assessment anchored to the milestone dates shown in the <strong>Course Calendar</strong>. Students select <strong>one</strong> advanced omics task (automation pipeline, virulence investigation, DESeq2 analysis, or the optional TFM fast-track) and deliver both a PDF report and a defended presentation. All module assets and specifications live in the FairTeach teaching repositories: <code>FairTeach/codespaces_NGS</code> (this workspace) and the companion <code>FairTeach/codespaces_RStudio</code>.</li>
+A comprehensive written plus oral assessment anchored to the milestone dates shown in the <strong>Course Calendar</strong>. Students select <strong>one</strong> advanced omics task (automation pipeline, virulence investigation, DESeq2 analysis, or the optional TFM fast-track) and deliver both a PDF report and a defended presentation. All module assets and specifications live in the course repositories: <code>Faitero/codespaces_NGS-1</code> (this workspace) and the companion <code>FairTeach/codespaces_RStudio</code>.</li>
 </ol>
 <p>By the end of the module, students will be able to:</p>
 <ul>
@@ -431,7 +431,7 @@ A comprehensive written plus oral assessment anchored to the milestone dates sho
 <hr>
 <h3 id="%F0%9F%9B%A0%EF%B8%8F-specifications--platforms">🛠️ <strong>Specifications &amp; Platforms</strong></h3>
 <ul>
-<li><strong>FairTeach/codespaces_NGS:</strong> Ubuntu 22.04 GitHub Codespace with a desktop-lite (Xfce + noVNC) layer, Miniforge+mamba, IGV, FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, and walkthroughs in <code>practicals/*.md</code>. Automation and package initialisation run through <code>.devcontainer/postCreate.sh</code>.</li>
+<li><strong>Faitero/codespaces_NGS-1:</strong> Ubuntu 22.04 GitHub Codespace with a desktop-lite (Xfce + noVNC) layer, Miniforge+mamba, IGV, FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, and walkthroughs in <code>practicals/*.md</code>. Automation and package initialisation run through <code>.devcontainer/postCreate.sh</code>.</li>
 <li><strong>FairTeach/codespaces_RStudio:</strong> Rocker-based RStudio Server (port 8787) plus optional XFCE desktop (port 6080), the <code>rnaseq-tools</code> mamba environment defined at <code>env/mamba-environment.yml</code>, and preinstalled Bioconductor stacks (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) for RNA-seq case studies.</li>
 <li><strong>Shared workflow:</strong> Both repos rely on GitHub Education accounts, Codespaces/VS Code Dev Containers, and reproducible devcontainers so every student opens the same toolkit whether in the browser or locally.</li>
 </ul>
@@ -561,7 +561,7 @@ A comprehensive written plus oral assessment anchored to the milestone dates sho
 <hr>
 <h3 id="%F0%9F%A7%AD-student-guidance">🧭 <strong>Student Guidance</strong></h3>
 <ul>
-<li>Secure your GitHub Education account early so you can open both <code>FairTeach/codespaces_NGS</code> and <code>FairTeach/codespaces_RStudio</code> in GitHub Codespaces or VS Code Dev Containers.</li>
+<li>Secure your GitHub Education account early so you can open both <code>Faitero/codespaces_NGS-1</code> and <code>FairTeach/codespaces_RStudio</code> in GitHub Codespaces or VS Code Dev Containers.</li>
 <li>Follow the repo READMEs for authentication details (e.g., RStudio Server credentials <code>rstudio</code> / <code>rstudio</code>, Codespaces desktop password <code>vscode</code> in the NGS image).</li>
 <li>Keep project notes in Markdown, linked to your scripts/notebooks inside each repo, and cite every external dataset or pipeline you reuse.</li>
 <li>When collaborating, log individual contributions; only the final writeup and defense are graded individually.</li>
@@ -610,7 +610,7 @@ A comprehensive written plus oral assessment anchored to the milestone dates sho
 <h3 id="%F0%9F%A7%A9-learning-outcomes">🧩 <strong>Learning Outcomes</strong></h3>
 <p>By completing this module section, students will:</p>
 <ol>
-<li>Launch and manage reproducible GitHub Codespaces/Dev Containers from <code>FairTeach/codespaces_NGS</code> and <code>FairTeach/codespaces_RStudio</code>, including desktop-lite and RStudio Server workflows.</li>
+<li>Launch and manage reproducible GitHub Codespaces/Dev Containers from <code>Faitero/codespaces_NGS-1</code> and <code>FairTeach/codespaces_RStudio</code>, including desktop-lite and RStudio Server workflows.</li>
 <li>Visit a real HPC facility NASERTIC CPD, and a real Sequencing Facility and Systems Biology Lab(IRIS Polo de Innovación Digital) to understand the physical infrastructure supporting omics analyses and the role of HPC in personalised medicine.</li>
 <li>Automate NGS pipelines with Bash, Miniforge/mamba environments, and core CLI tools (FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, IGV).</li>
 <li>Execute RNA-seq and omics analyses in RStudio using the preinstalled Bioconductor stack (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) and document outputs in Markdown or R Markdown.</li>

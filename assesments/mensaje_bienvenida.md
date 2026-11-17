@@ -6,7 +6,7 @@ Os doy la bienvenida al módulo Challenges in Biotechnology (Medicina Personaliz
 
 En esta primera sesión haremos una introducción a la medicina personalizada, las ómicas y las tecnologías de secuenciación, y conoceremos los laboratorios de NASERTIC. Después trabajaremos en dos retos: un hackathon de alineamiento de datos Illumina y un proyecto ómico breve.
 
-Una cosa os pido que hagáis ya, sin esperar a la clase: las prácticas se hacen en GitHub Codespaces y necesitáis la cuenta de GitHub Education, cuya aprobación puede tardar hasta dos semanas. Solo tenéis que inscribiros en https://education.github.com/pack/join con vuestro correo de la UPNA. Cuando os la aprueben, enviadme vuestro usuario de GitHub a este mismo correo para daros acceso al material del curso (https://github.com/FairTeach/codespaces_NGS).
+Una cosa os pido que hagáis ya, sin esperar a la clase: las prácticas se hacen en GitHub Codespaces y necesitáis la cuenta de GitHub Education, cuya aprobación puede tardar hasta dos semanas. Solo tenéis que inscribiros en https://education.github.com/pack/join con vuestro correo de la UPNA. Cuando os la aprueben, enviadme vuestro usuario de GitHub a este mismo correo para daros acceso al material del curso (https://github.com/Faitero/codespaces_NGS-1).
 
 Cualquier duda con el registro, escribidme.
 

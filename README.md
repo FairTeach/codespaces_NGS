@@ -1,10 +1,10 @@
 # Codespaces NGS Practicals
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Faitero/codespaces_NGS-1?quickstart=1)
 
 [![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
-This repository ([FairTeach/codespaces_NGS](https://github.com/FairTeach/codespaces_NGS)) hosts the teaching materials for the Next Generation Sequencing (NGS) practicals. The 2025 refresh targets GitHub Codespaces and ships an Ubuntu-based desktop environment with Xfce, noVNC, Miniforge+mamba, IGV, and supporting bioinformatics tooling.
+This repository ([Faitero/codespaces_NGS-1](https://github.com/Faitero/codespaces_NGS-1)) hosts the teaching materials for the Next Generation Sequencing (NGS) practicals. The 2025 refresh targets GitHub Codespaces and ships an Ubuntu-based desktop environment with Xfce, noVNC, Miniforge+mamba, IGV, and supporting bioinformatics tooling.
 
 # Introduction   
 This Bioinformatics materials have been evolving since 2017 and therefore there where several hurdles to overcome since then. Initially, they ran on a HPC cluster on Birkbeck University London but it was difficult to manage dozens students accounts without interfering with normal users. Then I changed to a UNIX Virtual Machine (VirtualBox) that were installed on each student computer. This was successfully used on UCL (London), Birkbeck (London), UNAV (Navarra) and UPNA (Navarra). Unfortunately, this throw some difficulties as the need of 40Gb of empty disk space, computer crashes and later on, make impossible to continue with the appearance of the new M1-M2 chipsets on MACs that do not allow virtualisation. As a proof of concept, on 2022-2023 I decided to move to a cloud environment one class. On 2025-2026 all the materials have been designed to run on GitHub Codespaces environment integrated on Visual Studio code IDE and allowing a visual Desktop interface. So I expect several errors, so bear with me and beg you pardon! 
@@ -74,6 +74,5 @@ All the materials will be handed to you over Moddle or ADI. Lectures will be PDF
 ---
 
 The teaching material has evolved from on-premises HPC clusters to local virtual machines and now GitHub Codespaces, delivering a consistent browser-based environment without the maintenance overhead of local virtualisation.
-
 
 

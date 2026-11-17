@@ -7,7 +7,7 @@ output:
   html_document: default
 ---
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Faitero/codespaces_NGS-1?quickstart=1)
 [![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
 ## Welcome
@@ -344,5 +344,4 @@ A small curated list of resources to learn and reference shell basics. Use them 
 
 Keep this pages bookmarked while you learn; the combination of a cheatsheet, hands‑on exercises and the full book is an efficient way to build lasting command‑line skills.
 // ...existing code...
-
 
