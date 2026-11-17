@@ -15,7 +15,7 @@ Students will engage in **two major challenges**:
 1. **NGS Hackathon (Assessment 1):**  
    A hands-on competition analysing Illumina next-generation sequencing data to achieve optimal alignment and quality control.
 2. **Final Coursework (Assessment 2):**  
-   A comprehensive written plus oral assessment anchored to the milestone dates shown in the **Course Calendar**. Students select **one** advanced omics task (automation pipeline, virulence investigation, DESeq2 analysis, or the optional TFM fast-track) and deliver both a PDF report and a defended presentation. All module assets and specifications live in the FairTeach teaching repositories: `FairTeach/codespaces_NGS` (this workspace) and the companion `FairTeach/codespaces_RStudio`.
+   A comprehensive written plus oral assessment anchored to the milestone dates shown in the **Course Calendar**. Students select **one** advanced omics task (automation pipeline, virulence investigation, DESeq2 analysis, or the optional TFM fast-track) and deliver both a PDF report and a defended presentation. All module assets and specifications live in the course repositories: `Faitero/codespaces_NGS-1` (this workspace) and the companion `FairTeach/codespaces_RStudio`.
 
 By the end of the module, students will be able to:
 - Work confidently in a Unix/HPC environment for omics analysis.  
@@ -43,7 +43,7 @@ By the end of the module, students will be able to:
 
 ### 🛠️ **Specifications & Platforms**
 
-- **FairTeach/codespaces_NGS:** Ubuntu 22.04 GitHub Codespace with a desktop-lite (Xfce + noVNC) layer, Miniforge+mamba, IGV, FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, and walkthroughs in `practicals/*.md`. Automation and package initialisation run through `.devcontainer/postCreate.sh`.
+- **Faitero/codespaces_NGS-1:** Ubuntu 22.04 GitHub Codespace with a desktop-lite (Xfce + noVNC) layer, Miniforge+mamba, IGV, FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, and walkthroughs in `practicals/*.md`. Automation and package initialisation run through `.devcontainer/postCreate.sh`.
 - **FairTeach/codespaces_RStudio:** Rocker-based RStudio Server (port 8787) plus optional XFCE desktop (port 6080), the `rnaseq-tools` mamba environment defined at `env/mamba-environment.yml`, and preinstalled Bioconductor stacks (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) for RNA-seq case studies.
 - **Shared workflow:** Both repos rely on GitHub Education accounts, Codespaces/VS Code Dev Containers, and reproducible devcontainers so every student opens the same toolkit whether in the browser or locally.
 
@@ -99,7 +99,7 @@ By the end of the module, students will be able to:
 
 ### 🧭 **Student Guidance**
 
-- Secure your GitHub Education account early so you can open both `FairTeach/codespaces_NGS` and `FairTeach/codespaces_RStudio` in GitHub Codespaces or VS Code Dev Containers.
+- Secure your GitHub Education account early so you can open both `Faitero/codespaces_NGS-1` and `FairTeach/codespaces_RStudio` in GitHub Codespaces or VS Code Dev Containers.
 - Follow the repo READMEs for authentication details (e.g., RStudio Server credentials `rstudio` / `rstudio`, Codespaces desktop password `vscode` in the NGS image).
 - Keep project notes in Markdown, linked to your scripts/notebooks inside each repo, and cite every external dataset or pipeline you reuse.
 - When collaborating, log individual contributions; only the final writeup and defense are graded individually.
@@ -128,7 +128,7 @@ By the end of the module, students will be able to:
 ### 🧩 **Learning Outcomes**
 
 By completing this module section, students will:
-1. Launch and manage reproducible GitHub Codespaces/Dev Containers from `FairTeach/codespaces_NGS` and `FairTeach/codespaces_RStudio`, including desktop-lite and RStudio Server workflows.  
+1. Launch and manage reproducible GitHub Codespaces/Dev Containers from `Faitero/codespaces_NGS-1` and `FairTeach/codespaces_RStudio`, including desktop-lite and RStudio Server workflows.
 2. Visit a real HPC facility NASERTIC CPD, and a real Sequencing Facility and Systems Biology Lab(IRIS Polo de Innovación Digital) to understand the physical infrastructure supporting omics analyses and the role of HPC in personalised medicine.
 3. Automate NGS pipelines with Bash, Miniforge/mamba environments, and core CLI tools (FastQC, Cutadapt, Bowtie2, Samtools, MultiQC, IGV).  
 4. Execute RNA-seq and omics analyses in RStudio using the preinstalled Bioconductor stack (DESeq2, clusterProfiler, IsoformSwitchAnalyzeR, etc.) and document outputs in Markdown or R Markdown.  

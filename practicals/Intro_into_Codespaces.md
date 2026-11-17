@@ -6,7 +6,7 @@ output:
   pdf_document: default
 ---
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Faitero/codespaces_NGS-1?quickstart=1)
 
 [![Continue GitHub Codespaces](https://img.shields.io/badge/GitHub-Codespaces-181717?logo=github)](https://github.com/codespaces)
 
@@ -24,7 +24,7 @@ To deepen your understanding of Codespaces, explore these resources:
 
 ## Launching the Codespace from GitHub Web
 
-1. Visit the repository at [FairTeach/codespaces_NGS](https://github.com/FairTeach/codespaces_NGS).
+1. Visit the repository at [Faitero/codespaces_NGS-1](https://github.com/Faitero/codespaces_NGS-1).
 2. Select `<> Code` → `Create codespace on main` (or reuse an existing Codespace from the Codespaces dashboard).
 3. Wait for the dev container build to complete. The process provisions Xfce, TigerVNC/noVNC, Miniforge+mamba, IGV desktop, and course-specific tooling.
 4. Once VS Code connects, the desktop services start automatically under Supervisor. No additional setup is required.
@@ -35,7 +35,7 @@ To deepen your understanding of Codespaces, explore these resources:
 
 Each exported manual and PDF includes two handy badges so you can jump into Codespaces directly from the document:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_NGS?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Faitero/codespaces_NGS-1?quickstart=1)
 
 Use **Open in GitHub Codespaces** to create a brand-new workspace from the latest commit. This gives you a clean environment if you want to restart an exercise or if your previous Codespace has expired.
 
